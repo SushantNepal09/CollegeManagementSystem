@@ -1,6 +1,6 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:student/allvariables/allVar.dart';
 
 
 class Navbar extends StatelessWidget {
@@ -8,7 +8,7 @@ class Navbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color myColor = Color(0xFF167AFA);
+    // Color myColor = Color(0xFF167AFA);
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -27,7 +27,7 @@ class Navbar extends StatelessWidget {
               ),
             ),
             decoration: BoxDecoration(
-              color: myColor,
+              color: primaryBlue,
             ),
           ),
 

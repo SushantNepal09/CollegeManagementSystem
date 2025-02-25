@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:student/allvariables/allVar.dart';
+import 'package:student/dashboard/dashboard.dart';
 import 'Navigationtools/navbar.dart';
 
 
@@ -14,7 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Color myColor = Color(0xFF167AFA);
+  // Color myColor = Color(0xFF167AFA);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +24,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         drawer: Navbar(),
           appBar: AppBar(
-            backgroundColor: myColor,
+            backgroundColor: primaryBlue,
             actions: [
               IconButton(
                   onPressed: () {},
@@ -33,7 +35,7 @@ class _MyAppState extends State<MyApp> {
             ],
             title: Center(child: Text('Student')),
           ),
-          body: Column()),
+          body: Dashboard(),),
     );
   }
 }
