@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/dashboard/dashboard.dart';
+import 'package:student/pages/notification.dart';
 import 'Navigationtools/navbar.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -16,18 +16,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // Color myColor = Color(0xFF167AFA);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        'Notifications': (context) => NotificationPage(),
+      },
       debugShowCheckedModeBanner: true,
-      home: Scaffold(
-        drawer: Navbar(),
+      home: Builder(
+        builder: (context) => Scaffold(
+          drawer: Navbar(),
           appBar: AppBar(
             backgroundColor: primaryBlue,
             actions: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('Notifications');
+                  },
                   icon: Icon(
                     Icons.notifications,
                     size: 28,
@@ -35,7 +40,9 @@ class _MyAppState extends State<MyApp> {
             ],
             title: Center(child: Text('Student')),
           ),
-          body: Dashboard(),),
+          body: Dashboard(),
+        ),
+      ),
     );
   }
 }

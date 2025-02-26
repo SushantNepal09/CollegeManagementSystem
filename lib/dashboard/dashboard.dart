@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 
+
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
@@ -24,7 +25,7 @@ Center(
      color: primaryBlue, 
     ),
     child: Padding(
-      padding: const EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(12.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,14 +35,22 @@ Column(
    crossAxisAlignment: CrossAxisAlignment.start,
   children: [
     Text('Hello Sushant',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w400)),
-    Text('Bsc.CSIT | 5th Semester | Rollno : 09',style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w100)),
+    Text('Bsc.CSIT | 5th Semester | Rollno : 09',style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w200)),
   ],
 ),
 
-CircleAvatar(
-  maxRadius: 30,
-  // backgroundImage:``,
+
+GestureDetector(
+  onTap: ()=> (){},
+  child: CircleAvatar(
+    
+    maxRadius: 30,
+    child: ClipOval(child: Image.network('https://b.fssta.com/uploads/application/soccer/headshots/713.png')),
+    
+    
+  ),
 )
+
 
           
           
