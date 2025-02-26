@@ -5,9 +5,11 @@ class MyProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: 
+    return SafeArea(
+      child: 
     Scaffold(
-      body: Text('MyProfile'),
+      appBar: AppBar(),
+      body: Center(child: Text('MyProfile')),
     ));
   }
 }

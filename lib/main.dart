@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/dashboard/dashboard.dart';
 import 'package:student/pages/notification.dart';
-import 'package:student/pages/profilePage.dart';
 import 'Navigationtools/navbar.dart';
 
 void main() {

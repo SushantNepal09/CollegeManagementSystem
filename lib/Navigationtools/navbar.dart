@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/pages/profilePage.dart';
 
 
 class Navbar extends StatelessWidget {
@@ -32,9 +33,15 @@ class Navbar extends StatelessWidget {
           ),
 
 ListTile(
-  leading: Icon(Icons.supervised_user_circle_outlined),
+  leading: Icon(Icons.supervised_user_circle),
   title: Text('Profile'),
-  onTap:() => log('hello'),
+  onTap:() {
+Navigator.push(context, MaterialPageRoute(builder: (context)=>
+MyProfile(),
+));
+
+
+  },
 ),
 ListTile(
   leading: Icon(Icons.notifications_active),
