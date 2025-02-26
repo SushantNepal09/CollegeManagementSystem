@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
-
+import 'package:student/pages/profilePage.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -12,70 +12,118 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-children: [
-Center(
-  child: Padding(
-    padding: const EdgeInsets.only(bottom: 20,top: 20,left: 50,right: 50),
-    child: Container(
-    height: 150,
-    width: double.infinity,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-     color: primaryBlue, 
-    ),
-    child: Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-     
+    return Builder(builder: (context) {
+      return Column(
         children: [
-Column(
-   crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-    Text('Hello Sushant',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w400)),
-    Text('Bsc.CSIT | 5th Semester | Rollno : 09',style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w200)),
-  ],
-),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  bottom: 20, top: 20, left: 30, right: 30),
+              child: Container(
+                height: 150,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: primaryBlue,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Hello Sushant',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w400)),
+                          Text('Bsc.CSIT | 5th Semester | Rollno : 09',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w200)),
+                        ],
+                      ),
+                      GestureDetector(
+                        onTap: () => () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyProfile())); // not Currently working
+                        },
+                        child: CircleAvatar(
+                          maxRadius: 30,
+                          child: ClipOval(
+                              child: Image.network(
+                                  'https://b.fssta.com/uploads/application/soccer/headshots/713.png')),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+//write here
 
 
-GestureDetector(
-  onTap: ()=> (){},
-  child: CircleAvatar(
-    
-    maxRadius: 30,
-    child: ClipOval(child: Image.network('https://b.fssta.com/uploads/application/soccer/headshots/713.png')),
-    
-    
-  ),
-)
 
 
-          
-          
+
+
+
+
+
+            ),
+          ),
          
-      
-        ],
-        
-        
-      ),
-    ),
-    
-   
+         
+          Padding(
+            
+            padding: const EdgeInsets.only(bottom: 8,top: 8,left: 12,right: 12),
+            child: Container(
+              height: 30,
+              // color: Colors.orange,
+              child: Row(
+                    
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  
+              Text('Explore Categories',style: TextStyle(fontSize: 22,fontWeight: FontWeight.w500),),
+              Text('See All',style: TextStyle(fontSize: 16,color: Colors.purple),)
   
-    
-    ),
-  ),
-),
+              
+              ],),
+            ),
+          ), //this is a container for the appbar like structure which includes Explore Categories and See All
+
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListView.builder(itemBuilder: (BuildContext context, int index) { 
+
+              
+             },
+             
+              // width: 200,
+          
+            ),
+          ),
+  
+     
+        ],
 
 
 
 
-],
 
 
 
-    );
+
+
+
+      );
+    });
   }
 }
