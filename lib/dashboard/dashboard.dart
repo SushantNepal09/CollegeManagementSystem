@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 
 import 'package:student/extravar/GridBox.dart';
+import 'package:student/extravar/chatbutton.dart';
 
 import 'package:student/pages/profilePage.dart';
 
@@ -108,7 +109,10 @@ class _DashboardState extends State<Dashboard> {
             ), //this is a container for the appbar like structure which includes Explore Categories and See All
 
 
-GridBox(),  //this the box which contains all the items in the grid
+GridBox(),
+
+
+Chatbutton(),  //this the box which contains all the items in the grid
 
 
 
