@@ -110,9 +110,7 @@ class _DashboardState extends State<Dashboard> {
 
 
 GridBox(),
-
-
-Chatbutton(),  //this the box which contains all the items in the grid
+ //this the box which contains all the items in the grid
 
 
 

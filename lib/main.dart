@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/dashboard/dashboard.dart';
+import 'package:student/extravar/chatbutton.dart';
 import 'package:student/pages/notification.dart';
 import 'Navigationtools/navbar.dart';
 
@@ -41,6 +42,8 @@ class _MyAppState extends State<MyApp> {
             title: Center(child: Text('Student')),
           ),
           body: Dashboard(),
+          floatingActionButton: Test(),
+          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         ),
       ),
     );
