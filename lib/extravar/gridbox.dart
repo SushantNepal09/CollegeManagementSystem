@@ -8,26 +8,21 @@ class GridBox extends StatefulWidget {
   });
 
   @override
-  
   State<GridBox> createState() => _GridBoxState();
-  
 }
 
 class _GridBoxState extends State<GridBox> {
   bool scroll = true;
   @override
   Widget build(BuildContext context) {
-    
-
     return Padding(
       padding: const EdgeInsets.all(18.0),
       child: Column(
         children: [
           Container(
-
-
-
-              height: scroll ? MediaQuery.of(context).size.height * 0.45: MediaQuery.of(context).size.height * 0.90,
+              height: scroll
+                  ? MediaQuery.of(context).size.height * 0.45
+                  : MediaQuery.of(context).size.height * 0.90,
               decoration: BoxDecoration(
                   color: secBlue,
                   borderRadius: BorderRadius.circular(10),
@@ -48,37 +43,44 @@ class _GridBoxState extends State<GridBox> {
                   crossAxisCount: 2,
                 ),
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            // ignore: deprecated_member_use
-                            color: shadowColor, // Shadow color
-                            spreadRadius: 2, // How much the shadow spreads
-                            blurRadius: 6, // How soft the shadow looks
-                            offset: Offset(
-                                4, 4), // Changes position of shadow (X, Y)
-                          ),
-                        ],
-
-                        //  gradient: LinearGradient(colors: [const Color(0xFF89f7fe),Color(0xFF66a6ff)]),
-                        borderRadius: BorderRadius.circular(14),
-                        //  color: const Color.fromARGB(255, 255, 238, 238),
-                        color: cardColor,
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Image.network(
-                              contents[index].image,
-                              fit: BoxFit.cover,
-                              height: 100,
+                  return GestureDetector(
+                    onTap: () {
+                      if (openableIndexs.contains(index)) {
+                        _displayBottomSheet(context, contents[1]);
+                      }
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              // ignore: deprecated_member_use
+                              color: shadowColor, // Shadow color
+                              spreadRadius: 2, // How much the shadow spreads
+                              blurRadius: 6, // How soft the shadow looks
+                              offset: Offset(
+                                  4, 4), // Changes position of shadow (X, Y)
                             ),
-                            Text(contents[index].title),
                           ],
+
+                          //  gradient: LinearGradient(colors: [const Color(0xFF89f7fe),Color(0xFF66a6ff)]),
+                          borderRadius: BorderRadius.circular(14),
+                          //  color: const Color.fromARGB(255, 255, 238, 238),
+                          color: cardColor,
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.network(
+                                contents[index].image,
+                                fit: BoxFit.cover,
+                                height: 100,
+                              ),
+                              Text(contents[index].title),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -89,8 +91,7 @@ class _GridBoxState extends State<GridBox> {
           Container(
               height: 33,
               decoration: BoxDecoration(
-                  color: secBlue
-                  ,
+                  color: secBlue,
                   boxShadow: [
                     BoxShadow(
                       // ignore: deprecated_member_use
@@ -110,21 +111,77 @@ class _GridBoxState extends State<GridBox> {
                 child: IconButton(
                     onPressed: () {
                       setState(() {
+                        // _displayBottomSheet();
                         scroll = !scroll;
                       });
                     },
                     icon: Icon(
-          
-                      scroll?
-                      Icons.arrow_downward:Icons.arrow_upward_rounded,
-                    color :  scroll? 
-                        const Color.fromARGB(255, 255, 255, 255):const Color.fromARGB(255, 255, 255, 255) ,
-                        weight: 400 ,
+                      scroll
+                          ? Icons.arrow_downward
+                          : Icons.arrow_upward_rounded,
+                      color: scroll
+                          ? const Color.fromARGB(255, 255, 255, 255)
+                          : const Color.fromARGB(255, 255, 255, 255),
+                      weight: 400,
                       size: 25,
                     )),
               ))
         ],
       ),
     );
+  }
+
+  Future _displayBottomSheet(BuildContext context, Content contents) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (context) => Container(
+              decoration: BoxDecoration(
+                  color: tertiaryBlue,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  )),
+              height: 220,
+              child: GridView.builder(
+                  gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2)
+                  ,
+                  // shrinkWrap: true,
+                  itemCount: 2,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) => Center(
+                      child: Padding(
+                      padding: const EdgeInsets.all(40),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              // ignore: deprecated_member_use
+                              color: shadowColor, // Shadow color
+                              spreadRadius: 2, // How much the shadow spreads
+                              blurRadius: 6, // How soft the shadow looks
+                              offset: Offset(
+                                  4, 4), // Changes position of shadow (X, Y)
+                            ),
+                          ],
+
+                          //  gradient: LinearGradient(colors: [const Color(0xFF89f7fe),Color(0xFF66a6ff)]),
+                          borderRadius: BorderRadius.circular(14),
+                          //  color: const Color.fromARGB(255, 255, 238, 238),
+                          color: cardColor,
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                           Image.network('https://cdn-icons-png.flaticon.com/512/7614/7614875.png',height: 100,),
+                           Text('Physics'),
+                             
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    )),
+            ));
   }
 }

@@ -7,15 +7,13 @@ class Content {
 }
 
 List<Content> contents = [
-  
-
-      
   Content(
       title: "Notes",
       image: "https://cdn-icons-png.flaticon.com/512/5402/5402751.png"),
   Content(
       title: "Assignment",
-      image: "https://cdn-icons-png.freepik.com/256/8019/8019801.png?semt=ais_hybrid"),
+      image:
+          "https://cdn-icons-png.freepik.com/256/8019/8019801.png?semt=ais_hybrid"),
   Content(
       title: "Reports",
       image: "https://cdn-icons-png.flaticon.com/512/9338/9338114.png"),
@@ -32,3 +30,5 @@ List<Content> contents = [
       title: "Apply Leave",
       image: "https://cdn-icons-png.flaticon.com/512/3387/3387188.png"),
 ];
+
+final List<int> openableIndexs = [0,2];
