@@ -29,6 +29,9 @@ List<Content> contents = [
   Content(
       title: "Apply Leave",
       image: "https://cdn-icons-png.flaticon.com/512/3387/3387188.png"),
+        Content(
+      title: "Apply Leave",
+      image: "https://cdn-icons-png.flaticon.com/512/3387/3387188.png"),
 ];
 
 final List<int> openableIndexs = [0];

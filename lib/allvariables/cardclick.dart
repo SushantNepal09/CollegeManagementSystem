@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 
 class Cardclick {
   final String title;
@@ -21,14 +21,17 @@ List<Cardclick> materials = [
       title: "Exams",
       image: "https://cdn-icons-png.flaticon.com/512/4662/4662967.png"),
   Cardclick(
-      title: "Library",
-      image: "https://cdn-icons-png.flaticon.com/512/225/225993.png"),
+      title: "Books",
+      image: "https://cdn-icons-png.flaticon.com/256/3429/3429149.png"),
   Cardclick(
-      title: "Complaints",
-      image: "https://static.thenounproject.com/png/202590-200.png"),
+      title: "Syllabus",
+      image: "https://cdn-icons-png.flaticon.com/512/3297/3297265.png"),
   Cardclick(
-      title: "Apply Leave",
-      image: "https://cdn-icons-png.flaticon.com/512/3387/3387188.png"),
+      title: "Past Reports",
+      image: "https://cdn-icons-png.flaticon.com/512/825/825137.png"),
+Cardclick(
+      title: "Latest Reports",
+      image: "https://cdn-icons-png.flaticon.com/512/3093/3093748.png"),
 ];
 
 

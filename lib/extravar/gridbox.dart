@@ -26,8 +26,8 @@ class _GridBoxState extends State<GridBox> {
         children: [
           Container(
               height: scroll
-                  ? MediaQuery.of(context).size.height * 0.65
-                  : MediaQuery.of(context).size.height * 1.30,
+                  ? MediaQuery.of(context).size.height * 0.45
+                  : MediaQuery.of(context).size.height * 0.9,
               decoration: BoxDecoration(
                   color: secBlue,
                   borderRadius: BorderRadius.circular(10),
@@ -55,6 +55,17 @@ class _GridBoxState extends State<GridBox> {
                       }
                       if (index == 1) {
                         _displayBottomSheet(context, contents[index], 2, 3);
+                      }
+
+                      if (index == 2) {
+
+                        // _reportsBottomsheet(context, contents[index]);
+                        _displayBottomSheet(context, contents[index],6,7);
+                      }
+
+                      if (index == 3) {
+                         
+                        _displayBottomSheet(context, contents[index], 4, 5);
                       }
                     },
                     child: Padding(
@@ -152,8 +163,8 @@ class _GridBoxState extends State<GridBox> {
             )),
         height: 220,
         child: GridView.builder(
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: endIndex-startIndex +1),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: endIndex - startIndex + 1),
           itemCount: endIndex - startIndex + 1,
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => Center(
@@ -184,27 +195,28 @@ class _GridBoxState extends State<GridBox> {
                           context,
                           MaterialPageRoute(builder: (context) => Theory()),
                         );
-                      } else if (startIndex + index  == 1) {
+                      } else if (startIndex + index == 1) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Practical()),
                         );
-                      }
-                      else if (startIndex + index == 2)
-                      {
-Navigator.push(
+                      } else if (startIndex + index == 2) {
+                        Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Classassignments()),
+                          MaterialPageRoute(
+                              builder: (context) => Classassignments()),
                         );
-                      }
-                      else if (startIndex+ index == 3)
-                      {
-
-
-Navigator.push(
+                      } else if (startIndex + index == 3) {
+                        Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Exams()),
                         );
+                      }
+                      else if(startIndex+ index == 6)
+                      {
+                         _reportsBottomsheet(context, contents);
+                      }
+                      {
 
                       }
                     },
@@ -212,10 +224,10 @@ Navigator.push(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Image.network(
-                          materials[startIndex+ index].image,
+                          materials[startIndex + index].image,
                           height: 100,
                         ),
-                        Text(materials[ startIndex +index].title),
+                        Text(materials[startIndex + index].title),
                       ],
                     ),
                   ),
@@ -226,5 +238,43 @@ Navigator.push(
         ),
       ),
     );
+  }
+
+  Future _reportsBottomsheet(BuildContext context, Content content) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (context) => Container(
+            height: 190,
+            width: 300,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListView(
+                children: [
+                  Center(child: Text('Choose the Semester',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 255, 1, 1)),)),
+                  Divider(),
+                  Text('First Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+                  Divider(),
+                  Text('Second Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+                     Divider(),
+                  Text('Third Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+                     Divider(),
+                  Text('Fourth Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+                     Divider(),
+                  Text('Fifth Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+                     Divider(),
+                  Text('Sixth Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+                     Divider(),
+                  Text('Seventh Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+                     Divider(),
+                  Text('Eight Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+                ],
+              ),
+            )
+            
+         
+            
+            
+            
+            ));
   }
 }
