@@ -91,19 +91,10 @@ class _DashboardState extends State<Dashboard> {
               child: SizedBox(
                 height: 30,
                 // color: Colors.orange,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Explore Categories',
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'See All',
-                      style: TextStyle(fontSize: 16, color: Colors.purple),
-                    )
-                  ],
+                child: Text(
+                  'Explore Categories',
+                  style:
+                      TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
                 ),
               ),
             ), //this is a container for the appbar like structure which includes Explore Categories and See All

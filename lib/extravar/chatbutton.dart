@@ -34,7 +34,7 @@ class _TestState extends State<Test> {
                 isOpen = !isOpen;
               });
             },
-            backgroundColor: Color.fromARGB(255, 76, 252, 45),
+            backgroundColor: tertiaryBlue,
             child: Icon(isOpen ? Icons.close:Icons.chat),
           ),
         ],
