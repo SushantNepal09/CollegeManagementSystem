@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/allvariables/cardclick.dart';
 import 'package:student/allvariables/gridcontent.dart';
+import 'package:student/pages/assignments.dart/classassignments.dart';
+import 'package:student/pages/assignments.dart/exam.dart';
+import 'package:student/pages/notes/practical.dart';
+import 'package:student/pages/notes/theory.dart';
 
 class GridBox extends StatefulWidget {
   const GridBox({
@@ -21,8 +26,8 @@ class _GridBoxState extends State<GridBox> {
         children: [
           Container(
               height: scroll
-                  ? MediaQuery.of(context).size.height * 0.45
-                  : MediaQuery.of(context).size.height * 0.90,
+                  ? MediaQuery.of(context).size.height * 0.65
+                  : MediaQuery.of(context).size.height * 1.30,
               decoration: BoxDecoration(
                   color: secBlue,
                   borderRadius: BorderRadius.circular(10),
@@ -45,8 +50,11 @@ class _GridBoxState extends State<GridBox> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      if (openableIndexs.contains(index)) {
-                        _displayBottomSheet(context, contents[1]);
+                      if (index == 0) {
+                        _displayBottomSheet(context, contents[index], 0, 1);
+                      }
+                      if (index == 1) {
+                        _displayBottomSheet(context, contents[index], 2, 3);
                       }
                     },
                     child: Padding(
@@ -131,57 +139,92 @@ class _GridBoxState extends State<GridBox> {
     );
   }
 
-  Future _displayBottomSheet(BuildContext context, Content contents) {
+  Future _displayBottomSheet(
+      BuildContext context, Content contents, int startIndex, int endIndex) {
     return showModalBottomSheet(
-        context: context,
-        builder: (context) => Container(
-              decoration: BoxDecoration(
-                  color: tertiaryBlue,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                  )),
-              height: 220,
-              child: GridView.builder(
-                  gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2)
-                  ,
-                  // shrinkWrap: true,
-                  itemCount: 2,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) => Center(
-                      child: Padding(
-                      padding: const EdgeInsets.all(40),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              // ignore: deprecated_member_use
-                              color: shadowColor, // Shadow color
-                              spreadRadius: 2, // How much the shadow spreads
-                              blurRadius: 6, // How soft the shadow looks
-                              offset: Offset(
-                                  4, 4), // Changes position of shadow (X, Y)
-                            ),
-                          ],
-
-                          //  gradient: LinearGradient(colors: [const Color(0xFF89f7fe),Color(0xFF66a6ff)]),
-                          borderRadius: BorderRadius.circular(14),
-                          //  color: const Color.fromARGB(255, 255, 238, 238),
-                          color: cardColor,
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                           Image.network('https://cdn-icons-png.flaticon.com/512/7614/7614875.png',height: 100,),
-                           Text('Physics'),
-                             
-                            ],
-                          ),
-                        ),
-                      ),
+      context: context,
+      builder: (context) => Container(
+        decoration: BoxDecoration(
+            color: tertiaryBlue,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )),
+        height: 220,
+        child: GridView.builder(
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: endIndex-startIndex +1),
+          itemCount: endIndex - startIndex + 1,
+          physics: NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) => Center(
+            child: Padding(
+              padding: const EdgeInsets.all(40),
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      // ignore: deprecated_member_use
+                      color: shadowColor, // Shadow color
+                      spreadRadius: 2, // How much the shadow spreads
+                      blurRadius: 6, // How soft the shadow looks
+                      offset: Offset(4, 4), // Changes position of shadow (X, Y)
                     ),
-                    )),
-            ));
+                  ],
+
+                  //  gradient: LinearGradient(colors: [const Color(0xFF89f7fe),Color(0xFF66a6ff)]),
+                  borderRadius: BorderRadius.circular(14),
+                  //  color: const Color.fromARGB(255, 255, 238, 238),
+                  color: cardColor,
+                ),
+                child: Center(
+                  child: GestureDetector(
+                    onTap: () {
+                      if (startIndex + index == 0) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Theory()),
+                        );
+                      } else if (startIndex + index  == 1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Practical()),
+                        );
+                      }
+                      else if (startIndex + index == 2)
+                      {
+Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Classassignments()),
+                        );
+                      }
+                      else if (startIndex+ index == 3)
+                      {
+
+
+Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Exams()),
+                        );
+
+                      }
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.network(
+                          materials[startIndex+ index].image,
+                          height: 100,
+                        ),
+                        Text(materials[ startIndex +index].title),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

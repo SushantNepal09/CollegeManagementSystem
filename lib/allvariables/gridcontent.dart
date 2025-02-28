@@ -31,4 +31,4 @@ List<Content> contents = [
       image: "https://cdn-icons-png.flaticon.com/512/3387/3387188.png"),
 ];
 
-final List<int> openableIndexs = [0,2];
+final List<int> openableIndexs = [0];
