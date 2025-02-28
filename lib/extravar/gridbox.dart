@@ -244,10 +244,15 @@ class _GridBoxState extends State<GridBox> {
     return showModalBottomSheet(
         context: context,
         builder: (context) => Container(
-            height: 190,
-            width: 300,
+          decoration: BoxDecoration(
+color: const Color.fromARGB(255, 216, 249, 255),
+borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
+          ),
+          
+            height: 250,
+            // width: 300,
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(20.0),
               child: ListView(
                 children: [
                   Center(child: Text('Choose the Semester',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 255, 1, 1)),)),
