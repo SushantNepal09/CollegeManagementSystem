@@ -33,7 +33,7 @@ class _GridBoxState extends State<GridBox> {
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color.fromARGB(93, 0, 0, 0),
+                      color: shadowColor,
                       spreadRadius: 1,
                       blurRadius: 2,
                       offset: Offset(2, 2),
@@ -55,8 +55,7 @@ class _GridBoxState extends State<GridBox> {
                         boxShadow: [
                           BoxShadow(
                             // ignore: deprecated_member_use
-                            color: const Color.fromARGB(
-                                93, 0, 0, 0), // Shadow color
+                            color: shadowColor, // Shadow color
                             spreadRadius: 2, // How much the shadow spreads
                             blurRadius: 6, // How soft the shadow looks
                             offset: Offset(
@@ -115,11 +114,11 @@ class _GridBoxState extends State<GridBox> {
                       });
                     },
                     icon: Icon(
-
+          
                       scroll?
                       Icons.arrow_downward:Icons.arrow_upward_rounded,
                     color :  scroll? 
-                        const Color.fromARGB(255, 64, 166, 200):const Color.fromARGB(255, 0, 0, 0) ,
+                        const Color.fromARGB(255, 255, 255, 255):const Color.fromARGB(255, 255, 255, 255) ,
                         weight: 400 ,
                       size: 25,
                     )),

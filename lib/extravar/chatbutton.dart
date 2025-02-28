@@ -58,7 +58,7 @@ class ChatArea extends StatelessWidget {
               color: const Color.fromARGB(87, 76, 76, 76),
               offset: Offset(2, 2))
         ],
-        color: primaryBlue,
+        color: Colors.white,
       ),
       height: 140,
       width: 150,
@@ -76,7 +76,7 @@ class ChatArea extends StatelessWidget {
                   'Admin',
                   style: TextStyle(
                       fontSize: 20,
-                      color: const Color.fromARGB(255, 255, 255, 255),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.w500),
                 ),
               ],
@@ -90,7 +90,7 @@ class ChatArea extends StatelessWidget {
                   'Teacher',
                   style: TextStyle(
                       fontSize: 20,
-                      color: const Color.fromARGB(255, 255, 255, 255),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.w500),
                 ),
               ],
@@ -104,7 +104,7 @@ class ChatArea extends StatelessWidget {
                   'Parents',
                   style: TextStyle(
                       fontSize: 20,
-                      color: const Color.fromARGB(255, 255, 255, 255),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.w500),
                 ),
               ],
