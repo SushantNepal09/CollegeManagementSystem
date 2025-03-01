@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/allvariables/notescontent.dart';
 
 class Theory extends StatelessWidget {
   const Theory({super.key});
@@ -7,12 +8,24 @@ class Theory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-appBar: AppBar(
-title:Center(child: Text("Theory Notes",style: TextStyle(color: Colors.white),)),
-backgroundColor: primaryBlue,
+      appBar: AppBar(
+        title: Center(
+            child: Text(
+          "Theory Notes",
+          style: TextStyle(color: Colors.white),
+        )),
+        backgroundColor: primaryBlue,
+      ),
+      body: ListView.builder(
+        itemCount: notes.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+title: notes[index].title,
 
-),
 
+          );
+        },
+      ),
     );
   }
 }

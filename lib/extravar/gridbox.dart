@@ -26,8 +26,8 @@ class _GridBoxState extends State<GridBox> {
         children: [
           Container(
               height: scroll
-                  ? MediaQuery.of(context).size.height * 0.45
-                  : MediaQuery.of(context).size.height * 0.9,
+                  ? MediaQuery.of(context).size.height * 0.45 //height of the grid box when the see all button is pressed and not pressed
+                  : MediaQuery.of(context).size.height * 1.3,
               decoration: BoxDecoration(
                   color: secBlue,
                   borderRadius: BorderRadius.circular(10),

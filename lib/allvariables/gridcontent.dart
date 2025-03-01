@@ -29,6 +29,9 @@ List<Content> contents = [
   Content(
       title: "Apply Leave",
       image: "https://cdn-icons-png.flaticon.com/512/3387/3387188.png"),
+       Content(
+      title: "Fees",
+      image: "https://cdn-icons-png.flaticon.com/512/6344/6344008.png"),
      
 ];
 
