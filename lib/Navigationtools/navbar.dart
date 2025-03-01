@@ -68,10 +68,17 @@ ListTile(
   onTap:() {},
 ),
 Divider(),
-ListTile(
-  leading: Icon(Icons.info_rounded),
-  title: Text('About Us'),
-  onTap:() {},
+AboutListTile(
+icon: Icon(Icons.info),
+applicationIcon: FlutterLogo(),
+applicationLegalese: 'Trademarked By M.A.S.S Company',
+applicationName: 'App',
+applicationVersion: '1.0.0',
+aboutBoxChildren: [
+   
+  Center(child: Text("This App is licensed",style: TextStyle(fontWeight: FontWeight.normal,fontSize: 12),)),
+
+],
 )
 
 
