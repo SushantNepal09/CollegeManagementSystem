@@ -23,4 +23,5 @@ List<Notes> allNotes = //here we are creating multiple objects
         Notes(SubName: "Computer Network", Topic: "Network Layer",Date: "2025-01-03"),
           Notes(SubName: "DSA", Topic: "Linked-List",Date: "2025-01-03"),
           Notes(SubName: "Microprocessor", Topic: "8085",Date: "2025-01-03"),
+          Notes(SubName: "Numerical Method", Topic: "Bisection Method",Date: "2025-01-03"),
 ];
