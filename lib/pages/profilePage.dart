@@ -49,7 +49,7 @@ class MyProfile extends StatelessWidget {
               child:  CircleAvatar(
                 radius: 35,
             child: ClipOval(
-              child: Image.network("https://en.psg.fr/media/227006/_s3o9471.jpg?quality=60&width=1000&bgcolor=ffffff",fit: BoxFit.cover,),
+              child: Image.network("https://b.fssta.com/uploads/application/soccer/headshots/713.png",fit: BoxFit.cover,),
             ),
             
             ), ),
