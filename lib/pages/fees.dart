@@ -41,8 +41,8 @@ Padding(
     mainAxisAlignment: MainAxisAlignment.spaceBetween
     ,
     children: [
-  Text("School Fee For April",style: TextStyle(fontWeight: FontWeight.w200,fontSize: 14,letterSpacing: 1,color: const Color.fromARGB(255, 77, 77, 77)),),
-  Text("07 April",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 14,color: const Color.fromARGB(255, 77, 77, 77)),),
+  Text("School Fee For April",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16,letterSpacing: 1,color: const Color.fromARGB(255, 77, 77, 77)),),
+  Text("07 April",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16,color: const Color.fromARGB(255, 77, 77, 77)),),
   
     ],
   ),
@@ -56,7 +56,7 @@ Padding(
     
   children: [
   
-    Text("रु 25,000",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 15),),
+    Text("Rs 25,000",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 15),),
     SizedBox(width: 10,),
   Container(
     height: 25,
