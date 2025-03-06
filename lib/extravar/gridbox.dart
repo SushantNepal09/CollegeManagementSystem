@@ -4,6 +4,7 @@ import 'package:student/allvariables/cardclick.dart';
 import 'package:student/allvariables/gridcontent.dart';
 import 'package:student/pages/assignments.dart/classassignments.dart';
 import 'package:student/pages/assignments.dart/exam.dart';
+import 'package:student/pages/fees.dart';
 import 'package:student/pages/notes/practical.dart';
 import 'package:student/pages/notes/theory.dart';
 
@@ -27,7 +28,7 @@ class _GridBoxState extends State<GridBox> {
           Container(
               height: scroll
                   ? MediaQuery.of(context).size.height * 0.45 //height of the grid box when the see all button is pressed and not pressed
-                  : MediaQuery.of(context).size.height * 0.9, //1.3 ON PC 0.9 ON PHONE
+                  : MediaQuery.of(context).size.height * 1.6, //1.3 ON PC 0.9 ON PHONE
               decoration: BoxDecoration(
                   color: secBlue,
                   borderRadius: BorderRadius.circular(10),
@@ -67,6 +68,15 @@ class _GridBoxState extends State<GridBox> {
                          
                         _displayBottomSheet(context, contents[index], 4, 5);
                       }
+if(index==7)
+{                   
+Navigator.push(context, MaterialPageRoute(builder: (context)=>
+Fees(),
+));
+                      
+}
+
+
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
@@ -216,9 +226,8 @@ class _GridBoxState extends State<GridBox> {
                       {
                          _reportsBottomsheet(context, contents);
                       }
-                      {
 
-                      }
+                 
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
