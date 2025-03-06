@@ -25,42 +25,58 @@ class MyProfile extends StatelessWidget {
               clipBehavior: Clip.none,
               alignment: Alignment.center,
               children: [
-         
-          
-            
-                  Container(
-              
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1,),
-                  borderRadius: BorderRadius.circular(20),
-                   color: const Color.fromARGB(255, 255, 255, 255),
+                Container(
+                  decoration: BoxDecoration(
+                    // border: Border.all(width: 1,),
+                    boxShadow: [
+                      BoxShadow(
+                          color: shadowColor,
+                          blurRadius: 2,
+                          spreadRadius: 2,
+                          offset: Offset(2, 2))
+                    ],
+                    borderRadius: BorderRadius.circular(20),
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                  ),
+                  height: 200,
+                  width: double.infinity,
                 ),
-                         
-              height: 200,
-              
-              width: double.infinity,
-              
-              ),
-
-                 Positioned(
-              top:-35,
-              
-              
-              child:  CircleAvatar(
-                radius: 35,
-            child: ClipOval(
-              child: Image.network("https://b.fssta.com/uploads/application/soccer/headshots/713.png",fit: BoxFit.cover,),
-            ),
-            
-            ), ),
-
-
-
-
-
-
+                Positioned(
+                  top: -35,
+                  child: CircleAvatar(
+                    radius: 35,
+                    child: ClipOval(
+                      child: Image.network(
+                        "https://b.fssta.com/uploads/application/soccer/headshots/713.png",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                )
+                ,
+                Column(
+                 
+                  children: [
+                    
+                     Text("Sushant Nepal",style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0),fontWeight: FontWeight.bold,fontSize: 16),),
+                    Text(
+                        "Bsc.CSIT 5th Semester",style: TextStyle(color: const Color.fromARGB(255, 18, 0, 0),fontWeight: 
+                        FontWeight.w200,fontSize: 13),),
+                        Text(" Rollno :09(Nine) | Symbolno:79011501",style: TextStyle(color: const Color.fromARGB(255, 31, 1, 1),fontWeight: 
+                        FontWeight.w200,fontSize: 13),),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20,right: 20),
+                      child: Divider(),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 25,right: 25),
+                      child: Text(
+                          "This is the information about the student. it shows all the required details of this student "),
+                    ),
+                  ],
+                ),
+               
               ],
-                      
             ),
           ),
         ],
