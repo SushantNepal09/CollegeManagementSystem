@@ -59,7 +59,7 @@ Padding(
     Text("Rs 25,000",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 15),),
     SizedBox(width: 10,),
   Container(
-    height: 25,
+    height: 26,
     width: 65,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(20),
