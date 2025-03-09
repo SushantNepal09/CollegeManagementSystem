@@ -15,7 +15,7 @@ feeDetails(title: "Transportation Fee", cost: "4500"),
 feeDetails(title: "Exam Fee", cost: "3700"),
 feeDetails(title: "Extra Fee", cost: "9900"),
 feeDetails(title: "Discount", cost: "3500"),
-feeDetails(title: "h", cost: "3500")
+feeDetails(title: "Total", cost: "35000"),
 
 
 

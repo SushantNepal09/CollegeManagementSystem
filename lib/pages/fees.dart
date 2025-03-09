@@ -100,25 +100,31 @@ class Fees extends StatelessWidget {
                     
                       itemCount: allCosts.length,
                       itemBuilder: (context, index) {
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(allCosts[index].title),
-                                Text(allCosts[index].cost),
-                              ],
-                            )
-                          ],
+                        return Container(
+                          margin: EdgeInsets.all(5),
+                          child: Column(
+                             //TO ARRANGE THE TEXT PROTION IN COLUMN
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              
+                              Row(
+                          
+                                //to arrange the text and the price in row in horizontal direction
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(allCosts[index].title),
+                                  Text(allCosts[index].cost),
+                                ],
+                              )
+                            ],
+                          ),
                         );
                       },
                     ),
                   )
 
 //use List view.builder
-                ],
+                ], 
               ),
             ),
           )
