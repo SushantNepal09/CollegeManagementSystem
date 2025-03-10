@@ -38,7 +38,7 @@ class Fees extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                        top: 20, left: 15, right: 15, bottom: 0),
+                        top: 20, left: 14, right: 15, bottom: 0),
                     child: Row(
                       // row for presenting the texts in horizontal direction
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
