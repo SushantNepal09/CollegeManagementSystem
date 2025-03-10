@@ -4,9 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/feedata.dart';
 
-class Fees extends StatelessWidget {
+bool isPaid = false;
+
+class Fees extends StatefulWidget {
   const Fees({super.key});
 
+  @override
+  State<Fees> createState() => _FeesState();
+}
+
+class _FeesState extends State<Fees> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +45,7 @@ class Fees extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                        top: 20, left: 14, right: 15, bottom: 0),
+                        top: 20, left: 15, right: 15, bottom: 0),
                     child: Row(
                       // row for presenting the texts in horizontal direction
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -77,40 +84,49 @@ class Fees extends StatelessWidget {
                         SizedBox(
                           width: 10,
                         ),
-                        Container(
-                            height: 25,
-                            width: 65,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.red),
-                            child: Center(
-                              child: Text("Pending",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 12)),
-                            ))
+                        isPaid
+                            ? Container(
+                                height: 25,
+                                width: 65,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.green),
+                                child: Center(
+                                  child: Text("Paid",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 12)),
+                                ))
+                            : Container(
+                                height: 25,
+                                width: 65,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.red),
+                                child: Center(
+                                  child: Text("Pending",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 12)),
+                                ))
                       ],
                     ),
                   ),
 
                   Divider(),
 
-                Expanded(
-                 
+                  Expanded(
                     child: ListView.builder(
-                    
                       itemCount: allCosts.length,
                       itemBuilder: (context, index) {
                         return Container(
                           margin: EdgeInsets.all(5),
                           child: Column(
-                             //TO ARRANGE THE TEXT PROTION IN COLUMN
+                            //TO ARRANGE THE TEXT PROTION IN COLUMN
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              
                               Row(
-                          
                                 //to arrange the text and the price in row in horizontal direction
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(allCosts[index].title),
                                   Text(allCosts[index].cost),
@@ -121,10 +137,36 @@ class Fees extends StatelessWidget {
                         );
                       },
                     ),
-                  )
+                  ),
+                  Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Center(
+        child: GestureDetector(
+            onTap: () {
+              
+              setState(() {
+                isPaid = true;
+              });
+            },
+            child: isPaid
+                ? Container(decoration: BoxDecoration())
+                : Container(
+                    decoration: BoxDecoration(
+                        color: tertiaryBlue,
+                        borderRadius: BorderRadius.circular(10)),
+                    height: 40,
+                    width: 100,
+                    child: Center(
+                        child: Text(
+                      "Pay Now",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    )),
+                  )),
+      ),
+    )
 
 //use List view.builder
-                ], 
+                ],
               ),
             ),
           )
@@ -133,3 +175,17 @@ class Fees extends StatelessWidget {
     );
   }
 }
+
+// class Payment extends StatefulWidget {
+//   const Payment({super.key});
+
+//   @override
+//   State<Payment> createState() => _PaymentState();
+// }
+
+// class _PaymentState extends State<Payment> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return 
+//   }
+// }
