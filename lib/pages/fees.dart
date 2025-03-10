@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/feedata.dart';
+import 'package:student/pages/paymentpage.dart';
 
 bool isPaid = false;
 
@@ -31,7 +32,7 @@ class _FeesState extends State<Fees> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Container(
-              height: 300,
+              height: isPaid ? 280 : 350,
               width: double.infinity,
               decoration: BoxDecoration(
                   border: Border.all(
@@ -117,21 +118,21 @@ class _FeesState extends State<Fees> {
                     child: ListView.builder(
                       itemCount: allCosts.length,
                       itemBuilder: (context, index) {
-                        return Container(
-                          margin: EdgeInsets.all(5),
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 4.0, horizontal: 8.0),
                           child: Column(
-                            //TO ARRANGE THE TEXT PROTION IN COLUMN
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Row(
-                                //to arrange the text and the price in row in horizontal direction
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(allCosts[index].title),
                                   Text(allCosts[index].cost),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         );
@@ -139,31 +140,33 @@ class _FeesState extends State<Fees> {
                     ),
                   ),
                   Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Center(
-        child: GestureDetector(
-            onTap: () {
-              
-              setState(() {
-                isPaid = true;
-              });
-            },
-            child: isPaid
-                ? Container(decoration: BoxDecoration())
-                : Container(
-                    decoration: BoxDecoration(
-                        color: tertiaryBlue,
-                        borderRadius: BorderRadius.circular(10)),
-                    height: 40,
-                    width: 100,
+                    padding: const EdgeInsets.all(8.0),
                     child: Center(
-                        child: Text(
-                      "Pay Now",
-                      style: TextStyle(color: Colors.white, fontSize: 16),
-                    )),
-                  )),
-      ),
-    )
+                      child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              // isPaid = true;
+                            });
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context)=> Paymentpage()));
+                          },
+                          child: isPaid
+                              ? Container(decoration: BoxDecoration())
+                              : Container(
+                                  decoration: BoxDecoration(
+                                      color: tertiaryBlue,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  height: 40,
+                                  width: 100,
+                                  child: Center(
+                                      child: Text(
+                                    "Pay Now",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16),
+                                  )),
+                                )),
+                    ),
+                  )
 
 //use List view.builder
                 ],
@@ -186,6 +189,6 @@ class _FeesState extends State<Fees> {
 // class _PaymentState extends State<Payment> {
 //   @override
 //   Widget build(BuildContext context) {
-//     return 
+//     return
 //   }
 // }
