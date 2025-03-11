@@ -124,7 +124,7 @@ height: 60,
 decoration: BoxDecoration(
   borderRadius: BorderRadius.circular(7),
   border: Border.all(
-    width: 1,
+    width: 1.01,
     color: Colors.grey,
   )
 ),
