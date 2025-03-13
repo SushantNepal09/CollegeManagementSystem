@@ -8,7 +8,10 @@ class Paymentpage extends StatefulWidget {
   State<Paymentpage> createState() => _PaymentpageState();
 }
 
+List<String> Options = ['Credit Card', 'Esewa', 'Khalti', 'Bank'];
+
 class _PaymentpageState extends State<Paymentpage> {
+  String currentOption = Options[0];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,12 +22,15 @@ class _PaymentpageState extends State<Paymentpage> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: Container(  //this is the main body container
-        child: Column( //this is the main column
+      body: Container(
+        //this is the main body container
+        child: Column(
+          //this is the main column
           children: [
             Padding(
               padding: const EdgeInsets.all(18.0),
-              child: Container(  //this is the container with the fee detail payment method and payment
+              child: Container(
+                //this is the container with the fee detail payment method and payment
                 decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 247, 247, 247),
                     borderRadius: BorderRadius.circular(15),
@@ -37,7 +43,8 @@ class _PaymentpageState extends State<Paymentpage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Column( // this is for arranging the icon and text
+                    Column(
+                      // this is for arranging the icon and text
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         IconButton(
@@ -78,9 +85,7 @@ class _PaymentpageState extends State<Paymentpage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         IconButton(
-                          onPressed: () {
-                            
-                          },
+                          onPressed: () {},
                           icon: Icon(
                             Icons.wallet_giftcard_rounded,
                             color: Colors.grey,
@@ -92,35 +97,63 @@ class _PaymentpageState extends State<Paymentpage> {
                   ],
                 ),
               ),
-
-
-
-
-
             ),
 
-            Text("Payment Method",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
+            Text(
+              "Payment Method",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+            ),
 
-Padding(
-  padding: const EdgeInsets.all(18.0),
-  child: Container(
-    width: double.infinity,
-height: 60,
-decoration: BoxDecoration(
-  borderRadius: BorderRadius.circular(7),
-  border: Border.all(
-    width: 1,
-    color: Colors.grey,
-  )
-),
+// Padding(
+//   padding: const EdgeInsets.all(18.0),
+//   child: Container(
+//     width: double.infinity,
+// height: 60,
+// decoration: BoxDecoration(
+//   borderRadius: BorderRadius.circular(7),
+//   border: Border.all(
+//     width: 1,
+//     color: Colors.grey,
+//   )
+// ),
+
+//   ),
+// ),
+// Padding(
+//   padding: const EdgeInsets.all(18.0),
+//   child: Container(
+//     width: double.infinity,
+// height: 60,
+// decoration: BoxDecoration(
+//   borderRadius: BorderRadius.circular(7),
+//   border: Border.all(
+//     width: 1.00,
+//     color: Colors.grey,
+//   )
+// ),
+
+//   ),
+// ),
+// Padding(
+//   padding: const EdgeInsets.all(18.0),
+//   child: Container(
+//     width: double.infinity,
+// height: 60,
+// decoration: BoxDecoration(
+//   borderRadius: BorderRadius.circular(7),
+//   border: Border.all(
+//     width: 1,
+//     color: Colors.grey,
+//   )
+// ),
+
+//   ),
+// )
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
     
-  ),
-),
-Padding(
-  padding: const EdgeInsets.all(18.0),
-  child: Container(
-    width: double.infinity,
-height: 60,
 decoration: BoxDecoration(
   borderRadius: BorderRadius.circular(7),
   border: Border.all(
@@ -128,32 +161,86 @@ decoration: BoxDecoration(
     color: Colors.grey,
   )
 ),
-    
-  ),
-),
+
+                child: RadioListTile(
+                
+                title: Text("CreditCard"),
+                    value: Options[0],
+                    groupValue: currentOption,
+                    onChanged: (value) {
+                      setState(() {
+                        currentOption = value.toString();
+                      });
+                    }),
+              ),
+            ),
+
 Padding(
-  padding: const EdgeInsets.all(18.0),
+  padding: const EdgeInsets.all(8.0),
   child: Container(
-    width: double.infinity,
-height: 60,
-decoration: BoxDecoration(
+    decoration: BoxDecoration(
   borderRadius: BorderRadius.circular(7),
   border: Border.all(
-    width: 1,
+    width: 1.00,
     color: Colors.grey,
   )
 ),
-    
+    child: RadioListTile(
+      title: Text("Esewa"),
+                    value: Options[1],
+                    groupValue: currentOption,
+                    onChanged: (value) {
+                      setState(() {
+                        currentOption = value.toString();
+                      });
+                    }),
+  ),
+),
+Padding(
+  padding: const EdgeInsets.all(8.0),
+  child: Container(
+    decoration: BoxDecoration(
+  borderRadius: BorderRadius.circular(7),
+  border: Border.all(
+    width: 1.00,
+    color: Colors.grey,
+  )
+),
+    child: RadioListTile(
+      title: Text("Khalti"),
+                    value: Options[2],
+                    groupValue: currentOption,
+                    onChanged: (value) {
+                      setState(() {
+                        currentOption = value.toString();
+                      });
+                    }),
+  ),
+),
+Padding(
+  padding: const EdgeInsets.all(8.0),
+  child: Container(
+    decoration: BoxDecoration(
+  borderRadius: BorderRadius.circular(7),
+  border: Border.all(
+    width: 1.00,
+    color: Colors.grey,
+  )
+),
+    child: RadioListTile(
+      title: Text("Bank Transfer"),
+                    value: Options[3],
+                    groupValue: currentOption,
+                    onChanged: (value) {
+                      setState(() {
+                        currentOption = value.toString();
+                      });
+                    }),
   ),
 )
 
-
-
           ],
         ),
-
-
-
       ),
     );
   }
