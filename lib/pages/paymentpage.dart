@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/pages/fees.dart';
 
 class Paymentpage extends StatefulWidget {
   const Paymentpage({super.key});
@@ -98,62 +99,14 @@ class _PaymentpageState extends State<Paymentpage> {
                 ),
               ),
             ),
-
             Text(
               "Payment Method",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
-
-// Padding(
-//   padding: const EdgeInsets.all(18.0),
-//   child: Container(
-//     width: double.infinity,
-// height: 60,
-// decoration: BoxDecoration(
-//   borderRadius: BorderRadius.circular(7),
-//   border: Border.all(
-//     width: 1,
-//     color: Colors.grey,
-//   )
-// ),
-
-//   ),
-// ),
-// Padding(
-//   padding: const EdgeInsets.all(18.0),
-//   child: Container(
-//     width: double.infinity,
-// height: 60,
-// decoration: BoxDecoration(
-//   borderRadius: BorderRadius.circular(7),
-//   border: Border.all(
-//     width: 1.00,
-//     color: Colors.grey,
-//   )
-// ),
-
-//   ),
-// ),
-// Padding(
-//   padding: const EdgeInsets.all(18.0),
-//   child: Container(
-//     width: double.infinity,
-// height: 60,
-// decoration: BoxDecoration(
-//   borderRadius: BorderRadius.circular(7),
-//   border: Border.all(
-//     width: 1,
-//     color: Colors.grey,
-//   )
-// ),
-
-//   ),
-// )
-
             Padding(
-               padding: const EdgeInsets.only(top: 28,bottom: 8,left: 8,right: 8),
+              padding:
+                  const EdgeInsets.only(top: 28, bottom: 8, left: 8, right: 8),
               child: Container(
-              
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(7),
                     border: Border.all(
@@ -161,12 +114,15 @@ class _PaymentpageState extends State<Paymentpage> {
                       color: Colors.grey,
                     )),
                 child: RadioListTile(
-                  
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("CreditCard"),
-                        Image.network('https://cdn-icons-png.flaticon.com/512/6963/6963703.png',fit: BoxFit.cover,height: 30,),
+                        Image.network(
+                          'https://cdn-icons-png.flaticon.com/512/6963/6963703.png',
+                          fit: BoxFit.cover,
+                          height: 30,
+                        ),
                       ],
                     ),
                     value: Options[0],
@@ -176,12 +132,8 @@ class _PaymentpageState extends State<Paymentpage> {
                         currentOption = value.toString();
                       });
                     }),
-
-
-                    
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -193,10 +145,14 @@ class _PaymentpageState extends State<Paymentpage> {
                     )),
                 child: RadioListTile(
                     title: Row(
-  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Esewa"),
-                         Image.network('https://esewa.com.np/common/images/esewa-icon-large.png',fit: BoxFit.cover,height: 30,),
+                        Image.network(
+                          'https://esewa.com.np/common/images/esewa-icon-large.png',
+                          fit: BoxFit.cover,
+                          height: 30,
+                        ),
                       ],
                     ),
                     value: Options[1],
@@ -218,11 +174,15 @@ class _PaymentpageState extends State<Paymentpage> {
                       color: Colors.grey,
                     )),
                 child: RadioListTile(
-                      title: Row(
-  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Khalti"),
-                         Image.network('https://static-00.iconduck.com/assets.00/khalti-icon-2048x1745-edzdd0df.png',fit: BoxFit.cover,height: 30,),
+                        Image.network(
+                          'https://static-00.iconduck.com/assets.00/khalti-icon-2048x1745-edzdd0df.png',
+                          fit: BoxFit.cover,
+                          height: 30,
+                        ),
                       ],
                     ),
                     value: Options[2],
@@ -244,11 +204,15 @@ class _PaymentpageState extends State<Paymentpage> {
                       color: Colors.grey,
                     )),
                 child: RadioListTile(
-                       title: Row(
-  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Bank Transfer"),
-                         Image.network('https://cdn-icons-png.flaticon.com/512/8043/8043680.png',fit: BoxFit.cover,height: 30,),
+                        Image.network(
+                          'https://cdn-icons-png.flaticon.com/512/8043/8043680.png',
+                          fit: BoxFit.cover,
+                          height: 30,
+                        ),
                       ],
                     ),
                     value: Options[3],
@@ -260,18 +224,104 @@ class _PaymentpageState extends State<Paymentpage> {
                     }),
               ),
             ),
-
-
-Container(
-  
-
-)
-
-
-
+            Padding(
+              padding: const EdgeInsets.only(top: 70, left: 8, right: 8),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.15,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 223, 223, 223),
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(width: 0.5, color: Colors.grey),
+                  // color: Colors.red,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  'PayDate',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18),
+                                ),
+                                Text(
+                                  '2022-05-06',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 13),
+                                )
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  'Total',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18),
+                                ),
+                                Text(
+                                  'Rs.35,000',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  _BottomSheet(context);
+                  // isPaid = true;
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: tertiaryBlue,
+                      borderRadius: BorderRadius.circular(10)),
+                  height: 40,
+                  width: 100,
+                  child: Center(
+                      child: Text(
+                    "Pay Now",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  )),
+                ),
+              ),
+            )
           ],
         ),
       ),
     );
   }
+}
+
+Future _BottomSheet(BuildContext context) {
+  return showModalBottomSheet(
+    context: context,
+    builder: (context) => Container(
+      height: 150,
+    ),
+  );
 }

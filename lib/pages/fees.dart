@@ -164,7 +164,11 @@ class _FeesState extends State<Fees> {
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 16),
                                   )),
-                                )),
+                                )
+                                
+                                
+                                
+                                ),
                     ),
                   )
 
