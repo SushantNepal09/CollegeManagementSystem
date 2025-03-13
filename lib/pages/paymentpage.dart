@@ -151,21 +151,107 @@ class _PaymentpageState extends State<Paymentpage> {
 // )
 
             Padding(
+               padding: const EdgeInsets.only(top: 28,bottom: 8,left: 8,right: 8),
+              child: Container(
+              
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(
+                      width: 1.00,
+                      color: Colors.grey,
+                    )),
+                child: RadioListTile(
+                  
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("CreditCard"),
+                        Image.network('https://cdn-icons-png.flaticon.com/512/6963/6963703.png',fit: BoxFit.cover,height: 30,),
+                      ],
+                    ),
+                    value: Options[0],
+                    groupValue: currentOption,
+                    onChanged: (value) {
+                      setState(() {
+                        currentOption = value.toString();
+                      });
+                    }),
+
+
+                    
+              ),
+            ),
+
+            Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-    
-decoration: BoxDecoration(
-  borderRadius: BorderRadius.circular(7),
-  border: Border.all(
-    width: 1.00,
-    color: Colors.grey,
-  )
-),
-
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(
+                      width: 1.00,
+                      color: Colors.grey,
+                    )),
                 child: RadioListTile(
-                
-                title: Text("CreditCard"),
-                    value: Options[0],
+                    title: Row(
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Esewa"),
+                         Image.network('https://esewa.com.np/common/images/esewa-icon-large.png',fit: BoxFit.cover,height: 30,),
+                      ],
+                    ),
+                    value: Options[1],
+                    groupValue: currentOption,
+                    onChanged: (value) {
+                      setState(() {
+                        currentOption = value.toString();
+                      });
+                    }),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(
+                      width: 1.00,
+                      color: Colors.grey,
+                    )),
+                child: RadioListTile(
+                      title: Row(
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Khalti"),
+                         Image.network('https://static-00.iconduck.com/assets.00/khalti-icon-2048x1745-edzdd0df.png',fit: BoxFit.cover,height: 30,),
+                      ],
+                    ),
+                    value: Options[2],
+                    groupValue: currentOption,
+                    onChanged: (value) {
+                      setState(() {
+                        currentOption = value.toString();
+                      });
+                    }),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(
+                      width: 1.00,
+                      color: Colors.grey,
+                    )),
+                child: RadioListTile(
+                       title: Row(
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Bank Transfer"),
+                         Image.network('https://cdn-icons-png.flaticon.com/512/8043/8043680.png',fit: BoxFit.cover,height: 30,),
+                      ],
+                    ),
+                    value: Options[3],
                     groupValue: currentOption,
                     onChanged: (value) {
                       setState(() {
@@ -175,69 +261,13 @@ decoration: BoxDecoration(
               ),
             ),
 
-Padding(
-  padding: const EdgeInsets.all(8.0),
-  child: Container(
-    decoration: BoxDecoration(
-  borderRadius: BorderRadius.circular(7),
-  border: Border.all(
-    width: 1.00,
-    color: Colors.grey,
-  )
-),
-    child: RadioListTile(
-      title: Text("Esewa"),
-                    value: Options[1],
-                    groupValue: currentOption,
-                    onChanged: (value) {
-                      setState(() {
-                        currentOption = value.toString();
-                      });
-                    }),
-  ),
-),
-Padding(
-  padding: const EdgeInsets.all(8.0),
-  child: Container(
-    decoration: BoxDecoration(
-  borderRadius: BorderRadius.circular(7),
-  border: Border.all(
-    width: 1.00,
-    color: Colors.grey,
-  )
-),
-    child: RadioListTile(
-      title: Text("Khalti"),
-                    value: Options[2],
-                    groupValue: currentOption,
-                    onChanged: (value) {
-                      setState(() {
-                        currentOption = value.toString();
-                      });
-                    }),
-  ),
-),
-Padding(
-  padding: const EdgeInsets.all(8.0),
-  child: Container(
-    decoration: BoxDecoration(
-  borderRadius: BorderRadius.circular(7),
-  border: Border.all(
-    width: 1.00,
-    color: Colors.grey,
-  )
-),
-    child: RadioListTile(
-      title: Text("Bank Transfer"),
-                    value: Options[3],
-                    groupValue: currentOption,
-                    onChanged: (value) {
-                      setState(() {
-                        currentOption = value.toString();
-                      });
-                    }),
-  ),
+
+Container(
+  
+
 )
+
+
 
           ],
         ),
