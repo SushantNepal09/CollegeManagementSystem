@@ -181,7 +181,7 @@ class _PaymentpageState extends State<Paymentpage> {
                         Image.network(
                           'https://static-00.iconduck.com/assets.00/khalti-icon-2048x1745-edzdd0df.png',
                           fit: BoxFit.cover,
-                          height: 30,
+                          height: 31,
                         ),
                       ],
                     ),
