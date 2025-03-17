@@ -16,17 +16,19 @@ class Paymentpage extends StatefulWidget {
 List<String> Options = ['Credit Card', 'Esewa', 'Khalti', 'Bank'];
 
 class _PaymentpageState extends State<Paymentpage> {
-   late SharedPreferences prefs;
+  late SharedPreferences prefs;
 
   @override
   void initState() {
     super.initState();
-    initPrefs();
+    _loadPrefs();
   }
 
-  initPrefs() async {
+  Future<void> _loadPrefs() async {
     prefs = await SharedPreferences.getInstance();
   }
+
+
   String currentOption = Options[0];
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,10 @@ class _PaymentpageState extends State<Paymentpage> {
                       children: [
                         IconButton(
                           onPressed: () {
-                            Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>Fees()));
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Fees()));
                           },
                           icon: Icon(
                             Icons.date_range_outlined,
@@ -318,15 +323,12 @@ class _PaymentpageState extends State<Paymentpage> {
                       MaterialPageRoute(builder: (context) => Paydone()));
                   isPaid = true;
                   prefs.setBool('isPaid', isPaid);
-                }
-
-                else
-                {
+                   setState(() { });
+                } else {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => Notdone()));
                   isPaid = false;
                 }
-
               },
               child: Padding(
                 padding: const EdgeInsets.only(top: 30),

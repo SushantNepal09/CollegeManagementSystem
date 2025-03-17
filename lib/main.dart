@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/dashboard/dashboard.dart';
 import 'package:student/extravar/chatbutton.dart';
+import 'package:student/pages/fees.dart';
 import 'package:student/pages/notification.dart';
 import 'Navigationtools/navbar.dart';
 
@@ -10,6 +12,7 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
+  
   const MyApp({super.key});
 
   @override
@@ -17,6 +20,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+    late SharedPreferences prefs;
+
+  @override
+  void initState() {
+    super.initState();
+    initPrefs();
+  }
+
+  initPrefs() async {
+    prefs = await SharedPreferences.getInstance();
+    isPaid = prefs.getBool('isPaid')!;
+   
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
