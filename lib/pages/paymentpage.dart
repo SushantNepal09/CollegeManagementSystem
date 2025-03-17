@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/authentication/fingerprint.dart';
 import 'package:student/pages/fees.dart';
@@ -15,6 +16,17 @@ class Paymentpage extends StatefulWidget {
 List<String> Options = ['Credit Card', 'Esewa', 'Khalti', 'Bank'];
 
 class _PaymentpageState extends State<Paymentpage> {
+   late SharedPreferences prefs;
+
+  @override
+  void initState() {
+    super.initState();
+    initPrefs();
+  }
+
+  initPrefs() async {
+    prefs = await SharedPreferences.getInstance();
+  }
   String currentOption = Options[0];
   @override
   Widget build(BuildContext context) {
@@ -305,6 +317,7 @@ class _PaymentpageState extends State<Paymentpage> {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => Paydone()));
                   isPaid = true;
+                  prefs.setBool('isPaid', isPaid);
                 }
 
                 else

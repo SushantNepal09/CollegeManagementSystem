@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/feedata.dart';
 import 'package:student/pages/paymentpage.dart';
@@ -15,6 +16,8 @@ class Fees extends StatefulWidget {
 }
 
 class _FeesState extends State<Fees> {
+ 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -147,8 +150,12 @@ class _FeesState extends State<Fees> {
                             setState(() {
                               // isPaid = true;
                             });
-                            Navigator.pushReplacement(context,
-                                MaterialPageRoute(builder: (context)=> Paymentpage()));
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Paymentpage()));
+
+                            
                           },
                           child: isPaid
                               ? Container(decoration: BoxDecoration())
@@ -164,11 +171,7 @@ class _FeesState extends State<Fees> {
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 16),
                                   )),
-                                )
-                                
-                                
-                                
-                                ),
+                                )),
                     ),
                   )
 
