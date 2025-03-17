@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/pages/fees.dart';
+import 'package:student/pages/paydone.dart';
 
 class Paymentpage extends StatefulWidget {
   const Paymentpage({super.key});
@@ -291,6 +292,8 @@ class _PaymentpageState extends State<Paymentpage> {
               onTap: () {
                 setState(() {
                   _BottomSheet(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Paydone()));
                   // isPaid = true;
                 });
               },
