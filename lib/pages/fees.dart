@@ -147,7 +147,7 @@ class _FeesState extends State<Fees> {
                             setState(() {
                               // isPaid = true;
                             });
-                            Navigator.push(context,
+                            Navigator.pushReplacement(context,
                                 MaterialPageRoute(builder: (context)=> Paymentpage()));
                           },
                           child: isPaid

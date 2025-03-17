@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/authentication/fingerprint.dart';
 import 'package:student/pages/fees.dart';
+import 'package:student/pages/notdone.dart';
 import 'package:student/pages/paydone.dart';
 
 class Paymentpage extends StatefulWidget {
@@ -51,7 +53,7 @@ class _PaymentpageState extends State<Paymentpage> {
                       children: [
                         IconButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                            Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>Fees()));
                           },
                           icon: Icon(
                             Icons.date_range_outlined,
@@ -289,13 +291,29 @@ class _PaymentpageState extends State<Paymentpage> {
               ),
             ),
             GestureDetector(
-              onTap: () {
-                setState(() {
-                  _BottomSheet(context);
-                  Navigator.push(context,
+              onTap: () async {
+                // setState(() {
+                //   _BottomSheet(context);
+                //   Navigator.push(context,
+                //       MaterialPageRoute(builder: (context) => Paydone()));
+                //   // isPaid = true;
+                // });
+
+                final isAuthenticated = await LocalAuthApi.authenticate();
+
+                if (isAuthenticated) {
+                  Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => Paydone()));
-                  // isPaid = true;
-                });
+                  isPaid = true;
+                }
+
+                else
+                {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Notdone()));
+                  isPaid = false;
+                }
+
               },
               child: Padding(
                 padding: const EdgeInsets.only(top: 30),
@@ -320,11 +338,11 @@ class _PaymentpageState extends State<Paymentpage> {
   }
 }
 
-Future _BottomSheet(BuildContext context) {
-  return showModalBottomSheet(
-    context: context,
-    builder: (context) => Container(
-      height: 150,
-    ),
-  );
-}
+// Future _BottomSheet(BuildContext context) {
+//   return showModalBottomSheet(
+//     context: context,
+//     builder: (context) => Container(
+//       height: 150,
+//     ),
+//   );
+// }
