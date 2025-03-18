@@ -23,8 +23,9 @@ class Navbar extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => MyProfile()));
                 },
                 child: ClipOval(
-                  child: Image.network(
-                    'https://b.fssta.com/uploads/application/soccer/headshots/713.png',
+                  child: Image(
+                    image: AssetImage('assets/profilepic.png')
+                    ,
                     height: 100,
                     width: 100,
                     fit: BoxFit.cover,

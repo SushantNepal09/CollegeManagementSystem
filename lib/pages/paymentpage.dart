@@ -171,11 +171,7 @@ Image(image: AssetImage('assets/card.png'),
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Esewa"),
-                        Image.network(
-                          'https://esewa.com.np/common/images/esewa-icon-large.png',
-                          fit: BoxFit.cover,
-                          height: 30,
-                        ),
+                       Image(image: AssetImage('assets/esewa.png'),height: 30,),
                       ],
                     ),
                     value: Options[1],
@@ -201,11 +197,7 @@ Image(image: AssetImage('assets/card.png'),
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Khalti"),
-                        Image.network(
-                          'https://static-00.iconduck.com/assets.00/khalti-icon-2048x1745-edzdd0df.png',
-                          fit: BoxFit.cover,
-                          height: 30,
-                        ),
+                        Image(image: AssetImage('assets/khalti.png',),height: 30,)
                       ],
                     ),
                     value: Options[2],
@@ -231,11 +223,7 @@ Image(image: AssetImage('assets/card.png'),
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Bank Transfer"),
-                        Image.network(
-                          'https://cdn-icons-png.flaticon.com/512/8043/8043680.png',
-                          fit: BoxFit.cover,
-                          height: 30,
-                        ),
+                        Image(image: AssetImage('assets/banktransfer.png'),height: 30,),
                       ],
                     ),
                     value: Options[3],

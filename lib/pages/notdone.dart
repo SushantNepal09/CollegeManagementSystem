@@ -12,13 +12,12 @@ class _PaydoneState extends State<Notdone> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Payment Done'),
-      ),
-
-      body: Column(
-        children: [
- Padding(
+        appBar: AppBar(
+          title: Text('Payment Done'),
+        ),
+        body: Column(
+          children: [
+            Padding(
               padding: const EdgeInsets.all(18.0),
               child: Container(
                 //this is the container with the fee detail payment method and payment
@@ -59,15 +58,11 @@ class _PaydoneState extends State<Notdone> {
                       children: [
                         IconButton(
                           onPressed: () {},
-                          icon: Icon(
-                            Icons.wallet,
-                            color: const Color.fromARGB(255, 8, 85, 149)
-                            
-                          ),
+                          icon: Icon(Icons.wallet,
+                              color: const Color.fromARGB(255, 8, 85, 149)),
                         ),
                         Text(
                           "Payment Method",
-                       
                         )
                       ],
                     ),
@@ -78,60 +73,64 @@ class _PaydoneState extends State<Notdone> {
                           onPressed: () {},
                           icon: Icon(
                             Icons.wallet_giftcard_rounded,
-                           color: const Color.fromARGB(255, 11, 80, 136),
+                            color: const Color.fromARGB(255, 11, 80, 136),
                             size: 38,
                           ),
                         ),
-                        Text("Payment",style: TextStyle(
-                              color: const Color.fromARGB(255, 3, 52, 93)),)
+                        Text(
+                          "Payment",
+                          style: TextStyle(
+                              color: const Color.fromARGB(255, 3, 52, 93)),
+                        )
                       ],
                     ),
                   ],
                 ),
               ),
             ),
-
-            Image.network('https://cdn-icons-png.flaticon.com/512/3692/3692056.png',height: 250,),
-
-
+           Image(image: AssetImage('assets/money.png'),height: 250,),
             Padding(
               padding: const EdgeInsets.only(top: 50),
               child: Column(
                 // mainAxisAlignment: MainAxisAlignment.spaceA,
                 children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.network('https://cdn-icons-png.freepik.com/256/17385/17385231.png?semt=ais_hybrid',height: 50,),
-              ),
-              Text("UnSuccess Transaction",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w500),),
-              Text(" Your Transcation was UnSuccessful \n \t\t  Please Try Again"),
-              
-              
-                 Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: tertiaryBlue,
-                      borderRadius: BorderRadius.circular(10)),
-                  height: 50,
-                  width:  MediaQuery.of(context).size.width*0.8,
-                  child: Center(
-                      child: Text(
-                    "Try Again",
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  )),
-                ),
-              ),
-              
-              
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                  child: Image(image: AssetImage('assets/cross.png'),height: 50,),
+                  ),
+                  Text(
+                    "UnSuccess Transaction",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                        " Your Transcation was UnSuccessful \n \t\t\t\t\t\t\t\t\t\t\t  Please Try Again"),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 50),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: tertiaryBlue,
+                            borderRadius: BorderRadius.circular(10)),
+                        height: 50,
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Center(
+                            child: Text(
+                          "Try Again",
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        )),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
-
-
-
-        ],
-      )
-    );
+          ],
+        ));
   }
 }

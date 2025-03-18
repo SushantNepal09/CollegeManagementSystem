@@ -74,8 +74,9 @@ class _DashboardState extends State<Dashboard> {
                           child: CircleAvatar(
                             maxRadius: 30,
                             child: ClipOval(
-                                child: Image.network(
-                                    'https://b.fssta.com/uploads/application/soccer/headshots/713.png')),
+                                child:Image(image: AssetImage('assets/profilepic.png'))
+                                    
+                                    ),
                           ),
                         )
                       ],

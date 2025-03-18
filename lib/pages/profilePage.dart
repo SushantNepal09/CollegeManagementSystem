@@ -59,10 +59,9 @@ class MyProfile extends StatelessWidget {
                         
                         radius: 35,
                         child: ClipOval(
-                          child: Image.network(
-                            "https://b.fssta.com/uploads/application/soccer/headshots/713.png",
-                            fit: BoxFit.cover,
-                          ),
+                
+
+                          child: Image(image: AssetImage('assets/profilepic.png'),fit: BoxFit.cover,),
                         ),
                       ),
                     ),
