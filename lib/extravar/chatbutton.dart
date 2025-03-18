@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/pages/chats/Teacher.dart';
 
 class Test extends StatefulWidget {
   const Test({super.key});
@@ -16,7 +17,7 @@ class _TestState extends State<Test> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12,left: 5),
+      padding: const EdgeInsets.only(bottom: 12, left: 5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -24,7 +25,7 @@ class _TestState extends State<Test> {
           showArea ? ChatArea() : MyWidget(),
           SizedBox(
             height: 20,
-            width: 20 ,
+            width: 20,
           ),
           FloatingActionButton(
             onPressed: () {
@@ -35,7 +36,7 @@ class _TestState extends State<Test> {
               });
             },
             backgroundColor: tertiaryBlue,
-            child: Icon(isOpen ? Icons.close:Icons.chat),
+            child: Icon(isOpen ? Icons.close : Icons.chat),
           ),
         ],
       ),
@@ -82,18 +83,24 @@ class ChatArea extends StatelessWidget {
               ],
             ),
             Divider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Icon(Icons.person_4),
-                Text(
-                  'Teacher',
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: const Color.fromARGB(255, 0, 0, 0),
-                      fontWeight: FontWeight.w500),
-                ),
-              ],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Teacher()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(Icons.person_4),
+                  Text(
+                    'Teacher',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: const Color.fromARGB(255, 0, 0, 0),
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
             ),
             Divider(),
             Row(
