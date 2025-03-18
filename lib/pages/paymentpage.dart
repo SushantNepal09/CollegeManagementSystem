@@ -138,11 +138,14 @@ class _PaymentpageState extends State<Paymentpage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("CreditCard"),
-                        Image.network(
-                          'https://cdn-icons-png.flaticon.com/512/6963/6963703.png',
-                          fit: BoxFit.cover,
-                          height: 30,
-                        ),
+Image(image: AssetImage('assets/card.png'),
+                          height: 30,),
+
+                        // Image.network(
+                        //   'https://cdn-icons-png.flaticon.com/512/6963/6963703.png',
+                        //   fit: BoxFit.cover,
+                        //   height: 30,
+                        // ),
                       ],
                     ),
                     value: Options[0],
