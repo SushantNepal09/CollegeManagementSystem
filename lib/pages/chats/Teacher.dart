@@ -37,7 +37,7 @@ appBar: AppBar(
                     ,width: 1,
                   )
                 ),
-                height: 51,
+                height: 50,
                
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
