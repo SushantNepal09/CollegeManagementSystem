@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/feedata.dart';
+import 'package:student/allvariables/prevfee.dart';
 import 'package:student/pages/paymentpage.dart';
 
 bool isPaid = false;
@@ -16,8 +17,6 @@ class Fees extends StatefulWidget {
 }
 
 class _FeesState extends State<Fees> {
- 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -154,8 +153,6 @@ class _FeesState extends State<Fees> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => Paymentpage()));
-
-                            
                           },
                           child: isPaid
                               ? Container(decoration: BoxDecoration())
@@ -179,7 +176,102 @@ class _FeesState extends State<Fees> {
                 ],
               ),
             ),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Previous Months",
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: feesContent.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () { ///IN PROGRESS
+                    Container(
+                      child: Text('Hello'),
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 16, right: 16, top: 8, bottom: 8),
+                    child: Container(
+                        height: 80,
+                        decoration: BoxDecoration(
+                            border: Border.all(width: 1.5, color: Colors.grey),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 0, left: 15, right: 15),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    feesContent[index].month,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                        letterSpacing: 1,
+                                        color: const Color.fromARGB(
+                                            255, 77, 77, 77)),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        feesContent[index].fee,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 14),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                          height: 25,
+                                          width: 65,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                              color: Colors.green),
+                                          child: Center(
+                                            child: Text("Paid",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12)),
+                                          ))
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: Text(
+                                feesContent[index].datepayed,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color:
+                                        const Color.fromARGB(255, 77, 77, 77)),
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
