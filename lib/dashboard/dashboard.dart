@@ -19,17 +19,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    var percentage = 90;
-    // var arrColors = [
-    //   Colors.red,
-    //   Colors.orange,
-    //   Colors.blue,
-    //   Colors.cyan,
-    //   Colors.purple,
-    //   Colors.green,
-    //   Colors.lime,
-    // ]; //temporary Colors
-
+    var percentage = 57;
     return Builder(builder: (context) {
       return SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -66,7 +56,7 @@ class _DashboardState extends State<Dashboard> {
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 15,
-                                        fontWeight: FontWeight.w200)),
+                                        fontWeight: FontWeight.w300)),
                               ],
                             ),
                             GestureDetector(
