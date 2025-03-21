@@ -79,7 +79,7 @@ Fees(),
 
                     },
                     child: Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(25.0),
                       child: Container(
                         decoration: BoxDecoration(
                           boxShadow: [
@@ -100,14 +100,19 @@ Fees(),
                         ),
                         child: Center(
                           child: Column(
+                            
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
+                            
                               Image.network(
                                 contents[index].image,
                                 fit: BoxFit.cover,
-                                height: 100,
+                                height: 60,
+                                
+                               
                               ),
-                              Text(contents[index].title),
+                              Divider(height: 1,color: Colors.grey,),
+                              Text(contents[index].title,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
                             ],
                           ),
                         ),

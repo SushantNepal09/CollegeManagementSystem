@@ -1,7 +1,5 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/feedata.dart';
 import 'package:student/allvariables/prevfee.dart';
