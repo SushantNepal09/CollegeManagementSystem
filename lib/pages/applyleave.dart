@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 
+var lessStart = DateTime.now();
+var lessend ;
+
 class Applyleave extends StatefulWidget {
   const Applyleave({super.key});
 
@@ -9,12 +12,16 @@ class Applyleave extends StatefulWidget {
 }
 
 class _ApplyleaveState extends State<Applyleave> {
+  DateTime dateTime = DateTime.now();
+  DateTime dateTime2 = DateTime.now();
+
+  late TextEditingController datecontroller = TextEditingController(
+      text: "${dateTime.year}/${dateTime.month}/${dateTime.day}");
+  late TextEditingController endDate = TextEditingController(
+      text: "${dateTime2.year}/${dateTime2.month}/${dateTime2.day}");
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController datecontroller = TextEditingController(text: "Hi");
-
-    DateTime _dateTime = DateTime.now();
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryBlue,
@@ -132,55 +139,87 @@ class _ApplyleaveState extends State<Applyleave> {
                 SizedBox(
                   width: MediaQuery.sizeOf(context).width * 0.4,
                   child: TextField(
-                    // controller: datecontroller,
+                    controller: datecontroller,
                     decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                          onPressed: () {
-                            showDatePicker(
-                                    context: context,
-                                    firstDate: DateTime.utc(2002, 01, 02),
-                                    lastDate: DateTime.utc(2030, 12, 30))
-                                .then((value) {
-                              setState(() {
-                                _dateTime = value!;
+                        suffixIcon: IconButton(
+                            onPressed: () {
+                              showDatePicker(
+                                      context: context,
+                                      firstDate: DateTime.utc(2002, 01, 02),
+                                      lastDate: DateTime.utc(2030, 12, 30))
+                                  .then((value) {
+                              
+                                setState(() {
+                                  dateTime = value!;
+                                  datecontroller.text =
+                                      "${value.year}/${value.month}/${value.day}";
+                                });
                               });
-                            });
-                          },
-                          icon: Icon(Icons.calendar_month)),
-                      border: OutlineInputBorder(),
-                      labelText: "Start Date",
-                      hintText: "Y/M/D"
-                    ),
+                            },
+                            icon: Icon(Icons.calendar_month)),
+                        border: OutlineInputBorder(),
+                        labelText: "Start Date",
+                        hintText: "Y/M/D"),
                     keyboardType: TextInputType.datetime,
                   ),
                 ),
                 SizedBox(
                   width: MediaQuery.sizeOf(context).width * 0.4,
                   child: TextField(
+                    controller: endDate,
                     decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                          onPressed: () {
-                            showDatePicker(
-                                    context: context,
-                                    firstDate: DateTime.utc(2002, 01, 02),
-                                    lastDate: DateTime.utc(2030, 12, 30))
-                                .then((value) {
-                              setState(() {
-                                _dateTime = value!;
+                        suffixIcon: IconButton(
+                            onPressed: () {
+                              showDatePicker(
+                                      context: context,
+                                      firstDate: DateTime.utc(2002, 01, 02),
+                                      lastDate: DateTime.utc(2030, 12, 30))
+                                  .then((value) {
+                               
+                                  setState(() {
+                                    dateTime2 = value!;
+                                    endDate.text =
+                                        "${value.year}/${value.month}/${value.day}";
+                                  });
+                               
                               });
-                            });
-                          },
-                          icon: Icon(Icons.calendar_month)),
-                      border: OutlineInputBorder(),
-                      labelText: "End Date",
-                       hintText: "Y/M/D"
-                    ),
+                            },
+                            icon: Icon(Icons.calendar_month)),
+                        border: OutlineInputBorder(),
+                        labelText: "End Date",
+                        hintText: "Y/M/D"),
                     keyboardType: TextInputType.datetime,
                   ),
                 ),
+
+
+
+
+
+
+
+
+
+
+
               ],
             ),
-          )
+          ),
+
+SizedBox(
+   width: MediaQuery.sizeOf(context).width * 1,
+  child: Padding(
+    padding: const EdgeInsets.only(top: 18.0,left: 30,right: 30),
+    child: TextField(
+      decoration: InputDecoration(
+        hintText: "Please Select Reason Behind this leave",
+        labelText: "Reason",
+         border: OutlineInputBorder(),
+      ),
+    ),
+  ),
+),
+
         ],
       ),
     );
