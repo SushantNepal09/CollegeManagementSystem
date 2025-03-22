@@ -87,6 +87,7 @@ Expanded(
         decoration: InputDecoration(
          labelText: "Start Date",
         ),
+        keyboardType: TextInputType.number,
     ),
   ),
 )
