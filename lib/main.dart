@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/dashboard/dashboard.dart';
 import 'package:student/extravar/chatbutton.dart';
-import 'package:student/pages/fees.dart';
+import 'package:student/pages/fees/fees.dart';
 import 'package:student/pages/notification.dart';
 import 'Navigationtools/navbar.dart';
 

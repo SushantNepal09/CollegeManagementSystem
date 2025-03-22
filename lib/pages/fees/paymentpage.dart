@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/authentication/fingerprint.dart';
-import 'package:student/pages/fees.dart';
-import 'package:student/pages/notdone.dart';
-import 'package:student/pages/paydone.dart';
+import 'package:student/pages/fees/fees.dart';
+import 'package:student/pages/fees/notdone.dart';
+import 'package:student/pages/fees/paydone.dart';
 
 class Paymentpage extends StatefulWidget {
   const Paymentpage({super.key});

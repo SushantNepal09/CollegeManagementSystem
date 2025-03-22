@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/feedata.dart';
 import 'package:student/allvariables/prevfee.dart';
-import 'package:student/pages/paymentpage.dart';
+import 'package:student/pages/fees/paymentpage.dart';
 
 bool isPaid = false;
 
