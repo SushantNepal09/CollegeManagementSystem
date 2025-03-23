@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 
 var lessStart = DateTime.now();
-var lessend ;
+var lessend;
+String dropdownValue = 'One';
 
 class Applyleave extends StatefulWidget {
   const Applyleave({super.key});
@@ -148,7 +149,6 @@ class _ApplyleaveState extends State<Applyleave> {
                                       firstDate: DateTime.utc(2002, 01, 02),
                                       lastDate: DateTime.utc(2030, 12, 30))
                                   .then((value) {
-                              
                                 setState(() {
                                   dateTime = value!;
                                   datecontroller.text =
@@ -175,13 +175,11 @@ class _ApplyleaveState extends State<Applyleave> {
                                       firstDate: DateTime.utc(2002, 01, 02),
                                       lastDate: DateTime.utc(2030, 12, 30))
                                   .then((value) {
-                               
-                                  setState(() {
-                                    dateTime2 = value!;
-                                    endDate.text =
-                                        "${value.year}/${value.month}/${value.day}";
-                                  });
-                               
+                                setState(() {
+                                  dateTime2 = value!;
+                                  endDate.text =
+                                      "${value.year}/${value.month}/${value.day}";
+                                });
                               });
                             },
                             icon: Icon(Icons.calendar_month)),
@@ -191,36 +189,84 @@ class _ApplyleaveState extends State<Applyleave> {
                     keyboardType: TextInputType.datetime,
                   ),
                 ),
-
-
-
-
-
-
-
-
-
-
-
               ],
             ),
           ),
+          // SizedBox(
+          //   width: MediaQuery.sizeOf(context).width * 1,
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(top: 18.0, left: 30, right: 30),
+          //     child: TextField(
+          //       decoration: InputDecoration(
+          //         hintText: "Please Select Reason Behind this leave",
+          //         labelText: "Reason",
+          //         border: OutlineInputBorder(),
+          //       ),
+          //     ),
+          //   ),
+          // ),
 
-SizedBox(
-   width: MediaQuery.sizeOf(context).width * 1,
-  child: Padding(
-    padding: const EdgeInsets.only(top: 18.0,left: 30,right: 30),
-    child: TextField(
-      decoration: InputDecoration(
-        hintText: "Please Select Reason Behind this leave",
-        labelText: "Reason",
-         border: OutlineInputBorder(),
-      ),
-    ),
-  ),
-),
+ Padding(
+padding: const EdgeInsets.only(top: 18.0, left: 30, right: 30),
+   child: Text('Please Select a Reason'),
+ ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, left: 30, right: 30),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(width: 1,color: Colors.grey),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              width: MediaQuery.sizeOf(context).width * 1,
+              child: DropdownButton(
+                  value: dropdownValue,
+                  isExpanded: true,
+                  borderRadius: BorderRadius.circular(10),
+               underline: Container(
+                height: 0,
+               ),
+                  items: [
+                    DropdownMenuItem(
+                      value: "One",
+                      child: Text("   Health"),
+                    ),
+                    DropdownMenuItem(
+                      value: "Two",
+                      child: Text("   Family/Personal"),
+                    ),
+                      DropdownMenuItem(
+                      value: "Three",
+                      child: Text("   Acedemic/Work"),
+                    ),
+                      DropdownMenuItem(
+                      value: "Four",
+                      child: Text("   Others"),
+                    )
+                  ],
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownValue = newValue!;
+                    });
+                  }),
+            ),
+          ),
+          
+          Padding(
+            padding: const EdgeInsets.only(top: 25.0, left: 30, right: 30),
+            child: TextField(
+            
+            decoration: InputDecoration(
 
-        ],
+              labelText: 'Description',
+              hintText: 'Describe Your Situation in Short',
+              border: OutlineInputBorder()
+            ),
+            
+            ),
+          )
+          
+          
+                  ],
       ),
     );
   }
