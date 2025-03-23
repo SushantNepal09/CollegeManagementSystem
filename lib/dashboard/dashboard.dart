@@ -19,7 +19,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    var percentage = 57;
+    var percentage = 90;
     return Builder(builder: (context) {
       return SingleChildScrollView(
         scrollDirection: Axis.vertical,

@@ -37,6 +37,8 @@ dependencies:
   shared_preferences: ^2.5.2
   local_auth: ^2.3.0
   percent_indicator: ^4.2.4
+  file_picker: ^9.2.1
+  open_file: ^3.5.10
 
 dev_dependencies:
   flutter_test:

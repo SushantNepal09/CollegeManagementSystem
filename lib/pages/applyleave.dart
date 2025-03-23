@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:student/allvariables/allVar.dart';
+
 
 var lessStart = DateTime.now();
 var lessend;
@@ -13,6 +15,7 @@ class Applyleave extends StatefulWidget {
 }
 
 class _ApplyleaveState extends State<Applyleave> {
+  List pickedFiles = [];
   DateTime dateTime = DateTime.now();
   DateTime dateTime2 = DateTime.now();
 
@@ -23,6 +26,7 @@ class _ApplyleaveState extends State<Applyleave> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryBlue,
@@ -35,7 +39,7 @@ class _ApplyleaveState extends State<Applyleave> {
         children: [
           Padding(
             padding: const EdgeInsets.only(
-                top: 28.0, right: 45, left: 45, bottom: 40),
+                top: 18.0, right: 45, left: 45, bottom: 40),
             child: Container(
               decoration: BoxDecoration(
                 border: Border(top: BorderSide.none),
@@ -127,6 +131,10 @@ class _ApplyleaveState extends State<Applyleave> {
                 ],
               ),
             ),
+
+
+
+            
           ),
           Text(
             'Apply Leave',
@@ -206,15 +214,15 @@ class _ApplyleaveState extends State<Applyleave> {
           //   ),
           // ),
 
- Padding(
-padding: const EdgeInsets.only(top: 18.0, left: 30, right: 30),
-   child: Text('Please Select a Reason'),
- ),
+          Padding(
+            padding: const EdgeInsets.only(top: 18.0, left: 30, right: 30),
+            child: Text('Please Select a Reason'),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 8.0, left: 30, right: 30),
             child: Container(
               decoration: BoxDecoration(
-                border: Border.all(width: 1,color: Colors.grey),
+                border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: BorderRadius.circular(10),
               ),
               width: MediaQuery.sizeOf(context).width * 1,
@@ -222,9 +230,9 @@ padding: const EdgeInsets.only(top: 18.0, left: 30, right: 30),
                   value: dropdownValue,
                   isExpanded: true,
                   borderRadius: BorderRadius.circular(10),
-               underline: Container(
-                height: 0,
-               ),
+                  underline: Container(
+                    height: 0,
+                  ),
                   items: [
                     DropdownMenuItem(
                       value: "One",
@@ -234,11 +242,11 @@ padding: const EdgeInsets.only(top: 18.0, left: 30, right: 30),
                       value: "Two",
                       child: Text("   Family/Personal"),
                     ),
-                      DropdownMenuItem(
+                    DropdownMenuItem(
                       value: "Three",
                       child: Text("   Acedemic/Work"),
                     ),
-                      DropdownMenuItem(
+                    DropdownMenuItem(
                       value: "Four",
                       child: Text("   Others"),
                     )
@@ -250,23 +258,59 @@ padding: const EdgeInsets.only(top: 18.0, left: 30, right: 30),
                   }),
             ),
           ),
-          
+
           Padding(
             padding: const EdgeInsets.only(top: 25.0, left: 30, right: 30),
             child: TextField(
-            
-            decoration: InputDecoration(
+              maxLines: 4,
+              decoration: InputDecoration(
+                  labelText: 'Description',
+                  alignLabelWithHint: true,
+                  hintText: 'Describe Your Situation in Short',
+                  border: OutlineInputBorder()),
+            ),
+          ),
 
-              labelText: 'Description',
-              hintText: 'Describe Your Situation in Short',
-              border: OutlineInputBorder()
+          Padding(
+            padding: const EdgeInsets.only(top: 25.0, left: 30, right: 30),
+            child: TextField(
+              keyboardType: TextInputType.number,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              maxLength: 10,
+              decoration: InputDecoration(
+                  labelText: "Contact no.",
+                  hintText: "98XXXXXXXX",
+                  border: OutlineInputBorder()),
             ),
-            
-            ),
-          )
-          
-          
-                  ],
+          ),
+
+Padding(
+ padding: const EdgeInsets.only(top: 25.0, left: 30, right: 30),
+  child: GestureDetector(
+    onTap: (){},
+    child: Container(
+      height: 90,
+      decoration: BoxDecoration(
+        border: 
+        Border.all(
+        width: 1,
+        color: Colors.grey
+        ),
+        borderRadius: BorderRadius.circular(10)
+      ),
+      child: Center(child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text('Upload Documents(Optional)'),
+          Image.asset('assets/uploadfile.png',height: 50,)
+        ],
+      )),
+    ),
+  ),
+)
+
+
+        ],
       ),
     );
   }
