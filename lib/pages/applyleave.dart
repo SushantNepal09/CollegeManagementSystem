@@ -521,7 +521,11 @@ else {
                      ( dateTime2.month > DateTime.now().month ||
                       dateTime2.year > DateTime.now().year) )
                       
-                      ))
+                      )
+                      
+                      && descriptionController.text.isNotEmpty || noController.text.isNotEmpty
+                      
+                      )
 {
    ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Center(child: Text('Submitted SuccessFully',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w500,fontSize: 18)))));
@@ -550,7 +554,7 @@ else if (dateTime2.day  < dateTime.day ||dateTime2.month  < dateTime.month ||dat
                       SnackBar(content: Center(child: Text('Enter Valid Date and Time',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 18)))));
 
 }
-else if(descriptionController.text.isEmpty || noController.text.isEmpty  )
+ else if(descriptionController.text.isEmpty || noController.text.isEmpty  )
 {
 
 ScaffoldMessenger.of(context).showSnackBar(
