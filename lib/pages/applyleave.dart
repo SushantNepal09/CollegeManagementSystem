@@ -509,7 +509,25 @@ else {
               padding: const EdgeInsets.only(top: 25.0, left: 30, right: 30),
               child: ElevatedButton(
                 onPressed: () {
-if (dateTime2.day  < dateTime.day ||dateTime2.month  < dateTime.month ||dateTime2.year  < dateTime.year ||(dateTime2.day < DateTime.now().day ||
+
+
+ if ((
+  
+ ( dateTime2.day < DateTime.now().day &&
+                     ( dateTime2.month > DateTime.now().month ||
+                      dateTime2.year > DateTime.now().year) )
+                      
+                      ||  ( dateTime2.day > DateTime.now().day &&
+                     ( dateTime2.month > DateTime.now().month ||
+                      dateTime2.year > DateTime.now().year) )
+                      
+                      ))
+{
+   ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Center(child: Text('Submitted SuccessFully',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w500,fontSize: 18)))));
+}
+
+else if (dateTime2.day  < dateTime.day ||dateTime2.month  < dateTime.month ||dateTime2.year  < dateTime.year ||(dateTime2.day < DateTime.now().day ||
                       dateTime2.month < DateTime.now().month ||
                       dateTime2.year < DateTime.now().year) ||
                   (dateTime2.day < dateTime.day ||
@@ -521,7 +539,10 @@ if (dateTime2.day  < dateTime.day ||dateTime2.month  < dateTime.month ||dateTime
                       dateTime2.month < dateTime.month ||
                       dateTime2.year < dateTime.year)
                       
-                      || dateTime2.day  == dateTime.day &&dateTime2.month  == dateTime.month && dateTime2.year  == dateTime.year
+                      || dateTime2.day  == dateTime.day &&dateTime2.month  == dateTime.month && dateTime2.year  == dateTime.year 
+
+                     
+
                       
                       ){
 
@@ -538,8 +559,10 @@ ScaffoldMessenger.of(context).showSnackBar(
 
 }
 
-else
-{
+
+
+
+else {
    ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Center(child: Text('Submitted SuccessFully',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w500,fontSize: 18)))));
 }
