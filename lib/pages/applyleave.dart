@@ -45,6 +45,9 @@ class _ApplyleaveState extends State<Applyleave> {
   late TextEditingController endDate = TextEditingController(
       text: "${dateTime2.year}/${dateTime2.month}/${dateTime2.day}");
 
+  TextEditingController descriptionController = TextEditingController();
+  TextEditingController noController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +66,16 @@ class _ApplyleaveState extends State<Applyleave> {
                   top: 18.0, right: 45, left: 45, bottom: 20),
               child: Container(
                 decoration: BoxDecoration(
-                  border: Border(top: BorderSide.none),
+                      color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 8,
+                    spreadRadius: 2,
+                    offset: Offset(0, 4),
+                  ),
+                ],
                   // borderRadius: BorderRadius.circular(15)
                 ),
                 height: 70,
@@ -72,10 +84,15 @@ class _ApplyleaveState extends State<Applyleave> {
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(15),
-                                bottomLeft: Radius.circular(15)),
-                            border: Border.all(width: .5)),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                          bottomLeft: Radius.circular(15),
+                        ),
+                        border: Border.all(color: Colors.grey.shade300, width: 0.8),
+                        color: Colors.white,
+                      ),
+                            
+                            
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -83,16 +100,17 @@ class _ApplyleaveState extends State<Applyleave> {
                               'Total',
                               style: TextStyle(
                                   color:
-                                      const Color.fromARGB(255, 158, 151, 151),
+                                       Colors.grey.shade600,
                                   fontSize: 16,
-                                  fontWeight: FontWeight.w400),
+                                  fontWeight: FontWeight.w500),
                             ),
+                            SizedBox(height: 8,),
                             Text(
                               '15.0',
                               style: TextStyle(
                                   color: Colors.lightBlueAccent,
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w400),
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.bold),
                             )
                           ],
                         ),
@@ -100,26 +118,28 @@ class _ApplyleaveState extends State<Applyleave> {
                     ),
                     Expanded(
                       child: Container(
-                        decoration:
-                            BoxDecoration(border: Border.all(width: .5)),
+                            decoration: BoxDecoration(
+                      
+                        border: Border.all(color: Colors.grey.shade300, width: 0.8),
+                        color: Colors.white,
+                      ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
                               'Approved',
-                              style: TextStyle(
+                                 style: TextStyle(
                                   color:
-                                      const Color.fromARGB(255, 158, 151, 151),
+                                       Colors.grey.shade600,
                                   fontSize: 16,
-                                  fontWeight: FontWeight.w400),
+                                  fontWeight: FontWeight.w500),
                             ),
                             Text(
                               '12.0',
                               style: TextStyle(
-                                  color:
-                                      const Color.fromARGB(255, 100, 207, 29),
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w400),
+                                  color: const Color.fromARGB(255, 182, 255, 64),
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.bold),
                             )
                           ],
                         ),
@@ -127,28 +147,31 @@ class _ApplyleaveState extends State<Applyleave> {
                     ),
                     Expanded(
                       child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(15),
-                                bottomRight: Radius.circular(15)),
-                            border: Border.all(width: .5)),
+                            decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(15),
+                          bottomRight: Radius.circular(15),
+                        ),
+                        border: Border.all(color: Colors.grey.shade300, width: 0.8),
+                        color: Colors.white,
+                      ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
                               'Rejected',
-                              style: TextStyle(
+                             style: TextStyle(
                                   color:
-                                      const Color.fromARGB(255, 158, 151, 151),
+                                       Colors.grey.shade600,
                                   fontSize: 16,
-                                  fontWeight: FontWeight.w400),
+                                  fontWeight: FontWeight.w500),
                             ),
                             Text(
                               '3.0',
-                              style: TextStyle(
-                                  color: const Color.fromARGB(255, 207, 38, 29),
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w400),
+                                style: TextStyle(
+                                  color: const Color.fromARGB(255, 255, 64, 64),
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.bold),
                             )
                           ],
                         ),
@@ -156,6 +179,10 @@ class _ApplyleaveState extends State<Applyleave> {
                     ),
                   ],
                 ),
+
+
+
+
               ),
             ),
             Text(
@@ -181,8 +208,40 @@ class _ApplyleaveState extends State<Applyleave> {
                                     .then((value) {
                                   setState(() {
                                     dateTime = value!;
-                                    datecontroller.text =
-                                        "${value.year}/${value.month}/${value.day}";
+
+if(
+
+(
+  
+ ( value.day < DateTime.now().day &&
+                     ( value.month > DateTime.now().month ||
+                      value.year > DateTime.now().year) )
+                      
+                      ||  ( value.day > DateTime.now().day &&
+                     ( value.month > DateTime.now().month ||
+                      value.year > DateTime.now().year) )
+                      
+                      )
+
+              ) {
+         datecontroller.text =
+                                          "${value.year}/${value.month}/${value.day}";
+              }
+
+
+
+
+
+
+                                   else if (value.day < DateTime.now().day ||
+                                        value.month < DateTime.now().month ||
+                                        value.year < DateTime.now().year) {
+                                      datecontroller.text =
+                                          "${DateTime.now().year}/${DateTime.now().month}/${DateTime.now().day}";
+                                    } else {
+                                      datecontroller.text =
+                                          "${value.year}/${value.month}/${value.day}";
+                                    }
                                   });
                                 });
                               },
@@ -207,8 +266,46 @@ class _ApplyleaveState extends State<Applyleave> {
                                     .then((value) {
                                   setState(() {
                                     dateTime2 = value!;
-                                    endDate.text =
-                                        "${value.year}/${value.month}/${value.day}";
+
+
+
+
+
+if(
+
+(
+  
+ ( value.day < DateTime.now().day &&
+                     ( value.month > DateTime.now().month ||
+                      value.year > DateTime.now().year) )
+                      
+                      ||  ( value.day > DateTime.now().day &&
+                     ( value.month > DateTime.now().month ||
+                      value.year > DateTime.now().year) )
+                      
+                      )
+
+              ) {
+         endDate.text =
+                                          "${value.year}/${value.month}/${value.day}";
+              }
+
+
+
+
+                                   else if (value.day < DateTime.now().day ||
+                                        value.month < DateTime.now().month ||
+                                        value.year < DateTime.now().year) {
+                                      endDate.text =
+                                          "${DateTime.now().year}/${DateTime.now().month}/${DateTime.now().day}";
+                                    }
+                                    
+                                    
+                                    
+                                     else {
+                                      endDate.text =
+                                          "${value.year}/${value.month}/${value.day}";
+                                    }
                                   });
                                 });
                               },
@@ -222,20 +319,64 @@ class _ApplyleaveState extends State<Applyleave> {
                 ],
               ),
             ),
-            // SizedBox(
-            //   width: MediaQuery.sizeOf(context).width * 1,
-            //   child: Padding(
-            //     padding: const EdgeInsets.only(top: 18.0, left: 30, right: 30),
-            //     child: TextField(
-            //       decoration: InputDecoration(
-            //         hintText: "Please Select Reason Behind this leave",
-            //         labelText: "Reason",
-            //         border: OutlineInputBorder(),
-            //       ),
-            //     ),
-            //   ),
-            // ),
+          Builder(builder: (context) {
+              var diff = dateTime2.difference(dateTime);
+              if (diff.inHours < 1 ) {
+                return Text('Invalid Date selected');
+              }
+              
+                           else if(
 
+(
+  
+ ( dateTime2.day < DateTime.now().day &&
+                     ( dateTime2.month > DateTime.now().month ||
+                      dateTime2.year > DateTime.now().year) )
+                      
+                      ||  ( dateTime2.day > DateTime.now().day &&
+                     ( dateTime2.month > DateTime.now().month ||
+                      dateTime2.year > DateTime.now().year) )
+                      
+                      )
+
+              ) {
+                return Text(
+                  'Request ${diff.inDays} Day Leave',
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.red,
+                      fontWeight: FontWeight.w500),
+                );
+              }
+              
+              
+               else if (dateTime.day < DateTime.now().day ||
+                  dateTime.month < DateTime.now().month ||
+                  dateTime.year < DateTime.now().year) {
+                return Text('Invalid Date selected');
+              } else if ((dateTime2.day < DateTime.now().day ||
+                      dateTime2.month < DateTime.now().month ||
+                      dateTime2.year < DateTime.now().year) ||
+                  (dateTime2.day < dateTime.day ||
+                      dateTime2.month < dateTime.month ||
+                      dateTime2.year < dateTime.year)) {
+                return Text('Invalid Date selected');
+              } 
+              
+ 
+
+else {
+      return Text(
+                  'Request ${diff.inDays} Day Leave',
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.red,
+                      fontWeight: FontWeight.w500),
+                );
+}
+
+
+            }),
             Padding(
               padding: const EdgeInsets.only(top: 18.0, left: 30, right: 30),
               child: Text('Please Select a Reason'),
@@ -280,10 +421,10 @@ class _ApplyleaveState extends State<Applyleave> {
                     }),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.only(top: 25.0, left: 30, right: 30),
               child: TextField(
+                controller: descriptionController,
                 maxLines: 4,
                 decoration: InputDecoration(
                     labelText: 'Description',
@@ -292,10 +433,10 @@ class _ApplyleaveState extends State<Applyleave> {
                     border: OutlineInputBorder()),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.only(top: 25.0, left: 30, right: 30),
               child: TextField(
+                controller: noController,
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 maxLength: 10,
@@ -366,20 +507,63 @@ class _ApplyleaveState extends State<Applyleave> {
                   ),
             Padding(
               padding: const EdgeInsets.only(top: 25.0, left: 30, right: 30),
-              child: ElevatedButton(onPressed: (){},
-              
-                    style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue, // Button color
-              foregroundColor: Colors.white, // Text color
-              shadowColor: Colors.black, // Shadow color
-              elevation: 5, // Elevation (depth)
-              minimumSize: Size(50, 50),
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15), // Button padding
-              textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold), // Text styling
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15), // Rounded corners
-              ),), child: Text('SUBMIT')
-             ,),
+              child: ElevatedButton(
+                onPressed: () {
+if (dateTime2.day  < dateTime.day ||dateTime2.month  < dateTime.month ||dateTime2.year  < dateTime.year ||(dateTime2.day < DateTime.now().day ||
+                      dateTime2.month < DateTime.now().month ||
+                      dateTime2.year < DateTime.now().year) ||
+                  (dateTime2.day < dateTime.day ||
+                      dateTime2.month < dateTime.month ||
+                      dateTime2.year < dateTime.year)   || (dateTime2.day < DateTime.now().day ||
+                      dateTime2.month < DateTime.now().month ||
+                      dateTime2.year < DateTime.now().year) ||
+                  (dateTime2.day < dateTime.day ||
+                      dateTime2.month < dateTime.month ||
+                      dateTime2.year < dateTime.year)
+                      
+                      || dateTime2.day  == dateTime.day &&dateTime2.month  == dateTime.month && dateTime2.year  == dateTime.year
+                      
+                      ){
+
+ ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Center(child: Text('Enter Valid Date and Time',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 18)))));
+
+}
+else if(descriptionController.text.isEmpty || noController.text.isEmpty  )
+{
+
+ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(content: Center(child: Text('Fill All Required Field',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 18))))
+);
+
+}
+
+else
+{
+   ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Center(child: Text('Submitted SuccessFully',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w500,fontSize: 18)))));
+}
+
+
+               
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue, // Button color
+                  foregroundColor: Colors.white, // Text color
+                  shadowColor: Colors.black, // Shadow color
+                  elevation: 5, // Elevation (depth)
+                  minimumSize: Size(50, 50),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 20, vertical: 15), // Button padding
+                  textStyle: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold), // Text styling
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15), // Rounded corners
+                  ),
+                ),
+                child: Text('SUBMIT'),
+              ),
             )
           ],
         ),
