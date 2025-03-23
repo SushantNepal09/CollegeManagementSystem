@@ -531,6 +531,17 @@ else {
                       SnackBar(content: Center(child: Text('Submitted SuccessFully',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w500,fontSize: 18)))));
 }
 
+ else if(descriptionController.text.isEmpty || noController.text.isEmpty  )
+{
+
+ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(content: Center(child: Text('Fill All Required Field',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 18))))
+);
+
+}
+
+
+
 else if (dateTime2.day  < dateTime.day ||dateTime2.month  < dateTime.month ||dateTime2.year  < dateTime.year ||(dateTime2.day < DateTime.now().day ||
                       dateTime2.month < DateTime.now().month ||
                       dateTime2.year < DateTime.now().year) ||
@@ -552,14 +563,6 @@ else if (dateTime2.day  < dateTime.day ||dateTime2.month  < dateTime.month ||dat
 
  ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Center(child: Text('Enter Valid Date and Time',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 18)))));
-
-}
- else if(descriptionController.text.isEmpty || noController.text.isEmpty  )
-{
-
-ScaffoldMessenger.of(context).showSnackBar(
-  SnackBar(content: Center(child: Text('Fill All Required Field',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 18))))
-);
 
 }
 
