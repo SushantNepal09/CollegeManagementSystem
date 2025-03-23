@@ -523,7 +523,7 @@ else {
                       
                       )
                       
-                      && descriptionController.text.isNotEmpty || noController.text.isNotEmpty
+                      && descriptionController.text.isNotEmpty && noController.text.isNotEmpty
                       
                       )
 {
@@ -566,10 +566,10 @@ ScaffoldMessenger.of(context).showSnackBar(
 
 
 
-else {
-   ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Center(child: Text('Submitted SuccessFully',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w500,fontSize: 18)))));
-}
+// else {
+//    ScaffoldMessenger.of(context).showSnackBar(
+//                       SnackBar(content: Center(child: Text('Submitted SuccessFully',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w500,fontSize: 18)))));
+// }
 
 
                
