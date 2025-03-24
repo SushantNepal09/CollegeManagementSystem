@@ -511,21 +511,44 @@ else {
                 onPressed: () {
 
 
- if ((
+//  if ((
   
- ( dateTime2.day < DateTime.now().day &&
-                     ( dateTime2.month > DateTime.now().month ||
-                      dateTime2.year > DateTime.now().year) )
+//  ( dateTime2.day < DateTime.now().day &&
+//                      ( dateTime2.month > DateTime.now().month ||
+//                       dateTime2.year > DateTime.now().year) )
                       
-                      ||  ( dateTime2.day > DateTime.now().day &&
-                     ( dateTime2.month > DateTime.now().month ||
-                      dateTime2.year > DateTime.now().year) )
+//                       ||  ( dateTime2.day > DateTime.now().day &&
+//                      ( dateTime2.month > DateTime.now().month ||
+//                       dateTime2.year > DateTime.now().year) )
+// ||
+
+//                        (( dateTime2.day > dateTime.day &&
+//                      ( dateTime2.month > dateTime.month &&
+//                       dateTime2.year == dateTime.year) ) && ( dateTime.day <= DateTime.now().day &&
+//                      ( dateTime.month <= DateTime.now().month ||
+//                       dateTime.year <= DateTime.now().year) ))
+
+//                       ||
+//                       (
+
+//   ( dateTime2.day > dateTime.day &&
+//                      ( dateTime2.month == dateTime.month &&
+//                       dateTime2.year == dateTime.year) )
+//                       )
                       
-                      )
+//                       ) 
+                    
+                  
                       
-                      && descriptionController.text.isNotEmpty && noController.text.isNotEmpty
+//                       && descriptionController.text.isNotEmpty && noController.text.isNotEmpty
                       
-                      )
+//                       )
+
+
+if(
+  dateTime.isAfter(DateTime.now()) || (dateTime.isAtSameMomentAs(DateTime.now()))
+&& dateTime2.isAfter(dateTime) && descriptionController.text.isNotEmpty && noController.text.isNotEmpty
+)
 {
    ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Center(child: Text('Submitted SuccessFully',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w500,fontSize: 18)))));
@@ -569,10 +592,10 @@ else if (dateTime2.day  < dateTime.day ||dateTime2.month  < dateTime.month ||dat
 
 
 
-// else {
-//    ScaffoldMessenger.of(context).showSnackBar(
-//                       SnackBar(content: Center(child: Text('Submitted SuccessFully',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w500,fontSize: 18)))));
-// }
+else {
+   ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Center(child: Text('Fill all the Fields Carefully',style: TextStyle(color: Colors.redAccent,fontWeight: FontWeight.w500,fontSize: 18)))));
+}
 
 
                
