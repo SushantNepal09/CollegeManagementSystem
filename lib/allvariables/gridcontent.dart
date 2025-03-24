@@ -15,7 +15,7 @@ List<Content> contents = [
       image:
           "https://cdn-icons-png.freepik.com/256/8019/8019801.png?semt=ais_hybrid"),
   Content(
-      title: "Reports",
+      title: "Exams",
       image: "https://cdn-icons-png.flaticon.com/512/9338/9338114.png"),
   Content(
       title: "Resources",

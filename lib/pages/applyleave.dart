@@ -546,7 +546,7 @@ else {
 
 
 if(
-  dateTime.isAfter(DateTime.now()) || (dateTime.isAtSameMomentAs(DateTime.now()))
+  dateTime.isAfter(DateTime.now()) 
 && dateTime2.isAfter(dateTime) && descriptionController.text.isNotEmpty && noController.text.isNotEmpty
 )
 {

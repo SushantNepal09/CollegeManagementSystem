@@ -39,21 +39,30 @@ class _MyAppState extends State<MyApp> {
       routes: {
         'Notifications': (context) => NotificationPage(),
       },
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: Builder(
         builder: (context) => Scaffold(
           drawer: Navbar(),
           appBar: AppBar(
             backgroundColor: primaryBlue,
             actions: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('Notifications');
-                  },
-                  icon: Icon(
-                    Icons.notifications,
-                    size: 28,
-                  ))
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Badge(
+                  isLabelVisible: true,
+                  label: Text('5'),
+                 
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('Notifications');
+                      },
+                      icon: Icon(
+                        Icons.notifications,
+                        size: 28,
+                        color: Colors.white,
+                      )),
+                ),
+              )
             ],
             title: Center(child: Text('Student')),
           ),

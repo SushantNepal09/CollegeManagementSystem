@@ -8,6 +8,7 @@ import 'package:student/pages/assignments.dart/exam.dart';
 import 'package:student/pages/fees/fees.dart';
 import 'package:student/pages/notes/practical.dart';
 import 'package:student/pages/notes/theory.dart';
+import 'package:student/pages/results/result.dart';
 
 class GridBox extends StatefulWidget {
   const GridBox({
@@ -28,8 +29,10 @@ class _GridBoxState extends State<GridBox> {
         children: [
           Container(
               height: scroll
-                  ? MediaQuery.of(context).size.height * 0.45 //height of the grid box when the see all button is pressed and not pressed
-                  : MediaQuery.of(context).size.height * 0.9, //1.3 ON PC 0.9 ON PHONE
+                  ? MediaQuery.of(context).size.height *
+                      0.45 //height of the grid box when the see all button is pressed and not pressed
+                  : MediaQuery.of(context).size.height *
+                      0.9, //1.3 ON PC 0.9 ON PHONE
               decoration: BoxDecoration(
                   color: secBlue,
                   borderRadius: BorderRadius.circular(10),
@@ -55,36 +58,33 @@ class _GridBoxState extends State<GridBox> {
                       if (index == 0) {
                         _displayBottomSheet(context, contents[index], 0, 1);
                       }
-                      if (index == 1) {
-                        _displayBottomSheet(context, contents[index], 2, 3);
+                      if (index == 1) { //this is for assignments where 
+                        // _displayBottomSheet(context, contents[index], 2, 3);
                       }
 
                       if (index == 2) {
-
-                        // _reportsBottomsheet(context, contents[index]);
-                        _displayBottomSheet(context, contents[index],6,7);
+                       
+                        _displayBottomSheet(context, contents[index], 2, 3);
+                       
                       }
 
                       if (index == 3) {
-                         
                         _displayBottomSheet(context, contents[index], 4, 5);
                       }
-if(index==7)
-{                   
-Navigator.push(context, MaterialPageRoute(builder: (context)=>
-Fees(),
-));
-                      
-}
-if(index ==6)
-{                   
-Navigator.push(context, MaterialPageRoute(builder: (context)=>
-Applyleave(),
-));
-                      
-}
-
-
+                      if (index == 7) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Fees(),
+                            ));
+                      }
+                      if (index == 6) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Applyleave(),
+                            ));
+                      }
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(25.0),
@@ -108,19 +108,22 @@ Applyleave(),
                         ),
                         child: Center(
                           child: Column(
-                            
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                            
                               Image.network(
                                 contents[index].image,
                                 fit: BoxFit.cover,
                                 height: 60,
-                                
-                               
                               ),
-                              Divider(height: 1,color: Colors.grey,),
-                              Text(contents[index].title,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
+                              Divider(
+                                height: 1,
+                                color: Colors.grey,
+                              ),
+                              Text(
+                                contents[index].title,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 15),
+                              ),
                             ],
                           ),
                         ),
@@ -223,11 +226,11 @@ Applyleave(),
                           context,
                           MaterialPageRoute(builder: (context) => Practical()),
                         );
-                      } else if (startIndex + index == 2) {
+                      } else if (startIndex + index == 2) { //THIS IS WHAT OPENS WHEN WE CLICK LATEST REPORTS
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Classassignments()),
+                              builder: (context) => LatestReports()), 
                         );
                       } else if (startIndex + index == 3) {
                         Navigator.push(
@@ -235,12 +238,10 @@ Applyleave(),
                           MaterialPageRoute(builder: (context) => Exams()),
                         );
                       }
-                      else if(startIndex+ index == 6)
-                      {
-                         _reportsBottomsheet(context, contents);
-                      }
-
-                 
+                      // else if(startIndex+ index == 6)
+                      // {
+                      //    _reportsBottomsheet(context, contents);
+                      // }
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -262,46 +263,43 @@ Applyleave(),
     );
   }
 
-  Future _reportsBottomsheet(BuildContext context, Content content) {
-    return showModalBottomSheet(
-        context: context,
-        builder: (context) => Container(
-          decoration: BoxDecoration(
-color: const Color.fromARGB(255, 216, 249, 255),
-borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
-          ),
-          
-            height: 250,
-            // width: 300,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: ListView(
-                children: [
-                  Center(child: Text('Choose the Semester',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 255, 1, 1)),)),
-                  Divider(),
-                  Text('First Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
-                  Divider(),
-                  Text('Second Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
-                     Divider(),
-                  Text('Third Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
-                     Divider(),
-                  Text('Fourth Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
-                     Divider(),
-                  Text('Fifth Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
-                     Divider(),
-                  Text('Sixth Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
-                     Divider(),
-                  Text('Seventh Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
-                     Divider(),
-                  Text('Eight Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
-                ],
-              ),
-            )
-            
-         
-            
-            
-            
-            ));
-  }
+//   Future _reportsBottomsheet(BuildContext context, Content content) {
+//     return showModalBottomSheet(
+//         context: context,
+//         builder: (context) => Container(
+//           decoration: BoxDecoration(
+// color: const Color.fromARGB(255, 216, 249, 255),
+// borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
+//           ),
+
+//             height: 250,
+//             // width: 300,
+//             child: Padding(
+//               padding: const EdgeInsets.all(20.0),
+//               child: ListView(
+//                 children: [
+//                   Center(child: Text('Choose the Semester',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 255, 1, 1)),)),
+//                   Divider(),
+//                   Text('First Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+//                   Divider(),
+//                   Text('Second Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+//                      Divider(),
+//                   Text('Third Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+//                      Divider(),
+//                   Text('Fourth Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+//                      Divider(),
+//                   Text('Fifth Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+//                      Divider(),
+//                   Text('Sixth Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+//                      Divider(),
+//                   Text('Seventh Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+//                      Divider(),
+//                   Text('Eight Semester',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 0, 0, 0)),),
+//                 ],
+//               ),
+//             )
+
+//             ));
+//   }
+// }
 }
