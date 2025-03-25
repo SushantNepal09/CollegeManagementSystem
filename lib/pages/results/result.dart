@@ -38,38 +38,88 @@ class _LatestReportsState extends State<LatestReports> {
             child: Container(
               // width: MediaQuery.sizeOf(context).width * 1.1,
               decoration: BoxDecoration(
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(width: .5,color: Colors.grey)
+                border: Border.all(width: .5,color: const Color.fromARGB(255, 150, 149, 149))
+              
               ),
               child: DropdownButton(
+                dropdownColor: Colors.lightBlueAccent,
+iconEnabledColor: Colors.amber,
+iconSize: 35,
+
+
+                
                   items: [
                     DropdownMenuItem(
-                    
+                
                       value: 'CSIT',
-                      child: Text('  Bsc.CSIT'),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10,right: 10),
+                        child: Row(
+                                          
+                          children: [
+                           Icon(Icons.computer),
+                            Text('    Bsc.CSIT'),
+                          ],
+                        ),
+                      ),
                     ),
                     DropdownMenuItem(
                       value: 'BIT',
-                      child: Text('  BIT'),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10,right: 10),
+                        child: Row(
+                          children: [
+                            Icon(Icons.settings),
+                        
+                            Text('    BIT'),
+                          ],
+                        ),
+                      ),
                     ),
                     DropdownMenuItem(
                       value: 'Physics',
-                      child: Text('  Bsc.Physics'),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10,right: 10),
+                        child: Row(
+                          children: [
+                            Icon(Icons.electric_bolt_outlined),
+                            Text('    Bsc.Physics'),
+                          ],
+                        ),
+                      ),
                     ),
                     DropdownMenuItem(
                       value: 'BTECH',
-                      child: Text('  B.TECH'),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10,right: 10),
+                        child: Row(
+                          children: [
+                            Icon(Icons.food_bank_outlined),
+                            Text('    B.TECH'),
+                          ],
+                        ),
+                      ),
                     ),
                     DropdownMenuItem(
                       value: 'Biology',
-                      child: Text('  Biology'),
+                      child: Padding(
+                       padding: const EdgeInsets.only(left: 10,right: 10),
+                        child: Row(
+                          children: [
+                            Icon(Icons.biotech_outlined),
+                            Text('    Biology'),
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                   value: _dropDownValue,
                   isExpanded: true,
 
                   borderRadius: BorderRadius.circular(10),
-                  style: TextStyle(color: const Color.fromARGB(255, 13, 13, 13),fontSize: 18,fontWeight: FontWeight.w500
+                  style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0),fontSize: 18,fontWeight: FontWeight.w500
                   ),
                   underline: Container(
                    height: 0, 

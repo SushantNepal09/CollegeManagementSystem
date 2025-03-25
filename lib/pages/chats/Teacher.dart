@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/allteachers.dart';
 
 class Teacher extends StatefulWidget {
