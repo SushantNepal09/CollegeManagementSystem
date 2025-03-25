@@ -18,6 +18,8 @@ class Applyleave extends StatefulWidget {
 }
 
 class _ApplyleaveState extends State<Applyleave> {
+  final _formKey2 = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   List pickedFilesList =
       []; // for uploading files this is a list which stores the file
 
@@ -66,16 +68,16 @@ class _ApplyleaveState extends State<Applyleave> {
                   top: 18.0, right: 45, left: 45, bottom: 20),
               child: Container(
                 decoration: BoxDecoration(
-                      color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 8,
-                    spreadRadius: 2,
-                    offset: Offset(0, 4),
-                  ),
-                ],
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 8,
+                      spreadRadius: 2,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
                   // borderRadius: BorderRadius.circular(15)
                 ),
                 height: 70,
@@ -84,27 +86,27 @@ class _ApplyleaveState extends State<Applyleave> {
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          bottomLeft: Radius.circular(15),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            bottomLeft: Radius.circular(15),
+                          ),
+                          border: Border.all(
+                              color: Colors.grey.shade300, width: 0.8),
+                          color: Colors.white,
                         ),
-                        border: Border.all(color: Colors.grey.shade300, width: 0.8),
-                        color: Colors.white,
-                      ),
-                            
-                            
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
                               'Total',
                               style: TextStyle(
-                                  color:
-                                       Colors.grey.shade600,
+                                  color: Colors.grey.shade600,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500),
                             ),
-                            SizedBox(height: 8,),
+                            SizedBox(
+                              height: 8,
+                            ),
                             Text(
                               '15.0',
                               style: TextStyle(
@@ -118,26 +120,26 @@ class _ApplyleaveState extends State<Applyleave> {
                     ),
                     Expanded(
                       child: Container(
-                            decoration: BoxDecoration(
-                      
-                        border: Border.all(color: Colors.grey.shade300, width: 0.8),
-                        color: Colors.white,
-                      ),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Colors.grey.shade300, width: 0.8),
+                          color: Colors.white,
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
                               'Approved',
-                                 style: TextStyle(
-                                  color:
-                                       Colors.grey.shade600,
+                              style: TextStyle(
+                                  color: Colors.grey.shade600,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500),
                             ),
                             Text(
                               '12.0',
                               style: TextStyle(
-                                  color: const Color.fromARGB(255, 182, 255, 64),
+                                  color:
+                                      const Color.fromARGB(255, 182, 255, 64),
                                   fontSize: 26,
                                   fontWeight: FontWeight.bold),
                             )
@@ -147,28 +149,28 @@ class _ApplyleaveState extends State<Applyleave> {
                     ),
                     Expanded(
                       child: Container(
-                            decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(15),
-                          bottomRight: Radius.circular(15),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(15),
+                            bottomRight: Radius.circular(15),
+                          ),
+                          border: Border.all(
+                              color: Colors.grey.shade300, width: 0.8),
+                          color: Colors.white,
                         ),
-                        border: Border.all(color: Colors.grey.shade300, width: 0.8),
-                        color: Colors.white,
-                      ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
                               'Rejected',
-                             style: TextStyle(
-                                  color:
-                                       Colors.grey.shade600,
+                              style: TextStyle(
+                                  color: Colors.grey.shade600,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500),
                             ),
                             Text(
                               '3.0',
-                                style: TextStyle(
+                              style: TextStyle(
                                   color: const Color.fromARGB(255, 255, 64, 64),
                                   fontSize: 26,
                                   fontWeight: FontWeight.bold),
@@ -179,10 +181,6 @@ class _ApplyleaveState extends State<Applyleave> {
                     ),
                   ],
                 ),
-
-
-
-
               ),
             ),
             Text(
@@ -209,31 +207,19 @@ class _ApplyleaveState extends State<Applyleave> {
                                   setState(() {
                                     dateTime = value!;
 
-if(
-
-(
-  
- ( value.day < DateTime.now().day &&
-                     ( value.month > DateTime.now().month ||
-                      value.year > DateTime.now().year) )
-                      
-                      ||  ( value.day > DateTime.now().day &&
-                     ( value.month > DateTime.now().month ||
-                      value.year > DateTime.now().year) )
-                      
-                      )
-
-              ) {
-         datecontroller.text =
+                                    if (((value.day < DateTime.now().day &&
+                                            (value.month >
+                                                    DateTime.now().month ||
+                                                value.year >
+                                                    DateTime.now().year)) ||
+                                        (value.day > DateTime.now().day &&
+                                            (value.month >
+                                                    DateTime.now().month ||
+                                                value.year >
+                                                    DateTime.now().year)))) {
+                                      datecontroller.text =
                                           "${value.year}/${value.month}/${value.day}";
-              }
-
-
-
-
-
-
-                                   else if (value.day < DateTime.now().day ||
+                                    } else if (value.day < DateTime.now().day ||
                                         value.month < DateTime.now().month ||
                                         value.year < DateTime.now().year) {
                                       datecontroller.text =
@@ -267,42 +253,24 @@ if(
                                   setState(() {
                                     dateTime2 = value!;
 
-
-
-
-
-if(
-
-(
-  
- ( value.day < DateTime.now().day &&
-                     ( value.month > DateTime.now().month ||
-                      value.year > DateTime.now().year) )
-                      
-                      ||  ( value.day > DateTime.now().day &&
-                     ( value.month > DateTime.now().month ||
-                      value.year > DateTime.now().year) )
-                      
-                      )
-
-              ) {
-         endDate.text =
+                                    if (((value.day < DateTime.now().day &&
+                                            (value.month >
+                                                    DateTime.now().month ||
+                                                value.year >
+                                                    DateTime.now().year)) ||
+                                        (value.day > DateTime.now().day &&
+                                            (value.month >
+                                                    DateTime.now().month ||
+                                                value.year >
+                                                    DateTime.now().year)))) {
+                                      endDate.text =
                                           "${value.year}/${value.month}/${value.day}";
-              }
-
-
-
-
-                                   else if (value.day < DateTime.now().day ||
+                                    } else if (value.day < DateTime.now().day ||
                                         value.month < DateTime.now().month ||
                                         value.year < DateTime.now().year) {
                                       endDate.text =
                                           "${DateTime.now().year}/${DateTime.now().month}/${DateTime.now().day}";
-                                    }
-                                    
-                                    
-                                    
-                                     else {
+                                    } else {
                                       endDate.text =
                                           "${value.year}/${value.month}/${value.day}";
                                     }
@@ -319,27 +287,16 @@ if(
                 ],
               ),
             ),
-          Builder(builder: (context) {
+            Builder(builder: (context) {
               var diff = dateTime2.difference(dateTime);
-              if (diff.inHours < 1 ) {
+              if (diff.inHours < 1) {
                 return Text('Invalid Date selected');
-              }
-              
-                           else if(
-
-(
-  
- ( dateTime2.day < DateTime.now().day &&
-                     ( dateTime2.month > DateTime.now().month ||
-                      dateTime2.year > DateTime.now().year) )
-                      
-                      ||  ( dateTime2.day > DateTime.now().day &&
-                     ( dateTime2.month > DateTime.now().month ||
-                      dateTime2.year > DateTime.now().year) )
-                      
-                      )
-
-              ) {
+              } else if (((dateTime2.day < DateTime.now().day &&
+                      (dateTime2.month > DateTime.now().month ||
+                          dateTime2.year > DateTime.now().year)) ||
+                  (dateTime2.day > DateTime.now().day &&
+                      (dateTime2.month > DateTime.now().month ||
+                          dateTime2.year > DateTime.now().year)))) {
                 return Text(
                   'Request ${diff.inDays} Day Leave',
                   style: TextStyle(
@@ -347,10 +304,7 @@ if(
                       color: Colors.red,
                       fontWeight: FontWeight.w500),
                 );
-              }
-              
-              
-               else if (dateTime.day < DateTime.now().day ||
+              } else if (dateTime.day < DateTime.now().day ||
                   dateTime.month < DateTime.now().month ||
                   dateTime.year < DateTime.now().year) {
                 return Text('Invalid Date selected');
@@ -361,21 +315,15 @@ if(
                       dateTime2.month < dateTime.month ||
                       dateTime2.year < dateTime.year)) {
                 return Text('Invalid Date selected');
-              } 
-              
- 
-
-else {
-      return Text(
+              } else {
+                return Text(
                   'Request ${diff.inDays} Day Leave',
                   style: TextStyle(
                       fontSize: 14,
                       color: Colors.red,
                       fontWeight: FontWeight.w500),
                 );
-}
-
-
+              }
             }),
             Padding(
               padding: const EdgeInsets.only(top: 18.0, left: 30, right: 30),
@@ -423,27 +371,47 @@ else {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 25.0, left: 30, right: 30),
-              child: TextField(
-                controller: descriptionController,
-                maxLines: 4,
-                decoration: InputDecoration(
-                    labelText: 'Description',
-                    alignLabelWithHint: true,
-                    hintText: 'Describe Your Situation in Short',
-                    border: OutlineInputBorder()),
+              child: Form(
+                key: _formKey,
+                child: TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "This field cannot be empty";
+                    }
+                    return null;
+                  },
+                  controller: descriptionController,
+                  maxLines: 4,
+                  decoration: InputDecoration(
+                      labelText: 'Description',
+                      alignLabelWithHint: true,
+                      hintText: 'Describe Your Situation in Short',
+                      border: OutlineInputBorder()),
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 25.0, left: 30, right: 30),
-              child: TextField(
-                controller: noController,
-                keyboardType: TextInputType.number,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                maxLength: 10,
-                decoration: InputDecoration(
-                    labelText: "Contact no.",
-                    hintText: "98XXXXXXXX",
-                    border: OutlineInputBorder()),
+              child: Form(
+                key: _formKey2,
+                child: TextFormField(
+                  controller: noController,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  maxLength: 10,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "This area cannot be empty";
+                    } else if (value.length < 10) {
+                      return "Enter Correct Contact number";
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      labelText: "Contact no.",
+                      hintText: "98XXXXXXXX",
+                      border: OutlineInputBorder()),
+                ),
               ),
             ),
             pickedFilesList.isNotEmpty
@@ -509,14 +477,15 @@ else {
               padding: const EdgeInsets.only(top: 25.0, left: 30, right: 30),
               child: ElevatedButton(
                 onPressed: () {
-
+                  _formKey.currentState!.validate();
+                  _formKey2.currentState!.validate();
 
 //  if ((
-  
+
 //  ( dateTime2.day < DateTime.now().day &&
 //                      ( dateTime2.month > DateTime.now().month ||
 //                       dateTime2.year > DateTime.now().year) )
-                      
+
 //                       ||  ( dateTime2.day > DateTime.now().day &&
 //                      ( dateTime2.month > DateTime.now().month ||
 //                       dateTime2.year > DateTime.now().year) )
@@ -535,70 +504,83 @@ else {
 //                      ( dateTime2.month == dateTime.month &&
 //                       dateTime2.year == dateTime.year) )
 //                       )
-                      
-//                       ) 
-                    
-                  
-                      
-//                       && descriptionController.text.isNotEmpty && noController.text.isNotEmpty
-                      
+
 //                       )
 
+//                       && descriptionController.text.isNotEmpty && noController.text.isNotEmpty
 
-if(
-  dateTime.isAfter(DateTime.now()) 
-&& dateTime2.isAfter(dateTime) && descriptionController.text.isNotEmpty && noController.text.isNotEmpty
-)
-{
-   ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Center(child: Text('Submitted SuccessFully',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w500,fontSize: 18)))));
-}
+//                       )
 
- else if(descriptionController.text.isEmpty || noController.text.isEmpty  )
-{
-
-ScaffoldMessenger.of(context).showSnackBar(
-  SnackBar(content: Center(child: Text('Fill All Required Field',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 18))))
-);
-
-}
-
-
-
-else if (dateTime2.day  < dateTime.day ||dateTime2.month  < dateTime.month ||dateTime2.year  < dateTime.year ||(dateTime2.day < DateTime.now().day ||
-                      dateTime2.month < DateTime.now().month ||
-                      dateTime2.year < DateTime.now().year) ||
-                  (dateTime2.day < dateTime.day ||
+                  if (dateTime.isAfter(DateTime.now()) &&
+                      dateTime2.isAfter(dateTime) &&
+                      descriptionController.text.isNotEmpty &&
+                      noController.text.isNotEmpty  && noController.text.length ==10 ) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Center(
+                            child: Text('Submitted SuccessFully',
+                                style: TextStyle(
+                                    color: Colors.green,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14)))));
+                  } else if (descriptionController.text.isEmpty ||
+                      noController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Center(
+                            child: Text('Fill All Required Field',
+                                style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14)))));
+                  } else if (dateTime2.day < dateTime.day ||
                       dateTime2.month < dateTime.month ||
-                      dateTime2.year < dateTime.year)   || (dateTime2.day < DateTime.now().day ||
-                      dateTime2.month < DateTime.now().month ||
-                      dateTime2.year < DateTime.now().year) ||
-                  (dateTime2.day < dateTime.day ||
-                      dateTime2.month < dateTime.month ||
-                      dateTime2.year < dateTime.year)
-                      
-                      || dateTime2.day  == dateTime.day &&dateTime2.month  == dateTime.month && dateTime2.year  == dateTime.year 
-
-                     
-
-                      
-                      ){
-
- ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Center(child: Text('Enter Valid Date and Time',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 18)))));
-
-}
-
-
-
-
-else {
-   ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Center(child: Text('Fill all the Fields Carefully',style: TextStyle(color: Colors.redAccent,fontWeight: FontWeight.w500,fontSize: 18)))));
-}
-
-
-               
+                      dateTime2.year < dateTime.year ||
+                      (dateTime2.day < DateTime.now().day ||
+                          dateTime2.month < DateTime.now().month ||
+                          dateTime2.year < DateTime.now().year) ||
+                      (dateTime2.day < dateTime.day ||
+                          dateTime2.month < dateTime.month ||
+                          dateTime2.year < dateTime.year) ||
+                      (dateTime2.day < DateTime.now().day ||
+                          dateTime2.month < DateTime.now().month ||
+                          dateTime2.year < DateTime.now().year) ||
+                      (dateTime2.day < dateTime.day ||
+                          dateTime2.month < dateTime.month ||
+                          dateTime2.year < dateTime.year) ||
+                      dateTime2.day == dateTime.day &&
+                          dateTime2.month == dateTime.month &&
+                          dateTime2.year == dateTime.year) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Center(
+                            child: Text('Enter Valid Date and Time',
+                                style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14)))));
+                  }
+                  
+                  else if(noController.text.length < 10)
+                  {
+ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Center(
+                            child: Text(
+                                'Fill the Details Correctly',
+                                style: TextStyle(
+                                    color: Colors.redAccent,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14)))));
+                  }
+                  
+                  
+                   else {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Center(
+                            child: Text(
+                                'You cannot ask leave for the Current Day',
+                                style: TextStyle(
+                                    color: Colors.redAccent,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14)))));
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue, // Button color
