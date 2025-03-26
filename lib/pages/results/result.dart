@@ -29,7 +29,7 @@ class _LatestReportsState extends State<LatestReports> {
             child: Center(
                 child: Image.asset(
               'assets/report.png',
-              height: 180,
+              height: 179,
             )),
           ),
           Padding(
@@ -47,7 +47,6 @@ class _LatestReportsState extends State<LatestReports> {
                 dropdownColor: Colors.lightBlueAccent,
 iconEnabledColor: Colors.amber,
 iconSize: 35,
-
 
                 
                   items: [
