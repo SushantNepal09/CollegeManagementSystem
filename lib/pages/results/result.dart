@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:student/allvariables/allVar.dart';
 
 var _dropDownValue = "CSIT";
@@ -54,7 +55,7 @@ class _LatestReportsState extends State<LatestReports> {
                     DropdownMenuItem(
                       value: 'CSIT',
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 30),
+                        padding: const EdgeInsets.only(left: 10, right: 10),
                         child: Row(
                           children: [
                             Icon(Icons.computer),
@@ -142,7 +143,7 @@ class _LatestReportsState extends State<LatestReports> {
 
           Padding(
             padding:
-                const EdgeInsets.only(top: 10, bottom: 40, left: 38, right: 38),
+                const EdgeInsets.only(top: 10, bottom: 10, left: 38, right: 38),
             child: Container(
               // width: MediaQuery.sizeOf(context).width * 1.1,
               decoration: BoxDecoration(
@@ -248,7 +249,7 @@ class _LatestReportsState extends State<LatestReports> {
                         child: Row(
                           children: [
                              SizedBox(width: 20,),
-                            Text(' 8th Sem'),
+                            Text('8th Sem'),
                           ],
                         ),
                       ),
@@ -354,8 +355,60 @@ class _LatestReportsState extends State<LatestReports> {
         //             });
         //           }),
         //     ),
-        //   )
+        //   ),
 
+
+Padding(
+ padding:   const EdgeInsets.only(top: 10, bottom: 10, left: 38, right: 38),
+  child: TextFormField(
+   keyboardType: TextInputType.number,
+   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+  decoration: InputDecoration(
+    border: OutlineInputBorder(
+     borderSide: BorderSide(width: .5
+     
+     ),
+  borderRadius: BorderRadius.circular(15)
+    ),
+
+  labelText:  "Enter Your Symbol No:",
+  ),
+  
+    
+  ),
+),
+
+
+Padding(
+ padding:   const EdgeInsets.only(top: 10, bottom: 40, left: 38, right: 38),
+  child: TextFormField(
+keyboardType: TextInputType.number,
+inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+  
+    decoration: InputDecoration(
+            labelText: "Confirm Your Symbol No:",
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15)
+      )
+    ),
+  ),
+),
+
+ElevatedButton(onPressed: (){},        style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue, // Button color
+                  foregroundColor: Colors.white, // Text color
+                  shadowColor: Colors.black, // Shadow color
+                  elevation: 5, // Elevation (depth)
+                  minimumSize: Size(50, 50),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 20, vertical: 15), // Button padding
+                  textStyle: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold), // Text styling
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15), // Rounded corners
+                  ),
+                ),child: Text('SUBMIT') )
 
 
         ],
