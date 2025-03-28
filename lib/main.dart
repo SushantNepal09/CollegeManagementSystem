@@ -65,11 +65,14 @@ class _MyAppState extends State<MyApp> {
               )
             ],
             title: Center(child: Text('Student')),
+            
           ),
           body: Dashboard(),
           floatingActionButton: Test(),
           floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+          
         ),
+        
       ),
    
     );
