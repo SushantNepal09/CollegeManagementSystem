@@ -261,13 +261,13 @@ Image(image: AssetImage('assets/card.png'),
                                   'PayDate',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 18),
+                                      fontSize: 18,color: Colors.black),
                                 ),
                                 Text(
                                   '2022-05-06',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 13),
+                                      fontSize: 13,color: Colors.black),
                                 )
                               ],
                             ),
@@ -280,13 +280,13 @@ Image(image: AssetImage('assets/card.png'),
                                   'Total',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 18),
+                                      fontSize: 18,color: Colors.black),
                                 ),
                                 Text(
                                   'Rs.35,000',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 16),
+                                      fontSize: 16,color: Colors.black),
                                 )
                               ],
                             ),

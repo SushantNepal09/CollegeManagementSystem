@@ -54,7 +54,7 @@ class _DashboardState extends State<Dashboard> {
                                         fontWeight: FontWeight.w400)),
                                 Text('Bsc.CSIT | 5th Semester | Rollno : 09',
                                     style: TextStyle(
-                                        color: Colors.white,
+                                        color:  Colors.white,
                                         fontSize: 15,
                                         fontWeight: FontWeight.w300)),
                               ],
@@ -92,7 +92,7 @@ class _DashboardState extends State<Dashboard> {
                               Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12)),
-                                width: MediaQuery.of(context).size.width * 0.80,
+                                width: MediaQuery.of(context).size.width * 0.78,
                                 child: LinearPercentIndicator(
                                   animation: true,
                                   animationDuration: 2000,

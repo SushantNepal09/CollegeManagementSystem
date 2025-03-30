@@ -1,11 +1,17 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/main.dart';
 import 'package:student/pages/profilePage.dart';
 
-class Navbar extends StatelessWidget {
+class Navbar extends StatefulWidget {
   const Navbar({super.key});
 
+  @override
+  State<Navbar> createState() => _NavbarState();
+}
+
+class _NavbarState extends State<Navbar> {
   @override
   Widget build(BuildContext context) {
     // Color myColor = Color(0xFF167AFA);
@@ -24,8 +30,7 @@ class Navbar extends StatelessWidget {
                 },
                 child: ClipOval(
                   child: Image(
-                    image: AssetImage('assets/profilepic.png')
-                    ,
+                    image: AssetImage('assets/profilepic.png'),
                     height: 100,
                     width: 100,
                     fit: BoxFit.cover,
@@ -63,6 +68,13 @@ class Navbar extends StatelessWidget {
             leading: Icon(Icons.settings),
             title: Text('Settings'),
             onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(Icons.sunny),
+            title: Text('DarkMode(Temp)'),
+            onTap: () {
+     
+            },
           ),
           ListTile(
             leading: Icon(Icons.logout),

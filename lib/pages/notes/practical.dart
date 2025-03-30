@@ -39,19 +39,19 @@ borderRadius: BorderRadius.circular(40),
 color: const Color.fromARGB(255, 253, 253, 253)
                       ),
                       
-                      child: IconButton(onPressed: () {}, icon: Icon(Icons.download))),
+                      child: IconButton(onPressed: () {}, icon: Icon(Icons.download),color: Colors.black,)),
                 selectedTileColor: Colors.blue,
                 title: Padding(
                   padding: const EdgeInsets.only(left: 20),
-                  child: Text(allpnotes[index].SubName,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                  child: Text(allpnotes[index].SubName,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),
                 ),
                 subtitle: Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(allpnotes[index].Topic,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400),), //called from thee class
-                      Text(allpnotes[index].Date,style: TextStyle(fontSize: 12),),
+                      Text(allpnotes[index].Topic,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,color: Colors.black),), //called from thee class
+                      Text(allpnotes[index].Date,style: TextStyle(fontSize: 12,color: Colors.black),),
                     ],
                   ),
                 ),

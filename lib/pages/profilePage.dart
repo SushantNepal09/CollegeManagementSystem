@@ -48,16 +48,16 @@ class MyProfile extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         border: Border.all(
-                          width: 2.5,
+                          width: 2,
                           color: const Color.fromARGB(255, 0, 0, 0),
  
                         ),
-                        borderRadius: BorderRadius.circular(35),
+                        borderRadius: BorderRadius.circular(37),
                        
                       ),
                       child: CircleAvatar(
                         
-                        radius: 35,
+                        radius: 34,
                         child: ClipOval(
                 
 
@@ -84,7 +84,7 @@ class MyProfile extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 45,right: 45),
                         child: Text(
-                            "This is the information about the student. it shows all the required details of this student "),
+                            "This is the information about the student. it shows all the required details of this student ",style: TextStyle(color: Colors.black),),
                       ),
                     ],
                   ),
@@ -105,7 +105,7 @@ class MyProfile extends StatelessWidget {
         
         Padding(
           padding: const EdgeInsets.only(top: 40),
-          child: Text("Student Details",style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.w500),),
+          child: Text("Student Details",style: TextStyle(color: const Color.fromARGB(255, 221, 155, 155),fontSize: 20,fontWeight: FontWeight.w500),),
         ),
         
             Padding(  //this is the bigger container at the bottom
@@ -138,7 +138,7 @@ class MyProfile extends StatelessWidget {
           child: Row(  //this is for creating space between the topic and details horizontally
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-        Text("Symbol no:",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18),),
+        Text("Symbol no:",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18,color: Colors.black),),
         Text("79011501",style: TextStyle(fontWeight: FontWeight.w400,color: const Color.fromARGB(255, 53, 53, 53),fontSize: 16),)
             ],
           ),
@@ -149,7 +149,7 @@ class MyProfile extends StatelessWidget {
           child: Row(  //this is for creating space between the topic and details horizontally
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-        Text("Date-of-Birth",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18),),
+        Text("Date-of-Birth",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18,color: Colors.black),),
         Text("2003-02-05",style: TextStyle(fontWeight: FontWeight.w400,color: const Color.fromARGB(255, 60, 60, 60),fontSize: 16),)
             ],
           ),
@@ -159,7 +159,7 @@ class MyProfile extends StatelessWidget {
           child: Row(  //this is for creating space between the topic and details horizontally
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-        Text("Class",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18),),
+        Text("Class",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18,color: Colors.black),),
         Text("Csit 5th Sem",style: TextStyle(fontWeight: FontWeight.w400,color: const Color.fromARGB(255, 60, 60, 60),fontSize: 16),)
             ],
           ),
@@ -169,7 +169,7 @@ class MyProfile extends StatelessWidget {
           child: Row(  //this is for creating space between the topic and details horizontally
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-        Text("Phone no",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18),),
+        Text("Phone no",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18,color: Colors.black),),
         Text("9854000000",style: TextStyle(fontWeight: FontWeight.w400,color: const Color.fromARGB(255, 60, 60, 60),fontSize: 16),)
             ],
           ),
@@ -179,7 +179,7 @@ class MyProfile extends StatelessWidget {
           child: Row(  //this is for creating space between the topic and details horizontally
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-        Text("Parent's Name",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18),),
+        Text("Parent's Name",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18,color: Colors.black),),
         Text("Parent's Name 123",style: TextStyle(fontWeight: FontWeight.w400,color: const Color.fromARGB(255, 60, 60, 60),fontSize: 16),)
             ],
           ),
@@ -189,7 +189,7 @@ class MyProfile extends StatelessWidget {
           child: Row(  //this is for creating space between the topic and details horizontally
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-        Text("Address",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18),),
+        Text("Address",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18,color: Colors.black),),
         Text("Baliya-4,Sundarharicha",style: TextStyle(fontWeight: FontWeight.w400,color: const Color.fromARGB(255, 60, 60, 60),fontSize: 16),)
             ],
           ),

@@ -7,12 +7,13 @@ import 'package:student/pages/fees/fees.dart';
 import 'package:student/pages/notification.dart';
 import 'Navigationtools/navbar.dart';
 
+
+
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  
   const MyApp({super.key});
 
   @override
@@ -20,8 +21,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-    late SharedPreferences prefs;
-
+  late SharedPreferences prefs;
+bool dark = false;
   @override
   void initState() {
     super.initState();
@@ -31,10 +32,11 @@ class _MyAppState extends State<MyApp> {
   initPrefs() async {
     prefs = await SharedPreferences.getInstance();
     isPaid = prefs.getBool('isPaid')!;
-   
   }
+
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       routes: {
         'Notifications': (context) => NotificationPage(),
@@ -51,30 +53,37 @@ class _MyAppState extends State<MyApp> {
                 child: Badge(
                   isLabelVisible: true,
                   label: Text('5'),
-                 
-                  child: IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('Notifications');
-                      },
-                      icon: Icon(
-                        Icons.notifications,
-                        size: 28,
-                        color: Colors.white,
-                      )),
+                  child: Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            setState(() {
+                              dark = !dark;
+                            });
+                          },
+                          icon: Icon(dark ? Icons.light_mode : Icons.dark_mode),color:  Colors.white),
+                      IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pushNamed('Notifications');
+                          },
+                          icon: Icon(
+                            Icons.notifications,
+                            size: 28,
+                            color: Colors.white,
+                          )),
+                    ],
+                  ),
                 ),
               )
             ],
             title: Center(child: Text('Student')),
-            
           ),
           body: Dashboard(),
           floatingActionButton: Test(),
           floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-          
         ),
-        
       ),
-   
+      theme: dark ? ThemeData.dark() : ThemeData.light(),
     );
   }
 }

@@ -80,7 +80,7 @@ class _FeesState extends State<Fees> {
                         Text(
                           "Rs 25,000",
                           style: TextStyle(
-                              fontWeight: FontWeight.w900, fontSize: 15),
+                              fontWeight: FontWeight.w900, fontSize: 15,color: Colors.black),
                         ),
                         SizedBox(
                           width: 10,
@@ -129,8 +129,8 @@ class _FeesState extends State<Fees> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(allCosts[index].title),
-                                  Text(allCosts[index].cost),
+                                  Text(allCosts[index].title,style: TextStyle(color: Colors.black),),
+                                  Text(allCosts[index].cost,style: TextStyle(color: Colors.black),),
                                 ],
                               ),
                             ],

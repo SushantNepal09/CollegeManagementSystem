@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:student/Navigationtools/navbar.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/cardclick.dart';
 import 'package:student/allvariables/gridcontent.dart';
@@ -121,7 +122,7 @@ class _GridBoxState extends State<GridBox> {
                               Text(
                                 contents[index].title,
                                 style: TextStyle(
-                                    fontWeight: FontWeight.w500, fontSize: 15),
+                                    fontWeight: FontWeight.w500, fontSize: 15,color: Colors.black),
                               ),
                             ],
                           ),
@@ -249,7 +250,7 @@ class _GridBoxState extends State<GridBox> {
                           materials[startIndex + index].image,
                           height: 100,
                         ),
-                        Text(materials[startIndex + index].title),
+                        Text(materials[startIndex + index].title,style: TextStyle(color: Colors.black ),),
                       ],
                     ),
                   ),
