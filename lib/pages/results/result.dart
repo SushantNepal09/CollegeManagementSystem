@@ -513,7 +513,7 @@ class _LatestReportsState extends State<LatestReports> {
                   borderRadius: BorderRadius.circular(15), // Rounded corners
                 ),
               ),
-              child: Text('SUBMIT'))
+              child: Text('SUBMIT.'))
         ],
       ),
     );
