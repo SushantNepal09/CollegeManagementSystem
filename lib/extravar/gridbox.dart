@@ -4,7 +4,7 @@ import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/cardclick.dart';
 import 'package:student/allvariables/gridcontent.dart';
 import 'package:student/pages/applyleave.dart';
-import 'package:student/pages/assignments.dart/exam.dart';
+import 'package:student/pages/exampage/exam.dart';
 import 'package:student/pages/fees/fees.dart';
 import 'package:student/pages/notes/practical.dart';
 import 'package:student/pages/notes/theory.dart';
