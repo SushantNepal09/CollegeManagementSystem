@@ -12,7 +12,7 @@ class _FirsttabState extends State<Firsttab> {
   Widget build(BuildContext context) {
     return  Container(
         color: Colors.amber,
-        child: Text("Hello Homer"),
+        child: Text("Hello Home"),
       );
   }
 }
