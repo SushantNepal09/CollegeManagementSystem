@@ -71,7 +71,7 @@ class ChatArea extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Icon(
-                  Icons.admin_panel_settings,
+                  Icons.admin_panel_settings,color: Colors.black,
                 ),
                 Text(
                   'Admin',
@@ -91,7 +91,7 @@ class ChatArea extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Icon(Icons.person_4),
+                  Icon(Icons.person_4,color: Colors.black,),
                   Text(
                     'Teacher',
                     style: TextStyle(
@@ -106,7 +106,7 @@ class ChatArea extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Icon(Icons.family_restroom),
+                Icon(Icons.family_restroom,color: Colors.black,),
                 Text(
                   'Parents',
                   style: TextStyle(

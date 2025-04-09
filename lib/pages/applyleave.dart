@@ -185,7 +185,7 @@ class _ApplyleaveState extends State<Applyleave> {
             ),
             Text(
               'Apply Leave',
-              style: TextStyle(color: Colors.black, fontSize: 20),
+              style: TextStyle(color: Colors.yellowAccent, fontSize: 20),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -200,10 +200,17 @@ class _ApplyleaveState extends State<Applyleave> {
                           suffixIcon: IconButton(
                               onPressed: () {
                                 showDatePicker(
-                                        context: context,
-                                        firstDate: DateTime.utc(2002, 01, 02),
-                                        lastDate: DateTime.utc(2030, 12, 30))
-                                    .then((value) {
+                                    context: context,
+                                    firstDate: DateTime.utc(2002, 01, 02),
+                                    lastDate: DateTime.utc(2030, 12, 30),
+                                    selectableDayPredicate:
+                                        (DateTime dateTime) {
+                                      if (dateTime.isBefore(DateTime.now())) {
+                                        return false;
+                                      } else {
+                                        return true;
+                                      }
+                                    }).then((value) {
                                   setState(() {
                                     dateTime = value!;
 
@@ -246,10 +253,17 @@ class _ApplyleaveState extends State<Applyleave> {
                           suffixIcon: IconButton(
                               onPressed: () {
                                 showDatePicker(
-                                        context: context,
-                                        firstDate: DateTime.utc(2002, 01, 02),
-                                        lastDate: DateTime.utc(2030, 12, 30))
-                                    .then((value) {
+                                    context: context,
+                                    firstDate: DateTime.utc(2002, 01, 02),
+                                    lastDate: DateTime.utc(2030, 12, 30),
+                                    selectableDayPredicate:
+                                        (DateTime dateTime2) {
+                                      if (dateTime2.isBefore(dateTime) || dateTime2.isAtSameMomentAs(dateTime)) {
+                                        return false;
+                                      } else {
+                                        return true;
+                                      }
+                                    }).then((value) {
                                   setState(() {
                                     dateTime2 = value!;
 
@@ -514,7 +528,8 @@ class _ApplyleaveState extends State<Applyleave> {
                   if (dateTime.isAfter(DateTime.now()) &&
                       dateTime2.isAfter(dateTime) &&
                       descriptionController.text.isNotEmpty &&
-                      noController.text.isNotEmpty  && noController.text.length ==10 ) {
+                      noController.text.isNotEmpty &&
+                      noController.text.length == 10) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Center(
                             child: Text('Submitted SuccessFully',
@@ -556,24 +571,15 @@ class _ApplyleaveState extends State<Applyleave> {
                                     color: Colors.red,
                                     fontWeight: FontWeight.w400,
                                     fontSize: 14)))));
-                  }
-                  
-                  else if(noController.text.length < 10)
-                  {
-ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  } else if (noController.text.length < 10) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Center(
-                            child: Text(
-                                'Fill the Details Correctly',
+                            child: Text('Fill the Details Correctly',
                                 style: TextStyle(
                                     color: Colors.redAccent,
                                     fontWeight: FontWeight.w400,
-                                    fontSize: 14)
-                                    
-                                    ))));
-                  }
-                  
-                  
-                   else {
+                                    fontSize: 14)))));
+                  } else {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Center(
                             child: Text(
