@@ -11,8 +11,10 @@ class _FirsttabState extends State<Firsttab> {
   @override
   Widget build(BuildContext context) {
     return  Container(
-        color: Colors.amber,
-        child: Text("Hello HomeR"),
+       decoration: BoxDecoration(
+        
+       ),
+        child: Text("Hello Home"),
       );
   }
 }

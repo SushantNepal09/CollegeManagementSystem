@@ -29,9 +29,9 @@ body: Column(  //then a column will be fine to display the three pages
       automaticIndicatorColorAdjustment: true
       
         ,tabs: [ //these are the tabs that will show
-      Tab(icon: Icon(Icons.home,color: Colors.white,),child: Text("Hom",style: TextStyle(color: Colors.white,),),),
-      Tab(icon: Icon(Icons.settings,color: Colors.white),child: Text("Setting",style: TextStyle(color: Colors.white,),),),
-      Tab(icon: Icon(Icons.help_outline,color: Colors.white),child: Text("Help",style: TextStyle(color: Colors.white,),),)
+      Tab(icon: Icon(Icons.menu_book_sharp,color: Colors.white,),child: Text("Upcoming Exams",style: TextStyle(color: Colors.white,),),),
+      Tab(icon: Icon(Icons.bar_chart,color: Colors.white),child: Text("Results",style: TextStyle(color: Colors.white,),),),
+      Tab(icon: Icon(Icons.date_range_outlined,color: Colors.white),child: Text("Schedule",style: TextStyle(color: Colors.white,),),)
       
       
       ]),
