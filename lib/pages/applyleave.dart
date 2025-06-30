@@ -258,7 +258,9 @@ class _ApplyleaveState extends State<Applyleave> {
                                     lastDate: DateTime.utc(2030, 12, 30),
                                     selectableDayPredicate:
                                         (DateTime dateTime2) {
-                                      if (dateTime2.isBefore(dateTime) || dateTime2.isAtSameMomentAs(dateTime)) {
+                                      if (dateTime2.isBefore(dateTime) ||
+                                          dateTime2
+                                              .isAtSameMomentAs(dateTime)) {
                                         return false;
                                       } else {
                                         return true;
@@ -494,8 +496,6 @@ class _ApplyleaveState extends State<Applyleave> {
                   _formKey.currentState!.validate();
                   _formKey2.currentState!.validate();
 
-
-
                   if (dateTime.isAfter(DateTime.now()) &&
                       dateTime2.isAfter(dateTime) &&
                       descriptionController.text.isNotEmpty &&
@@ -545,7 +545,7 @@ class _ApplyleaveState extends State<Applyleave> {
                   } else if (noController.text.length < 10) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Center(
-                            child: Text('Fill the Details Correctly',
+                            child: Text('Fill all the Details Correctly',
                                 style: TextStyle(
                                     color: Colors.redAccent,
                                     fontWeight: FontWeight.w400,
