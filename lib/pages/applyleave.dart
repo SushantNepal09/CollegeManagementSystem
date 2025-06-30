@@ -185,7 +185,7 @@ class _ApplyleaveState extends State<Applyleave> {
             ),
             Text(
               'Apply Leave',
-              style: TextStyle(color: Colors.yellowAccent, fontSize: 20),
+              style: TextStyle(color: Colors.red, fontSize: 20),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -494,36 +494,7 @@ class _ApplyleaveState extends State<Applyleave> {
                   _formKey.currentState!.validate();
                   _formKey2.currentState!.validate();
 
-//  if ((
 
-//  ( dateTime2.day < DateTime.now().day &&
-//                      ( dateTime2.month > DateTime.now().month ||
-//                       dateTime2.year > DateTime.now().year) )
-
-//                       ||  ( dateTime2.day > DateTime.now().day &&
-//                      ( dateTime2.month > DateTime.now().month ||
-//                       dateTime2.year > DateTime.now().year) )
-// ||
-
-//                        (( dateTime2.day > dateTime.day &&
-//                      ( dateTime2.month > dateTime.month &&
-//                       dateTime2.year == dateTime.year) ) && ( dateTime.day <= DateTime.now().day &&
-//                      ( dateTime.month <= DateTime.now().month ||
-//                       dateTime.year <= DateTime.now().year) ))
-
-//                       ||
-//                       (
-
-//   ( dateTime2.day > dateTime.day &&
-//                      ( dateTime2.month == dateTime.month &&
-//                       dateTime2.year == dateTime.year) )
-//                       )
-
-//                       )
-
-//                       && descriptionController.text.isNotEmpty && noController.text.isNotEmpty
-
-//                       )
 
                   if (dateTime.isAfter(DateTime.now()) &&
                       dateTime2.isAfter(dateTime) &&
