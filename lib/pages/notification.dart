@@ -14,7 +14,7 @@ class _NotificationPageState extends State<NotificationPage> {
       appBar: AppBar(
         title: Center(child: Text('Notifications')),
       ),
-      body: Center(child: Text('Hello')),
+      body: Center(child: Text('Hello1')),
     );
   }
 }
