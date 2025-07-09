@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:student/allvariables/notificlist.dart';
+import 'package:student/extravar/notificationbox.dart';
 
 class NotificationPage extends StatefulWidget {
+
+
   const NotificationPage({super.key});
 
   @override
@@ -14,7 +18,13 @@ class _NotificationPageState extends State<NotificationPage> {
       appBar: AppBar(
         title: Center(child: Text('Notifications')),
       ),
-      body: Center(child: Text('Hello1')),
+      body: Center(
+          child: ListView.builder(
+        itemCount: myNotifications.length,
+        itemBuilder: (context, index) {
+          return Square(child: myNotifications[index],);
+        },
+      )),
     );
   }
 }
