@@ -14,7 +14,7 @@ class Square extends StatelessWidget {
         height: 50,
         width: 200,
         color: Colors.red,
-        child: Center(child: Text(child,style: TextStyle(fontSize: 31,color: Colors.red),)),
+        child: Center(child: Text(child,style: TextStyle(fontSize: 30,color: Colors.red),)),
       ),
     );
   }
