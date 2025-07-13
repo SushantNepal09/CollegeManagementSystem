@@ -9,12 +9,38 @@ class Square extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.only(top: 15,left: 10,right: 10),
       child: Container(
-        height: 50,
+        height: 60,
         width: 200,
-        color: Colors.red,
-        child: Center(child: Text(child,style: TextStyle(fontSize: 30,color: Colors.red),)),
+        
+        decoration: BoxDecoration(
+          
+                    borderRadius: BorderRadius.circular(10),
+          color: Colors.red,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Center(child: Text(child,style: TextStyle(fontSize: 30,color: Colors.white),
+            
+            )
+            
+            
+            ),
+Row(
+
+children: [
+
+
+   IconButton(onPressed: (){}, icon: Icon(Icons.edit)),
+             IconButton(onPressed: (){}, icon: Icon(Icons.delete))
+],
+)
+
+           
+          ],
+        ),
       ),
     );
   }

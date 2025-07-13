@@ -4,5 +4,5 @@ List myNotifications =
 'post2',
 'post3',
 'post4',
-'post5'
+'post5',
 ];
