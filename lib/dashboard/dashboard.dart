@@ -68,10 +68,17 @@ class _DashboardState extends State<Dashboard> {
                                             MyProfile())); // not Currently working
                               },
                               child: CircleAvatar(
-                                maxRadius: 30,
+                                maxRadius: 25,
                                 child: ClipOval(
+
                                     child: Image(
+                                   width: 50,
+                                   height: 50,
+                                   fit: BoxFit.cover,
+                                     
                                         image: AssetImage(
+
+
                                             'assets/profilepic.png'))),
                               ),
                             )
