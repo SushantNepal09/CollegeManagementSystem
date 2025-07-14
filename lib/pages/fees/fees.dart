@@ -181,7 +181,7 @@ class _FeesState extends State<Fees> {
               "Previous Months",
               style: TextStyle(
                   fontSize: 18,
-                  color: Colors.black,
+                  color: const Color.fromARGB(255, 62, 138, 232),
                   fontWeight: FontWeight.w600),
             ),
           ),
