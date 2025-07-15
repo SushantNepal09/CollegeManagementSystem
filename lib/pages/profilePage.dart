@@ -100,13 +100,12 @@ class MyProfile extends StatelessWidget {
               ],
             ),
           ),
-Padding(
-  padding: const EdgeInsets.all(8.0),
+Padding( //the overview container
+  padding: const EdgeInsets.all(12.0),
   child: Container(
     decoration: BoxDecoration(
     // color: Colors.amber,
-color: Color.fromARGB(255, 136, 136, 136),
-  // color: Color(0xFFF9FAFB),
+  color: Color(0xFFF9FAFB),
 borderRadius: BorderRadius.circular(16),
 boxShadow: [
 BoxShadow(
@@ -118,53 +117,80 @@ blurRadius: 8
 
 ]
     ),
-    height: 60,
+    height: 85,
     
-  child: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceAround,
-  children: [
-    Container(
-      height: 30,
-      width: 30,
-      decoration: BoxDecoration(
-color: Colors.red,
-borderRadius: BorderRadius.circular(40)
+  child: Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Row( //row to arrange the icons in row
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: [
+      Column( //column to ploace the text Below the Icon
+        children: [
+          Container(
+            height: 30,
+            width: 30,
+            decoration: BoxDecoration(
+         color: const Color.fromARGB(255, 194, 231, 247),
+          borderRadius: BorderRadius.circular(40)
+            ),
+            child: Icon(Icons.school,color: const Color.fromARGB(255, 4, 69, 144)),
+            
+          ),
+          Text('6th',style: TextStyle(color:Color.fromARGB(255, 0, 66, 121),fontSize: 14,fontWeight: FontWeight.w700 ),),
+          Text('Semester',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 12,color: const Color.fromARGB(255, 56, 56, 56)),)
+        ],
       ),
-      child: Icon(Icons.school),
-      
+         Column(//column to ploace the text Below the Icon
+           children: [
+             Container(
+                   height: 30,
+                   width: 30,
+                   decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 194, 231, 247),
+             borderRadius: BorderRadius.circular(40),
+             
+                   ),
+                   child: Icon(Icons.book,color: const Color.fromARGB(255, 4, 69, 144)),
+                   
+                 ),
+                 Text('Csit',style: TextStyle(color:Color.fromARGB(255, 0, 66, 121),fontSize: 14,fontWeight: FontWeight.w700 ),),
+            Text('Course',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 12,color: const Color.fromARGB(255, 56, 56, 56)),)
+           ],
+         ),
+         Column(//column to ploace the text Below the Icon
+           children: [
+             Container(
+                   height: 30,
+                   width: 30,
+                   decoration: BoxDecoration(
+           color: const Color.fromARGB(255, 194, 231, 247),
+             borderRadius: BorderRadius.circular(40)
+                   ),
+                   child: Icon(Icons.grade,color: const Color.fromARGB(255, 4, 69, 144)),
+                   
+                 ),
+              Text('3.66',style: TextStyle(color:Color.fromARGB(255, 0, 66, 121),fontSize: 14,fontWeight: FontWeight.w700 ),),
+               Text('Avg Grade',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 12,color: const Color.fromARGB(255, 56, 56, 56)),)
+           ],
+         ),
+         Column(//column to ploace the text Below the Icon
+           children: [
+             Container(
+                   height: 30,
+                   width: 30,
+                   decoration: BoxDecoration(
+             color: const Color.fromARGB(255, 194, 231, 247),
+             borderRadius: BorderRadius.circular(40)
+                   ),
+                 child: Icon(Icons.date_range,color: const Color.fromARGB(255, 4, 69, 144),),  
+                 ),
+                 Text('2079',style: TextStyle(color:Color.fromARGB(255, 0, 66, 121),fontSize: 14,fontWeight: FontWeight.w700 ),)
+           ,   Text('Batch',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 12,color: const Color.fromARGB(255, 56, 56, 56)),)
+           ],
+         )
+    ],
+    
     ),
-       Container(
-      height: 30,
-      width: 30,
-      decoration: BoxDecoration(
-color: Colors.red,
-borderRadius: BorderRadius.circular(40),
-
-      ),
-      child: Icon(Icons.book),
-      
-    ),
-       Container(
-      height: 30,
-      width: 30,
-      decoration: BoxDecoration(
-color: Colors.red,
-borderRadius: BorderRadius.circular(40)
-      ),
-      child: Icon(Icons.grade),
-      
-    ),
-       Container(
-      height: 30,
-      width: 30,
-      decoration: BoxDecoration(
-color: Colors.red,
-borderRadius: BorderRadius.circular(40)
-      ),
-    child: Icon(Icons.date_range),  
-    )
-  ],
-  
   ),
   
   
