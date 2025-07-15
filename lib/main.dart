@@ -6,7 +6,7 @@ import 'package:student/extravar/chatbutton.dart';
 import 'package:student/pages/fees/fees.dart';
 import 'package:student/pages/notification.dart';
 import 'Navigationtools/navbar.dart';
-
+bool dark = false;
 
 
 void main() {
@@ -22,7 +22,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   late SharedPreferences prefs;
-bool dark = false;
+
   @override
   void initState() {
     super.initState();
