@@ -1,13 +1,13 @@
-import 'dart:ffi';
+
 
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:student/allvariables/allVar.dart';
 
 import 'package:student/extravar/GridBox.dart';
-import 'package:student/extravar/chatbutton.dart';
 
-import 'package:student/pages/profilePage.dart';
+
+import 'package:student/pages/Profilepage/profilePage.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});

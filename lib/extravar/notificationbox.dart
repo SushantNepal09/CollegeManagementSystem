@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:student/allvariables/notificlist.dart';
+
 bool change = true;
 
 class Square extends StatefulWidget {

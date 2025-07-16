@@ -1,8 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
-import 'package:student/main.dart';
-import 'package:student/pages/profilePage.dart';
+import 'package:student/pages/Profilepage/profilePage.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
