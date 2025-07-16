@@ -100,6 +100,15 @@ class MyProfile extends StatelessWidget {
               ],
             ),
           ),
+    SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Overview',
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+          ),
+
+
 Padding( //the overview container
   padding: const EdgeInsets.all(12.0),
   child: Container(
@@ -119,6 +128,8 @@ blurRadius: 8
     ),
     height: 85,
     
+
+
   child: Padding(
     padding: const EdgeInsets.all(8.0),
     child: Row( //row to arrange the icons in row
