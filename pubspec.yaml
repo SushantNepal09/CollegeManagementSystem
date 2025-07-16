@@ -39,6 +39,7 @@ dependencies:
   percent_indicator: ^4.2.4
   file_picker: ^10.2.0
   open_file: ^3.5.10
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
