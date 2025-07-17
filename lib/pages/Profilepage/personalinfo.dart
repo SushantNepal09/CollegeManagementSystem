@@ -94,7 +94,7 @@ class _PersonalinfoState extends State<Personalinfo> {
                             child: Icon(
                               Icons.camera_alt_sharp,
                               size: 20,
-                              color: Colors.white,
+                              color: const Color.fromARGB(255, 255, 254, 254),
                             )
                             // child: IconButton(onPressed: () {}, icon:Icon(Icons.camera_alt_sharp,size: 20,color: Colors.white,)),
                             ),
