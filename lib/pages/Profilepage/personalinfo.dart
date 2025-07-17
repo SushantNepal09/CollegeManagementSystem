@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/pages/Profilepage/profinfoeditcontainer.dart';
 
 class Personalinfo extends StatefulWidget {
   const Personalinfo({super.key});
@@ -61,7 +62,7 @@ class _PersonalinfoState extends State<Personalinfo> {
                           ]
 ,
   gradient: LinearGradient(
-      colors: [Color(0xFF4FACFE), Color(0xFF00F2FE)],
+      colors: [Color.fromARGB(255, 79, 168, 246), Color.fromARGB(255, 5, 223, 235)],
     ),                          
                           
                           ),
@@ -102,7 +103,36 @@ class _PersonalinfoState extends State<Personalinfo> {
                     )
                   ],
                 ),
-              )
+                
+              ),
+SizedBox(
+  height: 50,
+),
+          ListTiles1(title1: 'Firstname', subtitle: 'Sushant'), 
+          SizedBox(
+  height: 20,
+),
+          ListTiles1(title1: 'Lastname',subtitle: 'Nepal',),
+                 SizedBox(
+  height: 20,
+),
+          ListTiles1(title1: 'Email',subtitle: 'sushant@gmail.com',),//this is the list tile used to display and edit the names
+           SizedBox(
+  height: 20,
+),
+          ListTiles1(title1: 'Phoneno',subtitle: '9800000000',),
+          SizedBox(
+  height: 20,
+),
+          ListTiles1(title1: 'Address',subtitle: 'Dharan-14,Sunsari',),
+          SizedBox(
+  height: 20,
+),
+          ListTiles1(title1: 'DateofBirth',subtitle: '2048-08-03',),
+
+          
+
+
             ],
           ),
         ));
