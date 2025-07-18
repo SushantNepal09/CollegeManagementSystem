@@ -1,5 +1,7 @@
-import 'dart:io';
+//REMANING = EDITABLE LIST USING TEXT EDITING CONTROLLER
 
+
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:student/allvariables/allVar.dart';
@@ -13,19 +15,19 @@ class Personalinfo extends StatefulWidget {
 }
 
 class _PersonalinfoState extends State<Personalinfo> {
-  File ? _image;
+ 
+
+  File? _image;
   pickimage() async {
     final picker = ImagePicker();
 
     final PickedFile = await picker.pickImage(source: ImageSource.gallery);
     if (PickedFile != null) {
       _image = File(PickedFile.path);
-      setState(() {
-        
-      });
+      setState(() {});
     }
 
-      // _picker.pickImage(source: ImageSource.camera);
+    // _picker.pickImage(source: ImageSource.camera);
   }
 
   @override
@@ -33,10 +35,20 @@ class _PersonalinfoState extends State<Personalinfo> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: primaryBlue,
-          title: Text(
-            'Hello',
-            style: TextStyle(color: Colors.white),
+          title: Center(
+            child: Text(
+              'Personal Information',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.edit,
+                  color: Colors.white,
+                ))
+          ],
         ),
         body: Container(
           height: MediaQuery.of(context).size.height,
@@ -50,30 +62,34 @@ class _PersonalinfoState extends State<Personalinfo> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          border: Border.all(width: 1.5, color: Colors.blue),
-                          boxShadow: [
-
-                            BoxShadow(
-                              color: Colors.black26,
-        blurRadius: 6,
-        offset: Offset(0, 4),
-                            )
-                          ]
-,
-  gradient: LinearGradient(
-      colors: [Color.fromARGB(255, 79, 168, 246), Color.fromARGB(255, 5, 223, 235)],
-    ),                          
-                          
-                          ),
-
-
+                        borderRadius: BorderRadius.circular(40),
+                        border: Border.all(width: 1.5, color: Colors.blue),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 6,
+                            offset: Offset(0, 4),
+                          )
+                        ],
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(255, 79, 168, 246),
+                            Color.fromARGB(255, 5, 223, 235)
+                          ],
+                        ),
+                      ),
                       child: CircleAvatar(
                         radius: 40,
                         child: ClipOval(
                           child: _image == null
                               ? Image.asset('assets/profilepic.png')
-                              : Image.file(_image!,width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.5,fit: BoxFit.cover,),
+                              : Image.file(
+                                  _image!,
+                                  width: MediaQuery.of(context).size.width,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.5,
+                                  fit: BoxFit.cover,
+                                ),
                         ),
                       ),
                     ),
@@ -82,7 +98,6 @@ class _PersonalinfoState extends State<Personalinfo> {
                       bottom: 0,
                       child: GestureDetector(
                         onTap: () {
-
                           pickimage();
                         },
                         child: Container(
@@ -103,38 +118,51 @@ class _PersonalinfoState extends State<Personalinfo> {
                     )
                   ],
                 ),
-                
               ),
-SizedBox(
-  height: 50,
-),
-          ListTiles1(title1: 'Firstname', subtitle: 'Sushant'), 
-          SizedBox(
-  height: 20,
-),
-          ListTiles1(title1: 'Lastname',subtitle: 'Nepal',),
-                 SizedBox(
-  height: 20,
-),
-          ListTiles1(title1: 'Email',subtitle: 'sushant@gmail.com',),//this is the list tile used to display and edit the names
-           SizedBox(
-  height: 20,
-),
-          ListTiles1(title1: 'Phoneno',subtitle: '9800000000',),
-          SizedBox(
-  height: 20,
-),
-          ListTiles1(title1: 'Address',subtitle: 'Dharan-14,Sunsari',),
-          SizedBox(
-  height: 20,
-),
-          ListTiles1(title1: 'DateofBirth',subtitle: '2048-08-03',),
-
-                 SizedBox(
-  height: 20,
-),   
-
-
+              SizedBox(
+                height: 50,
+              ),
+              ListTiles1(title1: 'Firstname', subtitle: 'Sushant',icon11: Icon(Icons.person),),
+              SizedBox(
+                height: 20,
+              ),
+              ListTiles1(
+                title1: 'Lastname',
+                subtitle: 'Nepal',
+                icon11: Icon(Icons.person_4_outlined),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ListTiles1(
+                title1: 'Email',
+                subtitle: 'sushant@gmail.com',
+                icon11: Icon(Icons.email),
+              ), //this is the list tile used to display and edit the names
+              SizedBox(
+                height: 20,
+              ),
+              ListTiles1(
+                title1: 'Phoneno',
+                subtitle: '9800000000',
+                icon11: Icon(Icons.phone),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ListTiles1(
+                title1: 'Address',
+                subtitle: 'Dharan-14,Sunsari',
+                icon11: Icon(Icons.home),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ListTiles1(
+                title1: 'DateofBirth',
+                subtitle: '2048-08-03',
+                icon11: Icon(Icons.calendar_month),
+              ),
             ],
           ),
         ));
