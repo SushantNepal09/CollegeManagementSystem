@@ -40,6 +40,12 @@ class _EduinfoState extends State<Eduinfo> {
             ListTiles1(title1: 'Extra Curricular', subtitle: 'General Member UCS',icon11: Icon(Icons.ballot),),
                   SizedBox(height: 20,),
             ListTiles1(title1: 'Batch', subtitle: '2079',icon11: Icon(Icons.calendar_today),),
+               SizedBox(
+                height: 20,
+               ),
+               Text('Other Info' , style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w500),),
+                        SizedBox(height: 20,),
+            ListTiles1(title1: 'Scholarship', subtitle: 'Available',icon11: Icon(Icons.star),), 
 
 
           ],
