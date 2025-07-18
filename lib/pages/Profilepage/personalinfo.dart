@@ -130,7 +130,9 @@ SizedBox(
 ),
           ListTiles1(title1: 'DateofBirth',subtitle: '2048-08-03',),
 
-          
+                 SizedBox(
+  height: 20,
+),   
 
 
             ],
