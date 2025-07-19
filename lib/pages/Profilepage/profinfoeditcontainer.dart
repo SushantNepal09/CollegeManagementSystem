@@ -41,7 +41,7 @@ class _ListTiles1State extends State<ListTiles1> {
           ),
           subtitle: Text(
             widget.subtitle,
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: 16,color: Colors.black),
           ),
 
           // trailing: IconButton(onPressed: (){}, icon: Icon(Icons.edit,)),

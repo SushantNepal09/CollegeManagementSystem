@@ -122,14 +122,14 @@ class _PersonalinfoState extends State<Personalinfo> {
               SizedBox(
                 height: 50,
               ),
-              ListTiles1(title1: 'Firstname', subtitle: 'Sushant',icon11: Icon(Icons.person),),
+              ListTiles1(title1: 'Firstname', subtitle: 'Sushant',icon11: Icon(Icons.person,color: Colors.black,),),
               SizedBox(
                 height: 20,
               ),
               ListTiles1(
                 title1: 'Lastname',
                 subtitle: 'Nepal',
-                icon11: Icon(Icons.person_4_outlined),
+                icon11: Icon(Icons.person_4_outlined,color: Colors.black,),
               ),
               SizedBox(
                 height: 20,
@@ -137,7 +137,7 @@ class _PersonalinfoState extends State<Personalinfo> {
               ListTiles1(
                 title1: 'Email',
                 subtitle: 'sushant@gmail.com',
-                icon11: Icon(Icons.email),
+                icon11: Icon(Icons.email,color: Colors.black,),
               ), //this is the list tile used to display and edit the names
               SizedBox(
                 height: 20,
@@ -145,7 +145,7 @@ class _PersonalinfoState extends State<Personalinfo> {
               ListTiles1(
                 title1: 'Phoneno',
                 subtitle: '9800000000',
-                icon11: Icon(Icons.phone),
+                icon11: Icon(Icons.phone,color: Colors.black,),
               ),
               SizedBox(
                 height: 20,
@@ -153,7 +153,7 @@ class _PersonalinfoState extends State<Personalinfo> {
               ListTiles1(
                 title1: 'Address',
                 subtitle: 'Dharan-14,Sunsari',
-                icon11: Icon(Icons.home),
+                icon11: Icon(Icons.home,color: Colors.black,),
               ),
               SizedBox(
                 height: 20,
@@ -161,7 +161,7 @@ class _PersonalinfoState extends State<Personalinfo> {
               ListTiles1(
                 title1: 'DateofBirth',
                 subtitle: '2048-08-03',
-                icon11: Icon(Icons.calendar_month),
+                icon11: Icon(Icons.calendar_month,color: Colors.black,),
               ),
             ],
           ),

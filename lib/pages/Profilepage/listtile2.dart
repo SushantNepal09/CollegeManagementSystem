@@ -37,11 +37,11 @@ class _ListTiles2State extends State<ListTiles2> {
           // title: Text('First Name',style: TextStyle(fontSize: 12),),
           title: Text(
             widget.title1,
-            style: TextStyle(fontSize: 14, color: const Color.fromARGB(255, 0, 0, 0),fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: 14, color: const Color.fromARGB(255, 0, 0, 0),fontWeight: FontWeight.w700),
           ),
           subtitle: Text(
             widget.subtitle,
-            style: TextStyle(fontSize: 14),
+            style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,color: Colors.black),
           ),
 
           // trailing: IconButton(onPressed: (){}, icon: Icon(Icons.edit,)),

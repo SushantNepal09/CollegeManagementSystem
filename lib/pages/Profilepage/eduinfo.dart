@@ -30,24 +30,27 @@ class _EduinfoState extends State<Eduinfo> {
         ),
         body: Column(
           children: [
+             
             SizedBox(height: 20,),
-            ListTiles1(title1: 'Course', subtitle: 'Bsc.CSIT',icon11: Icon(Icons.book_rounded),),
+            ListTiles1(title1: 'Course', subtitle: 'Bsc.CSIT',icon11: Icon(Icons.book_rounded,color: Colors.black,),),
              SizedBox(height: 20,),
-            ListTiles1(title1: 'Semester', subtitle: '6th',icon11: Icon(Icons.alarm),),
+            ListTiles1(title1: 'Semester', subtitle: '6th',icon11: Icon(Icons.alarm,color: Colors.black,),),
              SizedBox(height: 20,),
-            ListTiles1(title1: 'Avg.Grade', subtitle: '3.60',icon11: Icon(Icons.school),),
+            ListTiles1(title1: 'Avg.Grade', subtitle: '3.60',icon11: Icon(Icons.school,color: Colors.black,),),
               
-             SizedBox(height: 20,),
-            ListTiles1(title1: 'Extra Curricular', subtitle: 'General Member UCS',icon11: Icon(Icons.ballot),),
+         
                   SizedBox(height: 20,),
-            ListTiles1(title1: 'Batch', subtitle: '2079',icon11: Icon(Icons.calendar_today),),
+            ListTiles1(title1: 'Batch', subtitle: '2079',icon11: Icon(Icons.calendar_today,color: Colors.black,),),
                SizedBox(
                 height: 20,
                ),
                Text('Other Info' , style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w500),),
                         SizedBox(height: 20,),
-            ListTiles2(title1: 'Scholarship', subtitle: 'Available',icon11: Icon(Icons.star,color: Colors.blue,),), 
-
+            ListTiles2(title1: 'Scholarship', subtitle: 'Applicable',icon11: Icon(Icons.star,color: Colors.blue,),), 
+            SizedBox(height: 20),
+             ListTiles2(title1: 'Major Projects', subtitle: 'CMS,E-Commerce App',icon11: Icon(Icons.computer,color: Colors.blue,),), 
+    SizedBox(height: 20,),
+            ListTiles2(title1: 'Extra Curricular', subtitle: 'General Member UCS',icon11: Icon(Icons.ballot,color: Colors.blue,),),
 
           ],
         ));
