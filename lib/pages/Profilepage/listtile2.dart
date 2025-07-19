@@ -2,18 +2,18 @@
 
 import 'package:flutter/material.dart';
 
-class ListTiles1 extends StatefulWidget {
+class ListTiles2 extends StatefulWidget {
   final dynamic title1;
   final dynamic subtitle;
   final dynamic icon11;
-  const ListTiles1(
+  const ListTiles2(
       {super.key, required this.title1, required this.subtitle, this.icon11});
 
   @override
-  State<ListTiles1> createState() => _ListTiles1State();
+  State<ListTiles2> createState() => _ListTiles2State();
 }
 
-class _ListTiles1State extends State<ListTiles1> {
+class _ListTiles2State extends State<ListTiles2> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -37,11 +37,11 @@ class _ListTiles1State extends State<ListTiles1> {
           // title: Text('First Name',style: TextStyle(fontSize: 12),),
           title: Text(
             widget.title1,
-            style: TextStyle(fontSize: 14, color: Colors.blueAccent),
+            style: TextStyle(fontSize: 14, color: const Color.fromARGB(255, 0, 0, 0),fontWeight: FontWeight.w600),
           ),
           subtitle: Text(
             widget.subtitle,
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: 14),
           ),
 
           // trailing: IconButton(onPressed: (){}, icon: Icon(Icons.edit,)),

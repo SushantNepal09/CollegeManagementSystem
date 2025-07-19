@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/pages/Profilepage/listtile2.dart';
 import 'package:student/pages/Profilepage/profinfoeditcontainer.dart';
 
 class Eduinfo extends StatefulWidget {
@@ -45,7 +46,7 @@ class _EduinfoState extends State<Eduinfo> {
                ),
                Text('Other Info' , style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w500),),
                         SizedBox(height: 20,),
-            ListTiles1(title1: 'Scholarship', subtitle: 'Available',icon11: Icon(Icons.star),), 
+            ListTiles2(title1: 'Scholarship', subtitle: 'Available',icon11: Icon(Icons.star,color: Colors.blue,),), 
 
 
           ],
