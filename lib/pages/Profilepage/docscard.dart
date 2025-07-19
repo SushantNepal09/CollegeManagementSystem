@@ -45,7 +45,7 @@ class _DocscardState extends State<Docscard> {
                   
                     SizedBox(width:20),
                    
-                    Text('Download',style: TextStyle(color: Colors.blueAccent),)
+                    Text('Downloads',style: TextStyle(color: Colors.blueAccent),)
                   ],
                 )
               ],
