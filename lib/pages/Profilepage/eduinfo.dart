@@ -20,38 +20,145 @@ class _EduinfoState extends State<Eduinfo> {
             child: Text(
               'Education Info',
               style: TextStyle(color: Colors.white),
-              
             ),
           ),
-          actions: [Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.edit,color: Colors.white,),
-          )],
+          actions: [
+            Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: IconButton(
+                  onPressed: () {
+                   
+                     
+                      showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              elevation: 2,
+                              title: Text(
+                                'Warning!',
+                                style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              content: Text(
+                                  'You donnot have the permission to Edit the Information!!',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16)),
+                              actions: [
+                                MaterialButton(
+                                  onPressed: () {},
+                                  color: Colors.green,
+                                  child: Text('Request Access'),
+                                ),
+                                MaterialButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  color: Colors.red,
+                                  child: Text('Cancel'),
+                                )
+                              ],
+                            );
+                          });
+                   
+                  },
+                  icon: Icon(
+                    Icons.edit,
+                    color: Colors.white,
+                  ),
+                ))
+          ],
         ),
         body: Column(
           children: [
-             
-            SizedBox(height: 20,),
-            ListTiles1(title1: 'Course', subtitle: 'Bsc.CSIT',icon11: Icon(Icons.book_rounded,color: Colors.black,),),
-             SizedBox(height: 20,),
-            ListTiles1(title1: 'Semester', subtitle: '6th',icon11: Icon(Icons.alarm,color: Colors.black,),),
-             SizedBox(height: 20,),
-            ListTiles1(title1: 'Avg.Grade', subtitle: '3.60',icon11: Icon(Icons.school,color: Colors.black,),),
-              
-         
-                  SizedBox(height: 20,),
-            ListTiles1(title1: 'Batch', subtitle: '2079',icon11: Icon(Icons.calendar_today,color: Colors.black,),),
-               SizedBox(
-                height: 20,
-               ),
-               Text('Other Info' , style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w500),),
-                        SizedBox(height: 20,),
-            ListTiles2(title1: 'Scholarship', subtitle: 'Applicable',icon11: Icon(Icons.star,color: Colors.blue,),), 
+            SizedBox(
+              height: 20,
+            ),
+            ListTiles1(
+              title1: 'Course',
+              subtitle: 'Bsc.CSIT',
+              icon11: Icon(
+                Icons.book_rounded,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ListTiles1(
+              title1: 'Semester',
+              subtitle: '6th',
+              icon11: Icon(
+                Icons.alarm,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ListTiles1(
+              title1: 'Avg.Grade',
+              subtitle: '3.60',
+              icon11: Icon(
+                Icons.school,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ListTiles1(
+              title1: 'Batch',
+              subtitle: '2079',
+              icon11: Icon(
+                Icons.calendar_today,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Other Info',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ListTiles2(
+              title1: 'Scholarship',
+              subtitle: 'Applicable',
+              icon11: Icon(
+                Icons.star,
+                color: Colors.blue,
+              ),
+            ),
             SizedBox(height: 20),
-             ListTiles2(title1: 'Major Projects', subtitle: 'CMS,E-Commerce App',icon11: Icon(Icons.computer,color: Colors.blue,),), 
-    SizedBox(height: 20,),
-            ListTiles2(title1: 'Extra Curricular', subtitle: 'General Member UCS',icon11: Icon(Icons.ballot,color: Colors.blue,),),
-
+            ListTiles2(
+              title1: 'Major Projects',
+              subtitle: 'CMS,E-Commerce App',
+              icon11: Icon(
+                Icons.computer,
+                color: Colors.blue,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ListTiles2(
+              title1: 'Extra Curricular',
+              subtitle: 'General Member UCS',
+              icon11: Icon(
+                Icons.ballot,
+                color: Colors.blue,
+              ),
+            ),
           ],
         ));
   }

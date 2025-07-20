@@ -1,6 +1,5 @@
 //REMANING = EDITABLE LIST USING TEXT EDITING CONTROLLER
 
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -15,8 +14,6 @@ class Personalinfo extends StatefulWidget {
 }
 
 class _PersonalinfoState extends State<Personalinfo> {
- 
-
   File? _image;
   pickimage() async {
     final picker = ImagePicker();
@@ -43,7 +40,47 @@ class _PersonalinfoState extends State<Personalinfo> {
           ),
           actions: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    barrierDismissible: false,
+                  
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          elevation: 2,
+                          title: Text(
+                            'Warning!',
+                            style: TextStyle(
+                                color: Colors.red, fontWeight: FontWeight.w600),
+                          ),
+                          content: Text(
+                              'You donnot have the permission to Edit the Information!!',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16)),
+                          actions: [
+                            MaterialButton(
+                              
+                              onPressed: () {
+                         
+                              },
+                              color: Colors.green,
+                              child: Text('Request Access'),
+                            ),
+                            MaterialButton(
+                         
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              color: Colors.red,
+                              
+                              child: Text('Cancel'),
+                            )
+                          ],
+                        );
+                      });
+                },
                 icon: Icon(
                   Icons.edit,
                   color: Colors.white,
@@ -122,14 +159,24 @@ class _PersonalinfoState extends State<Personalinfo> {
               SizedBox(
                 height: 50,
               ),
-              ListTiles1(title1: 'Firstname', subtitle: 'Sushant',icon11: Icon(Icons.person,color: Colors.black,),),
+              ListTiles1(
+                title1: 'Firstname',
+                subtitle: 'Sushant',
+                icon11: Icon(
+                  Icons.person,
+                  color: Colors.black,
+                ),
+              ),
               SizedBox(
                 height: 20,
               ),
               ListTiles1(
                 title1: 'Lastname',
                 subtitle: 'Nepal',
-                icon11: Icon(Icons.person_4_outlined,color: Colors.black,),
+                icon11: Icon(
+                  Icons.person_4_outlined,
+                  color: Colors.black,
+                ),
               ),
               SizedBox(
                 height: 20,
@@ -137,7 +184,10 @@ class _PersonalinfoState extends State<Personalinfo> {
               ListTiles1(
                 title1: 'Email',
                 subtitle: 'sushant@gmail.com',
-                icon11: Icon(Icons.email,color: Colors.black,),
+                icon11: Icon(
+                  Icons.email,
+                  color: Colors.black,
+                ),
               ), //this is the list tile used to display and edit the names
               SizedBox(
                 height: 20,
@@ -145,7 +195,10 @@ class _PersonalinfoState extends State<Personalinfo> {
               ListTiles1(
                 title1: 'Phoneno',
                 subtitle: '9800000000',
-                icon11: Icon(Icons.phone,color: Colors.black,),
+                icon11: Icon(
+                  Icons.phone,
+                  color: Colors.black,
+                ),
               ),
               SizedBox(
                 height: 20,
@@ -153,7 +206,10 @@ class _PersonalinfoState extends State<Personalinfo> {
               ListTiles1(
                 title1: 'Address',
                 subtitle: 'Dharan-14,Sunsari',
-                icon11: Icon(Icons.home,color: Colors.black,),
+                icon11: Icon(
+                  Icons.home,
+                  color: Colors.black,
+                ),
               ),
               SizedBox(
                 height: 20,
@@ -161,7 +217,10 @@ class _PersonalinfoState extends State<Personalinfo> {
               ListTiles1(
                 title1: 'DateofBirth',
                 subtitle: '2048-08-03',
-                icon11: Icon(Icons.calendar_month,color: Colors.black,),
+                icon11: Icon(
+                  Icons.calendar_month,
+                  color: Colors.black,
+                ),
               ),
             ],
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/pages/Profilepage/addnewdoc.dart';
 import 'package:student/pages/Profilepage/docscard.dart';
 
 class Documents extends StatefulWidget {
@@ -22,13 +23,19 @@ class _DocumentsState extends State<Documents> {
           actions: [
             Padding(
                 padding: const EdgeInsets.only(right: 12),
-                child: IconButton(onPressed: () {
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => NewDoc()));
 
-
-
-
-                  
-                }, icon: Icon(Icons.add_circle_outline_rounded,color: Colors.white,size: 30,),))
+                    ///ADD A BOX TO ADD NEW DOCUMENT TILE
+                  },
+                  icon: Icon(
+                    Icons.add_circle_outline_rounded,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                ))
           ],
         ),
         body: Column(
