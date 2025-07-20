@@ -19,18 +19,82 @@ class _DocumentsState extends State<Documents> {
             'Documents',
             style: TextStyle(color: Colors.white),
           ),
+          actions: [
+            Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child: IconButton(onPressed: () {
+
+
+
+
+                  
+                }, icon: Icon(Icons.add_circle_outline_rounded,color: Colors.white,size: 30,),))
+          ],
         ),
         body: Column(
-children: [
-Padding(
-  padding: const EdgeInsets.all(8.0),
-  child: Text('Documents',style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0),fontSize: 20,fontWeight: FontWeight.w500,)),
-),
-Docscard(),
-
-],
-
-
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Documents',
+                  style: TextStyle(
+                    color: const Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  )),
+            ),
+            Docscard(
+              maintitle: 'Transcript',
+              currentcondtion: 'Uploaded',
+              whaticon: Icon(
+                Icons.description,
+                size: 30,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Docscard(
+              maintitle: 'Idcard',
+              currentcondtion: 'Uploaded',
+              whaticon: Icon(
+                Icons.badge,
+                size: 30,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Docscard(
+              maintitle: 'Result',
+              currentcondtion: 'Uploaded',
+              whaticon: Icon(
+                Icons.bar_chart,
+                size: 30,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Docscard(
+              maintitle: 'Admitcard',
+              currentcondtion: 'Uploaded',
+              whaticon: Icon(
+                Icons.contact_emergency,
+                size: 30,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Docscard(
+              maintitle: 'Citizenship',
+              currentcondtion: 'Uploaded',
+              whaticon: Icon(
+                Icons.account_box,
+                size: 30,
+              ),
+            ),
+          ],
         ));
   }
 }

@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
 
 class Docscard extends StatefulWidget {
-  const Docscard({super.key});
+  final dynamic maintitle;
+  final dynamic currentcondtion;
+  final dynamic whaticon;
+
+  const Docscard({super.key, required this.maintitle, this.currentcondtion, this.whaticon});
 
   @override
   State<Docscard> createState() => _DocscardState();
@@ -28,41 +32,42 @@ class _DocscardState extends State<Docscard> {
             ]),
 
         child: ListTile(
-          leading: Icon(Icons.copy_outlined,size: 30,),
-          title: Text('Transcript',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700),),
+          leading: 
+            widget.whaticon,iconColor: const Color.fromARGB(255, 0, 0, 0),
+           
           
-          // isThreeLine: true,
-          subtitle: Container(
-            // color: Colors.red,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Uploaded',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w400,fontSize: 14),),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text('View',style: TextStyle(color: Colors.blueAccent),),
-                  
-                    SizedBox(width:20),
-                   
-                    Text('Downloads',style: TextStyle(color: Colors.blueAccent),)
-                  ],
-                )
-              ],
-            ),
+          title: Text(
+            widget.maintitle,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600,color: Colors.black),
           ),
-
-
-          // title: Text(
-          //   widget.title1,
-          //   style: TextStyle(fontSize: 14, color: const Color.fromARGB(255, 0, 0, 0),fontWeight: FontWeight.w700),
-          // ),
-          // subtitle: Text(
-          //   widget.subtitle,
-          //   style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,color: Colors.black),
-          // ),
-
-          // trailing: IconButton(onPressed: (){}, icon: Icon(Icons.edit,)),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.currentcondtion,
+                style: TextStyle(
+                    color: Colors.green,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'View',
+                    style: TextStyle(
+                        color: Colors.blueAccent, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(width: 20),
+                  Text(
+                    'Download',
+                    style: TextStyle(
+                        color: Colors.blueAccent, fontWeight: FontWeight.w500),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
