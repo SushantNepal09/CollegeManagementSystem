@@ -49,7 +49,7 @@ class _PersonalinfoState extends State<Personalinfo> {
                         return AlertDialog(
                           elevation: 2,
                           title: Text(
-                            'Warning!',
+                            'Warning!!',
                             style: TextStyle(
                                 color: Colors.red, fontWeight: FontWeight.w600),
                           ),
