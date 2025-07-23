@@ -10,11 +10,25 @@ class Firsttab extends StatefulWidget {
 class _FirsttabState extends State<Firsttab> {
   @override
   Widget build(BuildContext context) {
-    return  Container(
-       decoration: BoxDecoration(
-        
-       ),
-        child: Text("Hello Home"),
-      );
+    return Scaffold(
+body: Column(
+
+  children: [
+Padding(
+  padding: const EdgeInsets.all(8.0),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      Icon(Icons.access_alarm,color: Colors.blueAccent,size: 22),
+      SizedBox(width: 5,),
+      Text('Upcoming Examination',style: TextStyle(fontSize: 14,fontWeight: FontWeight.w700),)
+    ],
+  ),
+)
+
+  ],
+),
+
+    );
   }
 }
