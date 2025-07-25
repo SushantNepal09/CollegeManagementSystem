@@ -30,7 +30,7 @@ boxShadow:[
  
         ),
         
-      height: 150,
+      height: 140,
      
       
       
