@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:student/allvariables/allresults.dart';
 import 'package:student/pages/exampage/tabs/resulcontent.dart';
-
-List _list =
-[
-'list1',
-'list 2',
-'list 3'
-
-];
-
 class Secondtab extends StatefulWidget {
   const Secondtab({super.key});
 
@@ -41,7 +33,7 @@ class _SecondtabState extends State<Secondtab> {
           ),
             Expanded(
               child: ListView.builder(
-                      itemCount: 4,
+                      itemCount: examresult.length,
                       itemBuilder: (context, index) {
                         return MyResults();
                       }),

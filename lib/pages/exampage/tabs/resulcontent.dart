@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/allvariables/allresults.dart';
 
 class MyResults extends StatelessWidget {
   const MyResults({super.key});
 
   @override
   Widget build(BuildContext context) {
+  
     return Padding(
       padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
       child: Container(
@@ -36,9 +38,9 @@ class MyResults extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Data structure',
+                        examresult[index].subjectname,
                         style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.w700),
+                            fontSize: 14, fontWeight: FontWeight.w700,color: Colors.black),
                       ),
                       Text(
                         'CSC 115',
@@ -88,7 +90,7 @@ class MyResults extends StatelessWidget {
                       Text(
                         '2022-11-11',
                         style: TextStyle(
-                            fontSize: 11, fontWeight: FontWeight.w500),
+                            fontSize: 11, fontWeight: FontWeight.w500,color: Colors.black),
                       ),
                     ],
                   ),
@@ -105,7 +107,7 @@ class MyResults extends StatelessWidget {
                       Text(
                         '87%',
                         style: TextStyle(
-                            fontSize: 11, fontWeight: FontWeight.w500),
+                            fontSize: 11, fontWeight: FontWeight.w500,color: Colors.black),
                       ),
                     ],
                   ),
@@ -122,7 +124,7 @@ class MyResults extends StatelessWidget {
                       Text(
                         'passed',
                         style: TextStyle(
-                            fontSize: 11, fontWeight: FontWeight.w500),
+                            fontSize: 11, fontWeight: FontWeight.w500,color: Colors.black),
                       ),
                     ],
                   )
