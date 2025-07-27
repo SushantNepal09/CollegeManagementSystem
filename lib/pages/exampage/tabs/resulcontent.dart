@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:student/allvariables/allVar.dart';
 
 class MyResults extends StatelessWidget {
   const MyResults({super.key});
@@ -6,34 +7,142 @@ class MyResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20,left: 15,right: 15),
+      padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
       child: Container(
         decoration: BoxDecoration(
-boxShadow:[
-    BoxShadow(
-          color: Color.fromRGBO(0, 0, 0, 0.15),
-          blurRadius: 2.6,
-          spreadRadius: 0,
-          offset: Offset(
-             1.95,
-             1.95,
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.15),
+                blurRadius: 2.6,
+                spreadRadius: 0,
+                offset: Offset(
+                  1.95,
+                  1.95,
+                ),
+              ),
+            ],
+            color: const Color.fromARGB(255, 255, 255, 255),
+            borderRadius: BorderRadius.circular(15)),
+        height: 170,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            children: [
+              Row(
+                //to seperate sub name and grade
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Data structure',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w700),
+                      ),
+                      Text(
+                        'CSC 115',
+                        style: TextStyle(fontSize: 10, color: Colors.grey),
+                      )
+                    ],
+                  ),
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        border: Border.all(
+                            color: Colors.blue,
+                            width: 1,
+                            style: BorderStyle.solid),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Center(
+                        child: Text(
+                      'A+',
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          fontWeight: FontWeight.w500),
+                    )),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Divider(
+                color: Colors.black,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Date',
+                        style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        '2022-11-11',
+                        style: TextStyle(
+                            fontSize: 11, fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Percentage',
+                        style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        '87%',
+                        style: TextStyle(
+                            fontSize: 11, fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Status',
+                        style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        'passed',
+                        style: TextStyle(
+                            fontSize: 11, fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(height: 15,),
+              SizedBox(
+                
+                width: 135,
+                child: OutlinedButton(onPressed: (){}, child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(Icons.download,color: Colors.blue,),
+                    Text('Download',style: TextStyle(color: Colors.blue),),
+                  ],
+                )),
+              )
+            ],
           ),
-       ),
-       
-]
-  
-  
-  
-  ,
- color: const Color.fromARGB(255, 255, 255, 255),
- borderRadius: BorderRadius.circular(15)
- 
         ),
-        
-      height: 150,
-     
-      
-      
       ),
     );
   }
