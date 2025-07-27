@@ -3,7 +3,9 @@ import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/allresults.dart';
 
 class MyResults extends StatelessWidget {
-  const MyResults({super.key});
+  final dynamic index;
+
+  const MyResults({super.key,required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class MyResults extends StatelessWidget {
             ],
             color: const Color.fromARGB(255, 255, 255, 255),
             borderRadius: BorderRadius.circular(15)),
-        height: 170,
+        height: 185,
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
@@ -43,7 +45,7 @@ class MyResults extends StatelessWidget {
                             fontSize: 14, fontWeight: FontWeight.w700,color: Colors.black),
                       ),
                       Text(
-                        'CSC 115',
+                        examresult[index].subjectcode,
                         style: TextStyle(fontSize: 10, color: Colors.grey),
                       )
                     ],
@@ -60,7 +62,7 @@ class MyResults extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50)),
                     child: Center(
                         child: Text(
-                      'A+',
+                       examresult[index].grade,
                       style: TextStyle(
                           color: const Color.fromARGB(255, 255, 255, 255),
                           fontWeight: FontWeight.w500),
@@ -88,7 +90,7 @@ class MyResults extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       ),
                       Text(
-                        '2022-11-11',
+                         examresult[index].date,
                         style: TextStyle(
                             fontSize: 11, fontWeight: FontWeight.w500,color: Colors.black),
                       ),
@@ -105,7 +107,7 @@ class MyResults extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       ),
                       Text(
-                        '87%',
+                        examresult[index].percentage,
                         style: TextStyle(
                             fontSize: 11, fontWeight: FontWeight.w500,color: Colors.black),
                       ),
@@ -122,7 +124,7 @@ class MyResults extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       ),
                       Text(
-                        'passed',
+                        examresult[index].status,
                         style: TextStyle(
                             fontSize: 11, fontWeight: FontWeight.w500,color: Colors.black),
                       ),

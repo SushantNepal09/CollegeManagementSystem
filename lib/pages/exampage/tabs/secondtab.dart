@@ -35,7 +35,7 @@ class _SecondtabState extends State<Secondtab> {
               child: ListView.builder(
                       itemCount: examresult.length,
                       itemBuilder: (context, index) {
-                        return MyResults();
+                        return MyResults( index: index, );
                       }),
             )
         ],
