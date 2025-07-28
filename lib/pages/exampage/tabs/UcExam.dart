@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/allresults.dart';
+import 'package:student/allvariables/upcoming.dart';
 
-class Examcontent extends StatelessWidget {
+class  UcExam extends StatelessWidget {
   final dynamic index;
 
-  const Examcontent({super.key,required this.index});
+  const UcExam({super.key,required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -40,29 +40,29 @@ class Examcontent extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        examresult[index].subjectname,
+                        Upcomingexam[index].subjectname1,
                         style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.w700,color: Colors.black),
                       ),
                       Text(
-                        examresult[index].subjectcode,
+                        Upcomingexam[index].subjectcode1,
                         style: TextStyle(fontSize: 10, color: Colors.grey),
                       )
                     ],
                   ),
                   Container(
-                    height: 40,
-                    width: 40,
+                    height: 25,
+                    width: 70,
                     decoration: BoxDecoration(
                         color: Colors.blue,
                         border: Border.all(
                             color: Colors.blue,
                             width: 1,
                             style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(50)),
+                        borderRadius: BorderRadius.circular(10)),
                     child: Center(
                         child: Text(
-                       examresult[index].grade,
+                       Upcomingexam[index].ExamType,
                       style: TextStyle(
                           color: const Color.fromARGB(255, 255, 255, 255),
                           fontWeight: FontWeight.w500),
@@ -90,7 +90,7 @@ class Examcontent extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       ),
                       Text(
-                         examresult[index].date,
+                        Upcomingexam[index].date1,
                         style: TextStyle(
                             fontSize: 11, fontWeight: FontWeight.w500,color: Colors.black),
                       ),
@@ -107,7 +107,7 @@ class Examcontent extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       ),
                       Text(
-                        examresult[index].percentage,
+                        Upcomingexam[index].Time,
                         style: TextStyle(
                             fontSize: 11, fontWeight: FontWeight.w500,color: Colors.black),
                       ),
@@ -124,7 +124,7 @@ class Examcontent extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       ),
                       Text(
-                        examresult[index].status,
+                        Upcomingexam[index].Location,
                         style: TextStyle(
                             fontSize: 11, fontWeight: FontWeight.w500,color: Colors.black),
                       ),

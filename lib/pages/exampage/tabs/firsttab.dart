@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:student/pages/exampage/tabs/examcont.dart';
+import 'package:student/allvariables/upcoming.dart';
+import 'package:student/pages/exampage/tabs/UcExam.dart';
 
 class Firsttab extends StatefulWidget {
   const Firsttab({super.key});
@@ -33,9 +34,9 @@ class _FirsttabState extends State<Firsttab> {
           ),
            Expanded(
                     child: ListView.builder(
-                        itemCount: 5,
+                        itemCount: Upcomingexam.length,
                         itemBuilder: (context, index) {
-                          return Examcontent(index: index);
+                          return  UcExam(index: index);
                         }))
         ],
       ),
