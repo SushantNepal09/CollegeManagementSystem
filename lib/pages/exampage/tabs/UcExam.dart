@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/allresults.dart';
 import 'package:student/allvariables/upcoming.dart';
 
@@ -52,7 +53,7 @@ class  UcExam extends StatelessWidget {
                   ),
                   Container(
                     height: 25,
-                    width: 70,
+                    width: 60,
                     decoration: BoxDecoration(
                         color: Colors.blue,
                         border: Border.all(
@@ -65,7 +66,7 @@ class  UcExam extends StatelessWidget {
                        Upcomingexam[index].ExamType,
                       style: TextStyle(
                           color: const Color.fromARGB(255, 255, 255, 255),
-                          fontWeight: FontWeight.w500),
+                          fontWeight: FontWeight.w500,fontSize: 10),
                     )),
                   )
                 ],
@@ -79,7 +80,7 @@ class  UcExam extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
+                 Column (
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -89,6 +90,7 @@ class  UcExam extends StatelessWidget {
                             color: Colors.grey,
                             fontWeight: FontWeight.w500),
                       ),
+                      //  Icon(Icons.calendar_month ,size: 16,),
                       Text(
                         Upcomingexam[index].date1,
                         style: TextStyle(
@@ -96,7 +98,7 @@ class  UcExam extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Column(
+                 Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -106,6 +108,7 @@ class  UcExam extends StatelessWidget {
                             color: Colors.grey,
                             fontWeight: FontWeight.w500),
                       ),
+                      // Icon(Icons.timer ,size: 16,),
                       Text(
                         Upcomingexam[index].Time,
                         style: TextStyle(
@@ -123,6 +126,7 @@ class  UcExam extends StatelessWidget {
                             color: Colors.grey,
                             fontWeight: FontWeight.w500),
                       ),
+                      // Icon(Icons.location_on,size: 16,),
                       Text(
                         Upcomingexam[index].Location,
                         style: TextStyle(
@@ -151,7 +155,10 @@ class  UcExam extends StatelessWidget {
                       ],
                     )),
 
-                    ElevatedButton(onPressed: (){}, child: Text('Set Remainder',style: TextStyle(color: Colors.blue),),)
+                    ElevatedButton(onPressed: (){},style: ElevatedButton.styleFrom(
+backgroundColor: Colors.blue
+
+                    ), child: Text('Set Remainder',style: TextStyle(color: Colors.white),),)
                   ],
                 ),
               )
