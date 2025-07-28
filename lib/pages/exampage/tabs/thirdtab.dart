@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:student/allvariables/allVar.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Thirdtab extends StatefulWidget {
@@ -40,15 +41,38 @@ class _ThirdtabState extends State<Thirdtab> {
             ),
           ),
           Expanded(
-              child: TableCalendar(
-                  calendarFormat: CalendarFormat.month,
-                  availableGestures: AvailableGestures.all,
-                  rowHeight: 50,
-                  selectedDayPredicate: (day) => isSameDay(day, today),
-                  onDaySelected: _ondayselected,
-                  focusedDay: today,
-                  firstDay: DateTime.utc(2020, 01, 01),
-                  lastDay: DateTime.utc(2030, 12, 30)))
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TableCalendar(
+                  
+                  headerStyle: HeaderStyle(
+                  
+                formatButtonVisible: false,
+                titleCentered: true,
+                decoration: BoxDecoration(
+                  
+                  color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                  
+                width: 1,
+                color: Colors.black
+                  )
+                )
+                  ),
+                  
+
+
+
+                    calendarFormat: CalendarFormat.month,
+                    availableGestures: AvailableGestures.all,
+                    rowHeight: 50,
+                    selectedDayPredicate: (day) => isSameDay(day, today),
+                    onDaySelected: _ondayselected,
+                    focusedDay: today,
+                    firstDay: DateTime.utc(2020, 01, 01),
+                    lastDay: DateTime.utc(2030, 12, 30)),
+              ))
         ],
       ),
     );
