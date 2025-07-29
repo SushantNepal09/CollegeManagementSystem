@@ -55,7 +55,7 @@ class _ThirdtabState extends State<Thirdtab> {
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                   
-                width: 1,
+                width: 1.2,
                 color: Colors.black
                   )
                 )
