@@ -40,39 +40,115 @@ class _ThirdtabState extends State<Thirdtab> {
               ],
             ),
           ),
-          Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TableCalendar(
-                  
-                  headerStyle: HeaderStyle(
-                  
-                formatButtonVisible: false,
-                titleCentered: true,
-                decoration: BoxDecoration(
-                  
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                  
-                width: 1.2,
-                color: Colors.black
-                  )
-                )
-                  ),
-                  
+SizedBox(
+
+  child: Padding(
+    padding: const EdgeInsets.all(16.0),
+    child: Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 8,
+            offset: Offset(0, 4),
+          ),
+        ],
+      ),
+      child: TableCalendar(
+        firstDay: DateTime.utc(2020, 01, 01),
+        lastDay: DateTime.utc(2030, 12, 30),
+        focusedDay: today,
+        calendarFormat: CalendarFormat.month,
+        selectedDayPredicate: (day) => isSameDay(day, today),
+        onDaySelected: _ondayselected,
+        availableGestures: AvailableGestures.all,
+        rowHeight: 48,
+        daysOfWeekHeight: 32,
+
+       
+        headerStyle: HeaderStyle(
+          titleCentered: true,
+          formatButtonVisible: false,
+          titleTextStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+          decoration: BoxDecoration(
+            color: Colors.blueAccent,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+          ),
+          leftChevronIcon: Icon(Icons.chevron_left, color: Colors.white),
+          rightChevronIcon: Icon(Icons.chevron_right, color: Colors.white),
+        ),
+
+      
+        calendarStyle: CalendarStyle(
+         
+          todayDecoration: BoxDecoration(
+            color: Colors.orange,
+            shape: BoxShape.circle,
+          ),
+          
+          selectedDecoration: BoxDecoration(
+            color: Colors.deepPurple,
+            shape: BoxShape.circle,
+          ),
+          
+          defaultTextStyle: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Colors.black,
+          ),
+         
+          weekendTextStyle: TextStyle(
+            color: Colors.red, 
+            fontWeight: FontWeight.w600,
+          ),
+         
+          holidayTextStyle: TextStyle(
+            color: Colors.red,
+          ),
+        
+          selectedTextStyle: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+          todayTextStyle: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+          outsideDaysVisible: false,
+        ),
+
+       weekendDays: const [DateTime.saturday],
+  
+        daysOfWeekStyle: DaysOfWeekStyle(
+          weekdayStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.grey[800],
+          ),
+          weekendStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.red,
+          ),
+        ),
+
+       
+        holidayPredicate: (day) => false,
+      ),
+    ),
+  ),
+)
+,
+ListTile(
+title: Text('Hello'),
+
+)
 
 
-
-                    calendarFormat: CalendarFormat.month,
-                    availableGestures: AvailableGestures.all,
-                    rowHeight: 50,
-                    selectedDayPredicate: (day) => isSameDay(day, today),
-                    onDaySelected: _ondayselected,
-                    focusedDay: today,
-                    firstDay: DateTime.utc(2020, 01, 01),
-                    lastDay: DateTime.utc(2030, 12, 30)),
-              ))
         ],
       ),
     );
