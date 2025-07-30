@@ -27,6 +27,7 @@ body: Column(  //then a column will be fine to display the three pages
         borderSide: BorderSide(width: 4,color: Colors.redAccent)
       ),
       automaticIndicatorColorAdjustment: true
+    
       
         ,tabs: [ //these are the tabs that will show
       Tab(icon: Icon(Icons.menu_book_sharp,color: Colors.white,),child: Text("Upcoming",style: TextStyle(color: Colors.white,),),),

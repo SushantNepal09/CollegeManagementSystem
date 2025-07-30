@@ -13,6 +13,8 @@ class Thirdtab extends StatefulWidget {
 class _ThirdtabState extends State<Thirdtab> {
   dynamic today = DateTime.now();
 
+  bool change = true;
+
   void _ondayselected(DateTime day, DateTime focusedDay) {
     setState(() {
       today = day;
@@ -60,7 +62,20 @@ class _ThirdtabState extends State<Thirdtab> {
                   firstDay: DateTime.utc(2020, 01, 01),
                   lastDay: DateTime.utc(2030, 12, 30),
                   focusedDay: today,
-                  calendarFormat: CalendarFormat.month,
+                  formatAnimationCurve:!change ? Curves.easeOut:Curves.easeIn,
+               
+                  formatAnimationDuration:!change ? Duration(seconds: 2):Duration(milliseconds: 1200),
+                  onFormatChanged: (format) => {
+                    setState(() {
+                      change = !change;
+                      
+                    }),
+                  },
+
+
+
+                  calendarFormat:
+                      change ? CalendarFormat.twoWeeks : CalendarFormat.month,
                   selectedDayPredicate: (day) => isSameDay(day, today),
                   onDaySelected: _ondayselected,
                   availableGestures: AvailableGestures.all,
@@ -68,8 +83,11 @@ class _ThirdtabState extends State<Thirdtab> {
                   daysOfWeekHeight: 32,
                   headerStyle: HeaderStyle(
                     titleCentered: true,
-                    formatButtonVisible: false,
+                    formatButtonVisible: true,
                     titleTextStyle: TextStyle(
+
+
+
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -113,6 +131,7 @@ class _ThirdtabState extends State<Thirdtab> {
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
+
                     outsideDaysVisible: false,
                   ),
                   weekendDays: const [DateTime.saturday],
@@ -121,6 +140,8 @@ class _ThirdtabState extends State<Thirdtab> {
                       fontWeight: FontWeight.bold,
                       color: Colors.grey[800],
                     ),
+
+
                     weekendStyle: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.red,
@@ -131,32 +152,54 @@ class _ThirdtabState extends State<Thirdtab> {
               ),
             ),
           ),
+          Text(
+            'Event Lists',
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+          ),
           Expanded(
-          
-            child: ListView.builder(itemCount: Schedule.length,itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  decoration: BoxDecoration(
+            child: ListView.builder(
+                itemCount: Schedule.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+// height: 70,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.24),
+                              blurRadius: 8,
+                              spreadRadius: 0,
+                              offset: Offset(
+                                0,
+                                3,
+                              ),
+                            ),
+                          ],
 
-  border: Border.all(
-    width: 1,
-    color: Colors.black
-  ),
-  borderRadius: BorderRadius.circular(12)
-                
-                  ),
-                  child: ListTile(
-                   
-                              title: Text(Schedule[index].title,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500),),
-                              subtitle: Text(Schedule[index].subtitle),
-                              leading: Schedule[index].icon,
-                              
-                              
-                  ),
-                ),
-              );
-            }),
+                          // border: Border.all(
+                          //   width: 1,
+                          //   color: Colors.black
+                          // ),
+                          borderRadius: BorderRadius.circular(12)),
+                      child: ListTile(
+                        title: Text(
+                          Schedule[index].title,
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w600),
+                        ),
+                        subtitle: Text(
+                          Schedule[index].subtitle,
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w400),
+                        ),
+                        leading: Schedule[index].icon,
+                        iconColor: Colors.blueAccent,
+                      ),
+                    ),
+                  );
+                }),
           )
         ],
       ),
