@@ -11,15 +11,31 @@ class Thirdtab extends StatefulWidget {
 }
 
 class _ThirdtabState extends State<Thirdtab> {
+  final Map<DateTime, List<calendarschedule>> _eventMap = {};
+
+  @override
+  void initState() {
+    super.initState();
+    // _events = {};
+    for (var event in schedule) {
+      final date =
+          DateTime.utc(event.date.year, event.date.month, event.date.day);
+      if (_eventMap[date] == null) {
+        _eventMap[date] = [event];
+      } else {
+        _eventMap[date]!.add(event);
+      }
+    }
+  }
+
+  DateTime? _selectedDay;
+
   dynamic today = DateTime.now();
+  // Map<DateTime, List<dynamic>> events;
+
+  CalendarFormat _calendarFormat = CalendarFormat.month;
 
   bool change = true;
-
-  void _ondayselected(DateTime day, DateTime focusedDay) {
-    setState(() {
-      today = day;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,46 +64,95 @@ class _ThirdtabState extends State<Thirdtab> {
               padding: const EdgeInsets.all(16.0),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 8,
-                      offset: Offset(0, 4),
-                    ),
-                  ],
-                ),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+
+                    // boxShadow: [
+                    //   BoxShadow(
+                    //     color: Colors.grey,
+                    //     blurRadius: 8,
+                    //     offset: Offset(0, 4),
+                    //   ),
+                    // ],
+
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.15),
+                        blurRadius: 2.6,
+                        spreadRadius: 0,
+                        offset: Offset(
+                          1.95,
+                          1.95,
+                        ),
+                      ),
+                    ]),
                 child: TableCalendar(
                   firstDay: DateTime.utc(2020, 01, 01),
                   lastDay: DateTime.utc(2030, 12, 30),
                   focusedDay: today,
-                  formatAnimationCurve:!change ? Curves.easeOut:Curves.easeIn,
-               
-                  formatAnimationDuration:!change ? Duration(seconds: 2):Duration(milliseconds: 1200),
+                  formatAnimationCurve:
+                      !change ? Curves.easeOut : Curves.easeIn,
+                  formatAnimationDuration: !change
+                      ? Duration(seconds: 2)
+                      : Duration(milliseconds: 1200),
                   onFormatChanged: (format) => {
-                    setState(() {
-                      change = !change;
-                      
-                    }),
+                    if (_calendarFormat != format)
+                      {
+                        setState(() {
+                          _calendarFormat = format;
+                          change = !change;
+                        }),
+                      }
                   },
-
-
-
-                  calendarFormat:
-                      change ? CalendarFormat.twoWeeks : CalendarFormat.month,
+                  calendarFormat: _calendarFormat,
                   selectedDayPredicate: (day) => isSameDay(day, today),
-                  onDaySelected: _ondayselected,
+                  eventLoader: (day) {
+                    return _eventMap[
+                            DateTime.utc(day.year, day.month, day.day)] ??
+                        [];
+                  },
+                  onDaySelected: (selectedDay, DateTime focusedDay) {
+                    setState(() {
+                      _selectedDay = selectedDay;
+                      today = focusedDay;
+                    });
+                  },
                   availableGestures: AvailableGestures.all,
+                  calendarBuilders: CalendarBuilders(
+                      defaultBuilder: (context, day, focusedDay) {
+                    final normalizedDay =
+                        DateTime.utc(day.year, day.month, day.day);
+                    final hasEvent = _eventMap.containsKey(normalizedDay);
+
+                    if (hasEvent) {
+                      return Container(
+                        margin: const EdgeInsets.all(6.0),
+                        decoration: BoxDecoration(
+                            color: Colors.blueAccent,
+                            // borderRadius: BorderRadius.circular(25)
+
+                            // background color for event days
+                            shape: BoxShape.circle,
+                            ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          '${day.day}',
+                          style: const TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      );
+                    }
+
+                    return null; // fallback to default
+                  }, markerBuilder: (context, day, events) {
+                    return const SizedBox.shrink();
+                  }),
                   rowHeight: 48,
                   daysOfWeekHeight: 32,
                   headerStyle: HeaderStyle(
                     titleCentered: true,
                     formatButtonVisible: true,
                     titleTextStyle: TextStyle(
-
-
-
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -108,7 +173,7 @@ class _ThirdtabState extends State<Thirdtab> {
                       shape: BoxShape.circle,
                     ),
                     selectedDecoration: BoxDecoration(
-                      color: Colors.deepPurple,
+                      color: Colors.deepPurpleAccent,
                       shape: BoxShape.circle,
                     ),
                     defaultTextStyle: TextStyle(
@@ -131,7 +196,6 @@ class _ThirdtabState extends State<Thirdtab> {
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
-
                     outsideDaysVisible: false,
                   ),
                   weekendDays: const [DateTime.saturday],
@@ -140,8 +204,6 @@ class _ThirdtabState extends State<Thirdtab> {
                       fontWeight: FontWeight.bold,
                       color: Colors.grey[800],
                     ),
-
-
                     weekendStyle: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.red,
@@ -156,10 +218,33 @@ class _ThirdtabState extends State<Thirdtab> {
             'Event Lists',
             style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
           ),
+
+// Expanded(child:
+// ListView(
+// children: _getEventsForDay(_selectedDay?? today).map((event)=> ListTile(
+// title: Text(event),
+// )
+// ).toList(),
+
+// ))
+
           Expanded(
             child: ListView.builder(
-                itemCount: Schedule.length,
+                itemCount: _eventMap[DateTime.utc(
+                      (_selectedDay ?? today).year,
+                      (_selectedDay ?? today).month,
+                      (_selectedDay ?? today).day,
+                    )]
+                        ?.length ??
+                    0,
                 itemBuilder: (context, index) {
+                  final eventsForDay = _eventMap[DateTime.utc(
+                    (_selectedDay ?? today).year,
+                    (_selectedDay ?? today).month,
+                    (_selectedDay ?? today).day,
+                  )]!;
+                  final schedule = eventsForDay[index];
+
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
@@ -184,17 +269,19 @@ class _ThirdtabState extends State<Thirdtab> {
                           // ),
                           borderRadius: BorderRadius.circular(12)),
                       child: ListTile(
+                        // isThreeLine: true,
+                        
                         title: Text(
-                          Schedule[index].title,
+                          schedule.title,
                           style: TextStyle(
                               fontSize: 14, fontWeight: FontWeight.w600),
                         ),
                         subtitle: Text(
-                          Schedule[index].subtitle,
+                          schedule.subtitle,
                           style: TextStyle(
                               fontSize: 12, fontWeight: FontWeight.w400),
                         ),
-                        leading: Schedule[index].icon,
+                        leading: schedule.icon,
                         iconColor: Colors.blueAccent,
                       ),
                     ),
