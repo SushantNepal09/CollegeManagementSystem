@@ -1,8 +1,10 @@
 
 
+import 'package:flutter/widgets.dart';
+
 class Content {
   final String title;
-  final String image;
+  final dynamic image;
   Content({required this.title, required this.image});
 }
 
@@ -21,8 +23,8 @@ List<Content> contents = [
       title: "Resources",
       image: "https://cdn-icons-png.flaticon.com/512/751/751432.png"),
   Content(
-      title: "Library",
-      image: "https://cdn-icons-png.flaticon.com/512/225/225993.png"),
+      title: "Exam Form",
+      image: 'https://cdn-icons-png.flaticon.com/512/10159/10159810.png'),
   Content(
       title: "Complaints",
       image: "https://static.thenounproject.com/png/202590-200.png"),

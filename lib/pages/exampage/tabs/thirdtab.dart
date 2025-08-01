@@ -293,7 +293,8 @@ trailing:      Container(
                     height: 25,
                     width: 70,
                     decoration: BoxDecoration(
-                        color: Colors.deepPurpleAccent,
+                        color: Colors.blueAccent,
+                        
                         border: Border.all(
                             color: Colors.black,
                             width: 0.2,
