@@ -11,6 +11,9 @@ class Thirdtab extends StatefulWidget {
 }
 
 class _ThirdtabState extends State<Thirdtab> {
+  String _formatDate(DateTime date) {
+  return '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+}
   final Map<DateTime, List<calendarschedule>> _eventMap = {};
 
   @override
@@ -269,7 +272,7 @@ class _ThirdtabState extends State<Thirdtab> {
                           // ),
                           borderRadius: BorderRadius.circular(12)),
                       child: ListTile(
-                        // isThreeLine: true,
+                        
                         
                         title: Text(
                           schedule.title,
@@ -282,6 +285,29 @@ class _ThirdtabState extends State<Thirdtab> {
                               fontSize: 12, fontWeight: FontWeight.w400),
                         ),
                         leading: schedule.icon,
+                        // trailing:Text(_formatDate(_selectedDay ?? today),
+                        //   style: TextStyle(
+                        //       fontSize: 10, fontWeight: FontWeight.w700),),
+
+trailing:      Container(
+                    height: 25,
+                    width: 70,
+                    decoration: BoxDecoration(
+                        color: Colors.deepPurpleAccent,
+                        border: Border.all(
+                            color: Colors.black,
+                            width: 0.2,
+                            style: BorderStyle.solid),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Center(
+                        child: Text(
+                       _formatDate(_selectedDay ?? today),
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          fontWeight: FontWeight.w500,fontSize: 10),
+                    )),
+                  ),
+
                         iconColor: Colors.blueAccent,
                       ),
                     ),
