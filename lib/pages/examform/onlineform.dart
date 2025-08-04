@@ -29,7 +29,25 @@ class _OnlineformState extends State<Onlineform> {
 children: [
 Padding(
   padding: const EdgeInsets.all(8.0),
-  child: TextFormField(),
+  child: TextFormField(
+decoration: InputDecoration(border: OutlineInputBorder(
+borderRadius: BorderRadius.circular(15)
+
+)),
+
+
+  ),
+),
+Padding(
+  padding: const EdgeInsets.all(8.0),
+  child: TextFormField(
+decoration: InputDecoration(border: OutlineInputBorder(
+borderRadius: BorderRadius.circular(15)
+
+)),
+
+
+  ),
 )
 
 ],
