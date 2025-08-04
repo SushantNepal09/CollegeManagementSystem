@@ -24,35 +24,42 @@ class _OnlineformState extends State<Onlineform> {
       body: Center(
         child: Form(
           key: _formKey,
-          
           child: Column(
-children: [
-Padding(
-  padding: const EdgeInsets.all(8.0),
-  child: TextFormField(
-decoration: InputDecoration(border: OutlineInputBorder(
-borderRadius: BorderRadius.circular(15)
+            children: [
+              TextFieldSample(
+                labelname: 'Name',
+              ),
+              TextFieldSample(
+                labelname: 'PhoneNo',
+              ),
+                TextFieldSample(
+                labelname: 'Address',
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
-)),
+class TextFieldSample extends StatelessWidget {
+  final String labelname;
 
+  const TextFieldSample({super.key, required this.labelname});
 
-  ),
-),
-Padding(
-  padding: const EdgeInsets.all(8.0),
-  child: TextFormField(
-decoration: InputDecoration(border: OutlineInputBorder(
-borderRadius: BorderRadius.circular(15)
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 10.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            label: Text(labelname),
+            // ,style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: 12),
 
-)),
-
-
-  ),
-)
-
-],
-
-        ),),
+            // hintText: labelname,
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(15))),
       ),
     );
   }
