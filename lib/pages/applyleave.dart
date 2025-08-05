@@ -195,6 +195,7 @@ class _ApplyleaveState extends State<Applyleave> {
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * 0.4,
                     child: TextField(
+                      readOnly: true,
                       controller: datecontroller,
                       decoration: InputDecoration(
                           suffixIcon: IconButton(
@@ -243,11 +244,16 @@ class _ApplyleaveState extends State<Applyleave> {
                           labelText: "Start Date",
                           hintText: "Y/M/D"),
                       keyboardType: TextInputType.datetime,
+                   
                     ),
                   ),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * 0.4,
                     child: TextField(
+ readOnly: true,
+
+
+
                       controller: endDate,
                       decoration: InputDecoration(
                           suffixIcon: IconButton(

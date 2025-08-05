@@ -6,6 +6,7 @@ TextEditingController fullNameController = TextEditingController();
 TextEditingController parentNameController = TextEditingController();
 TextEditingController symbolNoController = TextEditingController();
 TextEditingController addressController = TextEditingController();
+TextEditingController dateController = TextEditingController();
 
 class Onlineform extends StatefulWidget {
   const Onlineform({super.key});
@@ -49,6 +50,9 @@ class _OnlineformState extends State<Onlineform> {
                 labelname: 'Address',
                 wController: addressController,
               ),
+
+              DateFormat1(),
+
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: OutlinedButton(
@@ -184,6 +188,55 @@ class NumberField extends StatelessWidget {
                   fontSize: 14),
             ),
             hintText: info,
+            // hintStyle: TextStyle(color: Colors.blueAccent),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: Colors.grey))),
+      ),
+    );
+  }
+}
+
+class DateFormat1 extends StatelessWidget {
+  const DateFormat1({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 12.0, left: 10, right: 10),
+      child: TextFormField(
+        controller: dateController,
+       readOnly: true,
+        keyboardType: TextInputType.datetime,
+        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+        onTap: () async {
+          showDatePicker(
+              context: context,
+              firstDate: DateTime.utc(1980, 01, 01),
+              lastDate: DateTime.now(),
+       
+              
+              );
+        },
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        decoration: InputDecoration(
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blue),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.grey,
+                ),
+                borderRadius: BorderRadius.circular(10)),
+            label: Text(
+              'Date-of-Birth',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14),
+            ),
+            hintText: 'Date-of-Birth',
             // hintStyle: TextStyle(color: Colors.blueAccent),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
