@@ -7,6 +7,7 @@ TextEditingController parentNameController = TextEditingController();
 TextEditingController symbolNoController = TextEditingController();
 TextEditingController addressController = TextEditingController();
 TextEditingController dateController = TextEditingController();
+String? valueDropDown;
 
 class Onlineform extends StatefulWidget {
   const Onlineform({super.key});
@@ -52,6 +53,9 @@ class _OnlineformState extends State<Onlineform> {
               ),
 
               DateFormat1(),
+
+              DropDown(labelname: 'Select Course', dropvalue1: 'BIT', dropvalue2: 'BSc.Csit',),
+               DropDown(labelname: 'Select Exam Type', dropvalue1: 'Regular', dropvalue2: 'Partial',),
 
               Padding(
                 padding: const EdgeInsets.all(15.0),
@@ -274,18 +278,24 @@ class _DateFormat1State extends State<DateFormat1> {
   }
 }
 
-class AddressContainer extends StatelessWidget {
+class AddressContainer extends StatefulWidget {
   final String labelname;
   final dynamic aController;
 
-  const AddressContainer({super.key, required this.labelname, required this.aController});
+  const AddressContainer(
+      {super.key, required this.labelname, required this.aController});
 
+  @override
+  State<AddressContainer> createState() => _AddressContainerState();
+}
+
+class _AddressContainerState extends State<AddressContainer> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 12.0, left: 10, right: 10),
       child: TextFormField(
-        controller: aController,
+        controller: widget.aController,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null || value.isEmpty) {
@@ -319,16 +329,91 @@ class AddressContainer extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           label: Text(
-            labelname,
+            widget.labelname,
             style: TextStyle(
                 color: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
           ),
 
-          hintText: labelname,
+          hintText: widget.labelname,
           // hintStyle: TextStyle(color: Colors.blueAccent),
         ),
       ),
     );
-    ;
+  }
+}
+
+class DropDown extends StatefulWidget {
+  final String labelname;
+  final String dropvalue1;
+  final String dropvalue2;
+
+  const DropDown({super.key, required this.labelname, required this.dropvalue1, required this.dropvalue2});
+
+  @override
+  State<DropDown> createState() => _DropDownState();
+}
+
+class _DropDownState extends State<DropDown> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 12.0, left: 10, right: 10),
+      child: DropdownButtonFormField(
+        decoration: InputDecoration(
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blue),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.grey,
+                ),
+                borderRadius: BorderRadius.circular(10)),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            label: Text(widget.labelname,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14)),
+            hint: Text('Select Course',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14))),
+        value: valueDropDown,
+        borderRadius: BorderRadius.circular(10),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Fill all the required area';
+          }
+          return null;
+        },
+autovalidateMode: AutovalidateMode.onUserInteraction,
+        isExpanded: true, // expands the dropdown to the size of container
+
+        onChanged: (String? value) {
+          setState(() {
+            valueDropDown = value!;
+          });
+        },
+        items: [
+          DropdownMenuItem(
+            value: 'one',
+            child: Text(widget.dropvalue1),
+          ),
+          DropdownMenuItem(
+            value: 'Two',
+            child: Text(widget.dropvalue2),
+          ),
+        ],
+      ),
+    );
   }
 }
