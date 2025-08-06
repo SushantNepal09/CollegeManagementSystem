@@ -144,18 +144,23 @@ class TextFieldSample extends StatelessWidget {
   }
 }
 
-class NumberField extends StatelessWidget {
+class NumberField extends StatefulWidget {
   final dynamic info;
   final dynamic controller2num;
   const NumberField(
       {super.key, required this.info, required this.controller2num});
 
   @override
+  State<NumberField> createState() => _NumberFieldState();
+}
+
+class _NumberFieldState extends State<NumberField> {
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 12.0, left: 10, right: 10),
       child: TextFormField(
-        controller: controller2num,
+        controller: widget.controller2num,
         keyboardType: TextInputType.number,
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         validator: (value) {
@@ -181,13 +186,13 @@ class NumberField extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(10)),
             label: Text(
-              info,
+              widget.info,
               style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
                   fontSize: 14),
             ),
-            hintText: info,
+            hintText: widget.info,
             // hintStyle: TextStyle(color: Colors.blueAccent),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -197,26 +202,42 @@ class NumberField extends StatelessWidget {
   }
 }
 
-class DateFormat1 extends StatelessWidget {
+class DateFormat1 extends StatefulWidget {
   const DateFormat1({super.key});
 
+  @override
+  State<DateFormat1> createState() => _DateFormat1State();
+}
+
+class _DateFormat1State extends State<DateFormat1> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 12.0, left: 10, right: 10),
       child: TextFormField(
         controller: dateController,
-       readOnly: true,
+        readOnly: true,
         keyboardType: TextInputType.datetime,
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         onTap: () async {
           showDatePicker(
-              context: context,
-              firstDate: DateTime.utc(1980, 01, 01),
-              lastDate: DateTime.now(),
-       
-              
-              );
+            context: context,
+            firstDate: DateTime.utc(1980, 01, 01),
+            lastDate: DateTime.now(),
+          ).then((value) {
+            setState(() {
+              if (value == null) {
+                dateController.text =
+                    "";
+              }
+else
+{
+  dateController.text =
+                  "${value.year}/${value.month}/${value.day}";
+}
+            
+            });
+          });
         },
         autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
