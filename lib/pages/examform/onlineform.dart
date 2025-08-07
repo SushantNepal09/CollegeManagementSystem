@@ -11,6 +11,9 @@ TextEditingController semesterController = TextEditingController();
 TextEditingController year = TextEditingController();
 TextEditingController regNoController = TextEditingController();
 TextEditingController yearNoController = TextEditingController();
+TextEditingController codeController = TextEditingController();
+TextEditingController subController = TextEditingController();
+
 String? valueDropDown;
 
 class Onlineform extends StatefulWidget {
@@ -66,9 +69,9 @@ class _OnlineformState extends State<Onlineform> {
                   labelname: 'Address',
                   aController: addressController,
                 ),
-            
+
                 DateFormat1(),
-            
+
                 DropDown(
                   labelname: 'Select Course',
                   dropvalue1: 'BIT',
@@ -81,13 +84,13 @@ class _OnlineformState extends State<Onlineform> {
                   numlength2: 0,
                   errormessage: 'Semester',
                 ),
-            
+
                 DropDown(
                   labelname: 'Select Exam Type',
                   dropvalue1: 'Regular',
                   dropvalue2: 'Partial',
                 ),
-                     NumberField(
+                NumberField(
                   info: 'Registration No',
                   controller2num: regNoController,
                   numlength: 10,
@@ -95,17 +98,40 @@ class _OnlineformState extends State<Onlineform> {
                   errormessage: 'Registration Number',
                 ),
 
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 18.0, left: 15, right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        textAlign: TextAlign.start,
+                        'Subjects',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w700),
+                      ),
+                      ElevatedButton(
+                          onPressed: () {},
+                          child: Text('Add Subject',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w500)))
+                    ],
+                  ),
+                ),
+                CodeandSubject(),
 
-Text('Subjects'),            
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: OutlinedButton(
                       style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+                        backgroundColor:
+                            WidgetStateProperty.resolveWith<Color?>(
                           (states) {
                             if (states.contains(WidgetState.pressed))
                               return Colors.lightGreenAccent;
-            
+
                             if (states.contains(WidgetState.hovered))
                               return Colors.amber;
                             return Colors.amberAccent;
@@ -469,5 +495,104 @@ class _DropDownState extends State<DropDown> {
         ],
       ),
     );
+  }
+}
+
+class CodeandSubject extends StatefulWidget {
+  const CodeandSubject({super.key});
+
+  @override
+  State<CodeandSubject> createState() => _CodeandSubjectState();
+}
+
+class _CodeandSubjectState extends State<CodeandSubject> {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: Row(
+        children: [
+          Expanded(child: CodeField()),
+          Expanded(child: TextFieldSample(labelname: 'Subject', wController: subController)),
+        ],
+      ),
+    );
+  }
+}
+
+class CodeField extends StatefulWidget {
+  const CodeField({super.key});
+
+  @override
+  State<CodeField> createState() => _CodeFieldState();
+}
+
+class _CodeFieldState extends State<CodeField> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 12.0, left: 10, right: 10),
+      child: TextFormField(
+        controller: codeController,
+        inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[A-Z0-9]'))],
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Code is Required';
+          }
+     
+        else if(value.length>8)
+          {
+            return 'Codelength Exceeded';
+          }
+             if(value.length<4 && !value.contains((RegExp(r'[0-9]'))))
+          {
+            return 'Not a Valid Code';
+          }
+           
+          if(!RegExp(r'^[A-z]{3}').hasMatch(value))
+          {
+            return 'First 3 characters must be letter';
+          }
+        
+        
+       
+          //if thise doesnot contain letters a-z and plus(+) means atleast once then throw an error
+          // if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
+          //   return 'Only letters are allowed';
+          // }
+          return null;
+        },
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.grey,
+              ),
+              borderRadius: BorderRadius.circular(10)),
+
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red),
+            borderRadius: BorderRadius.circular(10),
+          ),
+
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          label: Text(
+            'Code',
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
+          ),
+
+          hintText: 'Code',
+          // hintStyle: TextStyle(color: Colors.blueAccent),
+        ),
+      ),
+    );
+    ;
   }
 }
