@@ -7,6 +7,10 @@ TextEditingController parentNameController = TextEditingController();
 TextEditingController symbolNoController = TextEditingController();
 TextEditingController addressController = TextEditingController();
 TextEditingController dateController = TextEditingController();
+TextEditingController semesterController = TextEditingController();
+TextEditingController year = TextEditingController();
+TextEditingController regNoController = TextEditingController();
+TextEditingController yearNoController = TextEditingController();
 String? valueDropDown;
 
 class Onlineform extends StatefulWidget {
@@ -29,59 +33,96 @@ class _OnlineformState extends State<Onlineform> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: Center(
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              TextFieldSample(
-                labelname: 'Full Name',
-                wController: fullNameController,
-              ),
-              // SizedBox(height: 5,),
-              TextFieldSample(
-                labelname: "Parent's Name",
-                wController: parentNameController,
-              ),
-              NumberField(
-                info: 'Symbol No',
-                controller2num: symbolNoController,
-              ),
-              AddressContainer(
-                labelname: 'Address',
-                aController: addressController,
-              ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                TextFieldSample(
+                  labelname: 'Full Name',
+                  wController: fullNameController,
+                ),
+                // SizedBox(height: 5,),
+                TextFieldSample(
+                  labelname: "Parent's Name",
+                  wController: parentNameController,
+                ),
+                NumberField(
+                  info: 'Symbol No',
+                  controller2num: symbolNoController,
+                  numlength: 8,
+                  numlength2: 6,
+                  errormessage: 'Symbol No',
+                ),
+                NumberField(
+                  info: 'Batch',
+                  controller2num: yearNoController,
+                  numlength: 4,
+                  numlength2: 4,
+                  errormessage: 'Year',
+                ),
+                AddressContainer(
+                  labelname: 'Address',
+                  aController: addressController,
+                ),
+            
+                DateFormat1(),
+            
+                DropDown(
+                  labelname: 'Select Course',
+                  dropvalue1: 'BIT',
+                  dropvalue2: 'BSc.Csit',
+                ),
+                NumberField(
+                  info: 'Semester',
+                  controller2num: semesterController,
+                  numlength: 1,
+                  numlength2: 0,
+                  errormessage: 'Semester',
+                ),
+            
+                DropDown(
+                  labelname: 'Select Exam Type',
+                  dropvalue1: 'Regular',
+                  dropvalue2: 'Partial',
+                ),
+                     NumberField(
+                  info: 'Registration No',
+                  controller2num: regNoController,
+                  numlength: 10,
+                  numlength2: 10,
+                  errormessage: 'Registration Number',
+                ),
 
-              DateFormat1(),
 
-              DropDown(labelname: 'Select Course', dropvalue1: 'BIT', dropvalue2: 'BSc.Csit',),
-               DropDown(labelname: 'Select Exam Type', dropvalue1: 'Regular', dropvalue2: 'Partial',),
-
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: OutlinedButton(
-                    style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-                        (states) {
-                          if (states.contains(WidgetState.pressed))
-                            return Colors.lightGreenAccent;
-
-                          if (states.contains(WidgetState.hovered))
-                            return Colors.amber;
-                          return Colors.amberAccent;
-                        },
+Text('Subjects'),            
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: OutlinedButton(
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+                          (states) {
+                            if (states.contains(WidgetState.pressed))
+                              return Colors.lightGreenAccent;
+            
+                            if (states.contains(WidgetState.hovered))
+                              return Colors.amber;
+                            return Colors.amberAccent;
+                          },
+                        ),
                       ),
-                    ),
-                    onPressed: () {
-                      _formKey.currentState!.validate();
-                    },
-                    child: Text(
-                      'Test Submit Button',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black),
-                    )),
-              )
-            ],
+                      onPressed: () {
+                        _formKey.currentState!.validate();
+                      },
+                      child: Text(
+                        'Test Submit Button',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.black),
+                      )),
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -151,8 +192,17 @@ class TextFieldSample extends StatelessWidget {
 class NumberField extends StatefulWidget {
   final dynamic info;
   final dynamic controller2num;
+  final dynamic numlength;
+  final dynamic numlength2;
+  final dynamic errormessage;
+
   const NumberField(
-      {super.key, required this.info, required this.controller2num});
+      {super.key,
+      required this.info,
+      required this.controller2num,
+      this.numlength,
+      this.numlength2,
+      this.errormessage});
 
   @override
   State<NumberField> createState() => _NumberFieldState();
@@ -170,10 +220,10 @@ class _NumberFieldState extends State<NumberField> {
         validator: (value) {
           if (value == null || value.isEmpty) {
             return 'Fill the required area';
-          } else if (value.length > 8) {
-            return 'Symbol No cannot be greater than 8 digits';
-          } else if (value.length < 6) {
-            return 'Symbol No cannot be less than 6 digits';
+          } else if (value.length > widget.numlength) {
+            return '${widget.errormessage} cannot be greater than ${widget.numlength} digit';
+          } else if (value.length < widget.numlength2) {
+            return '${widget.errormessage} cannot be less than ${widget.numlength2} digit';
           } else {
             return null;
           }
@@ -347,7 +397,11 @@ class DropDown extends StatefulWidget {
   final String dropvalue1;
   final String dropvalue2;
 
-  const DropDown({super.key, required this.labelname, required this.dropvalue1, required this.dropvalue2});
+  const DropDown(
+      {super.key,
+      required this.labelname,
+      required this.dropvalue1,
+      required this.dropvalue2});
 
   @override
   State<DropDown> createState() => _DropDownState();
@@ -395,7 +449,7 @@ class _DropDownState extends State<DropDown> {
           }
           return null;
         },
-autovalidateMode: AutovalidateMode.onUserInteraction,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         isExpanded: true, // expands the dropdown to the size of container
 
         onChanged: (String? value) {
