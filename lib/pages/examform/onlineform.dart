@@ -15,6 +15,7 @@ TextEditingController codeController = TextEditingController();
 TextEditingController subController = TextEditingController();
 
 String? valueDropDown;
+int ram = 1;
 
 class Onlineform extends StatefulWidget {
   const Onlineform({super.key});
@@ -111,7 +112,11 @@ class _OnlineformState extends State<Onlineform> {
                             fontSize: 16, fontWeight: FontWeight.w700),
                       ),
                       ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              ram = ram + 1;
+                            });
+                          },
                           child: Text('Add Subject',
                               style: TextStyle(
                                   fontSize: 12,
@@ -120,7 +125,44 @@ class _OnlineformState extends State<Onlineform> {
                     ],
                   ),
                 ),
-                CodeandSubject(),
+                Column(
+               
+                    children: List.generate(ram, (index)
+                    {
+ return Padding(
+   padding: const EdgeInsets.only(left: 15,right: 15),
+   child: SizedBox(
+    height: 65,
+    // width: MediaQuery.of(context).size.width*0.8,
+     child: Row(
+      
+      
+      
+       children: [
+     
+        // Text("$ram",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
+         Expanded(child: CodeandSubject()),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          if (ram > 1) {
+                            ram = ram - 1;
+                          } else {
+                            return;
+                          }
+                        });
+                      },
+                      icon: Icon(Icons.delete,color: Colors.red,))
+         
+       ],
+     ),
+   ),
+ );
+                    },
+                       
+                        
+                      
+                    )),
 
                 Padding(
                   padding: const EdgeInsets.all(15.0),
@@ -508,13 +550,20 @@ class CodeandSubject extends StatefulWidget {
 class _CodeandSubjectState extends State<CodeandSubject> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Row(
-        children: [
-          Expanded(child: CodeField()),
-          Expanded(child: TextFieldSample(labelname: 'Subject', wController: subController)),
-        ],
-      ),
+    return Column(
+      children: [
+        SizedBox(
+          child: Row(
+          
+            children: [
+              Expanded(child: CodeField()),
+              Expanded(
+                  child: TextFieldSample(
+                      labelname: 'Subject', wController: subController))
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -533,29 +582,24 @@ class _CodeFieldState extends State<CodeField> {
       padding: const EdgeInsets.only(top: 12.0, left: 10, right: 10),
       child: TextFormField(
         controller: codeController,
-        inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[A-Z0-9]'))],
+        inputFormatters: [
+          FilteringTextInputFormatter.allow(RegExp(r'[A-Za-z0-9]'))
+        ],
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null || value.isEmpty) {
             return 'Code is Required';
-          }
-     
-        else if(value.length>8)
-          {
+          } else if (value.length > 8) {
             return 'Codelength Exceeded';
           }
-             if(value.length<4 && !value.contains((RegExp(r'[0-9]'))))
-          {
+          if (value.length < 4 && !value.contains((RegExp(r'[0-9]')))) {
             return 'Not a Valid Code';
           }
-           
-          if(!RegExp(r'^[A-z]{3}').hasMatch(value))
-          {
-            return 'First 3 characters must be letter';
+
+          if (!RegExp(r'^[A-z]{3}').hasMatch(value)) {
+            return 'Start with letter';
           }
-        
-        
-       
+
           //if thise doesnot contain letters a-z and plus(+) means atleast once then throw an error
           // if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
           //   return 'Only letters are allowed';
