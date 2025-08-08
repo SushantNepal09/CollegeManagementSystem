@@ -277,12 +277,12 @@ class _ThirdtabState extends State<Thirdtab> {
                         title: Text(
                           schedule.title,
                           style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w600),
+                              fontSize: 14, fontWeight: FontWeight.w600,color: Colors.black),
                         ),
                         subtitle: Text(
                           schedule.subtitle,
                           style: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.w400),
+                              fontSize: 12, fontWeight: FontWeight.w400,color: Colors.black),
                         ),
                         leading: schedule.icon,
                         // trailing:Text(_formatDate(_selectedDay ?? today),

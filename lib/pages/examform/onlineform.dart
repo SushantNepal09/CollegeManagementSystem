@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:student/allvariables/allVar.dart';
+import 'package:student/main.dart';
 
 TextEditingController fullNameController = TextEditingController();
 TextEditingController parentNameController = TextEditingController();
@@ -250,10 +251,11 @@ class TextFieldSample extends StatelessWidget {
           label: Text(
             labelname,
             style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
+                color: dark ? Colors.white: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
           ),
 
           hintText: labelname,
+          hintStyle: TextStyle(color: dark ? Colors.white: Colors.black,)
           // hintStyle: TextStyle(color: Colors.blueAccent),
         ),
       ),
@@ -314,11 +316,12 @@ class _NumberFieldState extends State<NumberField> {
             label: Text(
               widget.info,
               style: TextStyle(
-                  color: Colors.black,
+                  color: dark ? Colors.white: Colors.black,
                   fontWeight: FontWeight.w500,
                   fontSize: 14),
             ),
             hintText: widget.info,
+           hintStyle:  TextStyle(color: dark ? Colors.white: Colors.black,),
             // hintStyle: TextStyle(color: Colors.blueAccent),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -386,12 +389,12 @@ class _DateFormat1State extends State<DateFormat1> {
             label: Text(
               'Date-of-Birth',
               style: TextStyle(
-                  color: Colors.black,
+                  color: dark ? Colors.white: Colors.black,
                   fontWeight: FontWeight.w500,
                   fontSize: 14),
             ),
             hintText: 'Date-of-Birth',
-            // hintStyle: TextStyle(color: Colors.blueAccent),
+             hintStyle: TextStyle(color: dark ? Colors.white: Colors.black,),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(color: Colors.grey))),
@@ -453,10 +456,11 @@ class _AddressContainerState extends State<AddressContainer> {
           label: Text(
             widget.labelname,
             style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
+               color: dark ? Colors.white: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
           ),
 
           hintText: widget.labelname,
+           hintStyle: TextStyle(color: dark ? Colors.white: Colors.black,),
           // hintStyle: TextStyle(color: Colors.blueAccent),
         ),
       ),
@@ -505,12 +509,13 @@ class _DropDownState extends State<DropDown> {
             ),
             label: Text(widget.labelname,
                 style: TextStyle(
-                    color: Colors.black,
+                    color: dark ? Colors.white: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 14)),
+                     hintStyle: TextStyle(color: dark ? Colors.white: Colors.black,),
             hint: Text('Select Course',
                 style: TextStyle(
-                    color: Colors.black,
+                    color: dark ? Colors.white: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 14))),
         value: valueDropDown,
@@ -646,10 +651,11 @@ class _CodeFieldState extends State<CodeField> {
           label: Text(
             'Code',
             style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
+                color: dark ? Colors.white: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
           ),
 
           hintText: 'Code',
+           hintStyle: TextStyle(color: dark ? Colors.white: Colors.black,),
           // hintStyle: TextStyle(color: Colors.blueAccent),
         ),
       ),
