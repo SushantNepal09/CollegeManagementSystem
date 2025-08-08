@@ -13,12 +13,14 @@ TextEditingController regNoController = TextEditingController();
 TextEditingController yearNoController = TextEditingController();
 TextEditingController codeController = TextEditingController();
 TextEditingController subController = TextEditingController();
-
+List<TextEditingController> controllers = [];
+List<TextEditingController> subscontrollers = [];
 String? valueDropDown;
 int ram = 1;
 
 class Onlineform extends StatefulWidget {
   const Onlineform({super.key});
+
 
   @override
   State<Onlineform> createState() => _OnlineformState();
@@ -26,6 +28,8 @@ class Onlineform extends StatefulWidget {
 
 class _OnlineformState extends State<Onlineform> {
   final _formKey = GlobalKey<FormState>();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +105,7 @@ class _OnlineformState extends State<Onlineform> {
 
                 Padding(
                   padding:
-                      const EdgeInsets.only(top: 18.0, left: 15, right: 10),
+                      const EdgeInsets.only(top: 12.0, left: 15, right: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -114,7 +118,9 @@ class _OnlineformState extends State<Onlineform> {
                       ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              ram = ram + 1;
+                           
+                              controllers.add(TextEditingController());
+                              subscontrollers.add(TextEditingController());
                             });
                           },
                           child: Text('Add Subject',
@@ -126,43 +132,41 @@ class _OnlineformState extends State<Onlineform> {
                   ),
                 ),
                 Column(
-               
-                    children: List.generate(ram, (index)
-                    {
- return Padding(
-   padding: const EdgeInsets.only(left: 15,right: 15),
-   child: SizedBox(
-    height: 65,
-    // width: MediaQuery.of(context).size.width*0.8,
-     child: Row(
-      
-      
-      
-       children: [
-     
-        // Text("$ram",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
-         Expanded(child: CodeandSubject()),
-                  IconButton(
-                      onPressed: () {
-                        setState(() {
-                          if (ram > 1) {
-                            ram = ram - 1;
-                          } else {
-                            return;
-                          }
-                        });
-                      },
-                      icon: Icon(Icons.delete,color: Colors.red,))
-         
-       ],
-     ),
-   ),
- );
-                    },
-                       
-                        
-                      
-                    )),
+                    children: List.generate(
+                  controllers.length,
+                  (index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      child: SizedBox(
+                        height: 80,
+                        // width: MediaQuery.of(context).size.width*0.8,
+                        child: Row(
+                          children: [
+                            Text('${index + 1} .',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
+                            Expanded(child: CodeandSubject(
+                              Code: controllers[index],Subject:subscontrollers[index] ,
+                            )),
+                            IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                  controllers[index].dispose();
+      subscontrollers[index].dispose();
+
+      // Remove from both lists
+      controllers.removeAt(index);
+      subscontrollers.removeAt(index);
+                                  });
+                                },
+                                icon: Icon(
+                                  Icons.delete,
+                                  color: Colors.red,
+                                ))
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                )),
 
                 Padding(
                   padding: const EdgeInsets.all(15.0),
@@ -541,7 +545,10 @@ class _DropDownState extends State<DropDown> {
 }
 
 class CodeandSubject extends StatefulWidget {
-  const CodeandSubject({super.key});
+  final dynamic Code;
+  final dynamic Subject;
+
+  const CodeandSubject({super.key, this.Code, this.Subject});
 
   @override
   State<CodeandSubject> createState() => _CodeandSubjectState();
@@ -554,12 +561,17 @@ class _CodeandSubjectState extends State<CodeandSubject> {
       children: [
         SizedBox(
           child: Row(
-          
             children: [
-              Expanded(child: CodeField()),
+              Expanded(
+                  child: CodeField(
+                codecontroller1: widget.Code, //this is to be changed
+              )),
               Expanded(
                   child: TextFieldSample(
-                      labelname: 'Subject', wController: subController))
+                      labelname: 'Subject',
+                      wController: widget.Subject //this is to be changed
+
+                      ))
             ],
           ),
         ),
@@ -569,7 +581,12 @@ class _CodeandSubjectState extends State<CodeandSubject> {
 }
 
 class CodeField extends StatefulWidget {
-  const CodeField({super.key});
+  final dynamic codecontroller1;
+
+  const CodeField({
+    super.key,
+    this.codecontroller1,
+  });
 
   @override
   State<CodeField> createState() => _CodeFieldState();
@@ -581,7 +598,7 @@ class _CodeFieldState extends State<CodeField> {
     return Padding(
       padding: const EdgeInsets.only(top: 12.0, left: 10, right: 10),
       child: TextFormField(
-        controller: codeController,
+        controller: widget.codecontroller1,
         inputFormatters: [
           FilteringTextInputFormatter.allow(RegExp(r'[A-Za-z0-9]'))
         ],
