@@ -1,3 +1,4 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:student/allvariables/allVar.dart';
@@ -22,15 +23,12 @@ int ram = 1;
 class Onlineform extends StatefulWidget {
   const Onlineform({super.key});
 
-
   @override
   State<Onlineform> createState() => _OnlineformState();
 }
 
 class _OnlineformState extends State<Onlineform> {
   final _formKey = GlobalKey<FormState>();
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +117,6 @@ class _OnlineformState extends State<Onlineform> {
                       ElevatedButton(
                           onPressed: () {
                             setState(() {
-                           
                               controllers.add(TextEditingController());
                               subscontrollers.add(TextEditingController());
                             });
@@ -143,19 +140,25 @@ class _OnlineformState extends State<Onlineform> {
                         // width: MediaQuery.of(context).size.width*0.8,
                         child: Row(
                           children: [
-                            Text('${index + 1} .',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
-                            Expanded(child: CodeandSubject(
-                              Code: controllers[index],Subject:subscontrollers[index] ,
+                            Text(
+                              '${index + 1} .',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w600),
+                            ),
+                            Expanded(
+                                child: CodeandSubject(
+                              Code: controllers[index],
+                              Subject: subscontrollers[index],
                             )),
                             IconButton(
                                 onPressed: () {
                                   setState(() {
-                                  controllers[index].dispose();
-      subscontrollers[index].dispose();
+                                    controllers[index].dispose();
+                                    subscontrollers[index].dispose();
 
-      // Remove from both lists
-      controllers.removeAt(index);
-      subscontrollers.removeAt(index);
+                                    // Remove from both lists
+                                    controllers.removeAt(index);
+                                    subscontrollers.removeAt(index);
                                   });
                                 },
                                 icon: Icon(
@@ -168,6 +171,49 @@ class _OnlineformState extends State<Onlineform> {
                     );
                   },
                 )),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    child: Text(
+                      textAlign: TextAlign.start,
+                      'Add Required Photos',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 15, top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {
+                            
+                          },
+                          style: ElevatedButton.styleFrom(
+                              side:
+                                  BorderSide(width: 0.5, color: Colors.black)),
+                          child: Text('Pick Your Phone',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w500))),
+                      ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              side:
+                                  BorderSide(width: 0.5, color: Colors.black)),
+                          child: Text('Pick Your Signature',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w500))),
+                    ],
+                  ),
+                ),
 
                 Padding(
                   padding: const EdgeInsets.all(15.0),
@@ -176,11 +222,13 @@ class _OnlineformState extends State<Onlineform> {
                         backgroundColor:
                             WidgetStateProperty.resolveWith<Color?>(
                           (states) {
-                            if (states.contains(WidgetState.pressed))
+                            if (states.contains(WidgetState.pressed)) {
                               return Colors.lightGreenAccent;
+                            }
 
-                            if (states.contains(WidgetState.hovered))
+                            if (states.contains(WidgetState.hovered)) {
                               return Colors.amber;
+                            }
                             return Colors.amberAccent;
                           },
                         ),
@@ -229,35 +277,36 @@ class TextFieldSample extends StatelessWidget {
           return null;
         },
         decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.blue),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.grey,
-              ),
-              borderRadius: BorderRadius.circular(10)),
-
-          errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.red),
-            borderRadius: BorderRadius.circular(10),
-          ),
-
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.red),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          label: Text(
-            labelname,
-            style: TextStyle(
-                color: dark ? Colors.white: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
-          ),
-
-          hintText: labelname,
-          hintStyle: TextStyle(color: dark ? Colors.white: Colors.black,)
-          // hintStyle: TextStyle(color: Colors.blueAccent),
-        ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blue),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.grey,
+                ),
+                borderRadius: BorderRadius.circular(10)),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            label: Text(
+              labelname,
+              style: TextStyle(
+                  color: dark ? Colors.white : Colors.black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14),
+            ),
+            hintText: labelname,
+            hintStyle: TextStyle(
+              color: dark ? Colors.white : Colors.black,
+            )
+            // hintStyle: TextStyle(color: Colors.blueAccent),
+            ),
       ),
     );
   }
@@ -316,12 +365,14 @@ class _NumberFieldState extends State<NumberField> {
             label: Text(
               widget.info,
               style: TextStyle(
-                  color: dark ? Colors.white: Colors.black,
+                  color: dark ? Colors.white : Colors.black,
                   fontWeight: FontWeight.w500,
                   fontSize: 14),
             ),
             hintText: widget.info,
-           hintStyle:  TextStyle(color: dark ? Colors.white: Colors.black,),
+            hintStyle: TextStyle(
+              color: dark ? Colors.white : Colors.black,
+            ),
             // hintStyle: TextStyle(color: Colors.blueAccent),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -389,12 +440,14 @@ class _DateFormat1State extends State<DateFormat1> {
             label: Text(
               'Date-of-Birth',
               style: TextStyle(
-                  color: dark ? Colors.white: Colors.black,
+                  color: dark ? Colors.white : Colors.black,
                   fontWeight: FontWeight.w500,
                   fontSize: 14),
             ),
             hintText: 'Date-of-Birth',
-             hintStyle: TextStyle(color: dark ? Colors.white: Colors.black,),
+            hintStyle: TextStyle(
+              color: dark ? Colors.white : Colors.black,
+            ),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(color: Colors.grey))),
@@ -456,11 +509,15 @@ class _AddressContainerState extends State<AddressContainer> {
           label: Text(
             widget.labelname,
             style: TextStyle(
-               color: dark ? Colors.white: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
+                color: dark ? Colors.white : Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 14),
           ),
 
           hintText: widget.labelname,
-           hintStyle: TextStyle(color: dark ? Colors.white: Colors.black,),
+          hintStyle: TextStyle(
+            color: dark ? Colors.white : Colors.black,
+          ),
           // hintStyle: TextStyle(color: Colors.blueAccent),
         ),
       ),
@@ -509,13 +566,15 @@ class _DropDownState extends State<DropDown> {
             ),
             label: Text(widget.labelname,
                 style: TextStyle(
-                    color: dark ? Colors.white: Colors.black,
+                    color: dark ? Colors.white : Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 14)),
-                     hintStyle: TextStyle(color: dark ? Colors.white: Colors.black,),
+            hintStyle: TextStyle(
+              color: dark ? Colors.white : Colors.black,
+            ),
             hint: Text('Select Course',
                 style: TextStyle(
-                    color: dark ? Colors.white: Colors.black,
+                    color: dark ? Colors.white : Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 14))),
         value: valueDropDown,
@@ -568,9 +627,10 @@ class _CodeandSubjectState extends State<CodeandSubject> {
           child: Row(
             children: [
               Expanded(
-                  child: CodeField(
-                codecontroller1: widget.Code, //this is to be changed
-              )),
+                child: CodeField(
+                  codecontroller1: widget.Code, //this is to be changed
+                ),
+              ),
               Expanded(
                   child: TextFieldSample(
                       labelname: 'Subject',
@@ -651,11 +711,15 @@ class _CodeFieldState extends State<CodeField> {
           label: Text(
             'Code',
             style: TextStyle(
-                color: dark ? Colors.white: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
+                color: dark ? Colors.white : Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 14),
           ),
 
           hintText: 'Code',
-           hintStyle: TextStyle(color: dark ? Colors.white: Colors.black,),
+          hintStyle: TextStyle(
+            color: dark ? Colors.white : Colors.black,
+          ),
           // hintStyle: TextStyle(color: Colors.blueAccent),
         ),
       ),
