@@ -196,7 +196,7 @@ class _OnlineformState extends State<Onlineform> {
                           style: ElevatedButton.styleFrom(
                               side:
                                   BorderSide(width: 0.5, color: Colors.black)),
-                          child: Text('Pick Your Phone',
+                          child: Text('Pick Your Photo',
                               style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.blue,
@@ -477,7 +477,7 @@ class _AddressContainerState extends State<AddressContainer> {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'Fill the required area';
+            return 'Fill the required areaA';
           }
 
           //if thise doesnot contain letters a-z and plus(+) means atleast once then throw an error
