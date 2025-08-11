@@ -4,6 +4,9 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:open_file/open_file.dart';
+import 'package:path/path.dart';
+import 'package:path/path.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/main.dart';
 
@@ -24,6 +27,9 @@ String? valueDropDown;
 int ram = 1;
 File? _selectedImage;
 File? _selectedSignature;
+openFile(file) async {
+  OpenFile.open(file.path);
+}
 
 class Onlineform extends StatefulWidget {
   const Onlineform({super.key});
@@ -222,13 +228,44 @@ class _OnlineformState extends State<Onlineform> {
                   ),
                 ),
 
+                _selectedImage != null
+                    ? Padding(
+                        padding:
+                            const EdgeInsets.only(top: 25, left: 15, right: 15),
+                        child: Container(
+                            // height: 55,
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black, width: 0.5),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: ListTile(
+                              leading: Image.asset('assets/imagesample.png'),
+                              title: Text(basename(_selectedImage!.path)),
+                              subtitle: GestureDetector(
+                                onTap: () {
+                                  openFile(_selectedImage);
+                                },
+                                child: Text(
+                                  'Click to View',
+                                  style: TextStyle(
+                                      color: Colors.green,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                              trailing: IconButton(
+                                  onPressed: () {
+setState(() {
+  _selectedImage = null;
+});
+
+
+                                  }, icon: Icon(Icons.delete)),
+                            )),
+                      )
+                    : Text(""),
+
                 SizedBox(
-                  height: 50,
-                  child: _selectedImage != null
-                      ? Image.file(_selectedImage!)
-                      : Text(''),
-                ),
-                       SizedBox(
                   height: 50,
                   child: _selectedSignature != null
                       ? Image.file(_selectedSignature!)
