@@ -21,7 +21,7 @@ TextEditingController regNoController = TextEditingController();
 TextEditingController yearNoController = TextEditingController();
 TextEditingController codeController = TextEditingController();
 TextEditingController subController = TextEditingController();
-List<TextEditingController> controllers = [];
+List<TextEditingController> controllers =  [];
 List<TextEditingController> subscontrollers = [];
 bool areyousure = true;
 String? valueDropDown;
@@ -161,7 +161,9 @@ class _OnlineformState extends State<Onlineform> {
                                 child: CodeandSubject(
                               Code: controllers[index],
                               Subject: subscontrollers[index],
-                            )),
+                            )
+                            
+                            ),
                             IconButton(
                                 onPressed: () {
                                   setState(() {
@@ -355,9 +357,27 @@ class _OnlineformState extends State<Onlineform> {
                               context: context,
                               builder: (context) {
                                 return AlertDialog(
-                                  title: Text('Are you Sure?'),
+                                    backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+                                      title: Row(
+        children: [
+          Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 30),
+          SizedBox(width: 10),
+          Text(
+            "Warning",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+      content: Text(
+        "Are you sure you want to proceed?",
+        style: TextStyle(fontSize: 16),
+      ),
                                   actions: [
                                     TextButton(
+                 
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
@@ -368,19 +388,43 @@ class _OnlineformState extends State<Onlineform> {
                                           showDialog(
                                             context: context,
                                             builder: (context) => AlertDialog(
-                                              title: Text(
-                                                'Form Submitted Successfully',
-                                                style: TextStyle(
-                                                    color: Colors.green),
-                                              ),
-                                              actions: [
-                                                TextButton(
-                                                    onPressed: () {
-                                                      Navigator.pop(context);
-                                                    },
-                                                    child: Text('ok'))
-                                              ],
-                                            ),
+  backgroundColor: Colors.white,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(20),
+  ),
+  title: Row(
+    children: [
+      Icon(Icons.check_circle, color: Colors.green, size: 28),
+      SizedBox(width: 15),
+      Text(
+        'Form Submitted',
+        style: TextStyle(
+          color: Colors.green,
+          fontWeight: FontWeight.w500,
+          fontSize: 18,
+        ),
+      ),
+    ],
+  ),
+  actionsPadding: EdgeInsets.only(right: 10, bottom: 10),
+  actions: [
+    TextButton(
+      style: TextButton.styleFrom(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.green,
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+      child: Text('OK', style: TextStyle(fontSize: 16)),
+    ),
+  ],
+)
+
                                           );
                                         },
                                         child: Text('Yes')),
