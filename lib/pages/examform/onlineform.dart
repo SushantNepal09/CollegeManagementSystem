@@ -23,6 +23,7 @@ TextEditingController codeController = TextEditingController();
 TextEditingController subController = TextEditingController();
 List<TextEditingController> controllers = [];
 List<TextEditingController> subscontrollers = [];
+bool areyousure = true;
 String? valueDropDown;
 int ram = 1;
 File? _selectedImage;
@@ -235,8 +236,9 @@ class _OnlineformState extends State<Onlineform> {
                         child: Container(
                             // height: 55,
                             decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black, width: 0.5),
+                                border: Border.all(
+                                    color: !dark ? Colors.black : Colors.white,
+                                    width: 0.5),
                                 borderRadius: BorderRadius.circular(10)),
                             child: ListTile(
                               leading: Image.asset('assets/imagesample.png'),
@@ -263,9 +265,15 @@ class _OnlineformState extends State<Onlineform> {
                             )),
                       )
                     : Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("Form maynot be accepted without the Image",style: TextStyle(color: Colors.red,fontSize: 12,fontWeight: FontWeight.w500),),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Form maynot be accepted without the Image",
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ),
 
                 _selectedSignature != null
                     ? Padding(
@@ -274,8 +282,9 @@ class _OnlineformState extends State<Onlineform> {
                         child: Container(
                             // height: 55,
                             decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black, width: 0.5),
+                                border: Border.all(
+                                    color: !dark ? Colors.black : Colors.white,
+                                    width: 0.5),
                                 borderRadius: BorderRadius.circular(10)),
                             child: ListTile(
                               leading: Image.asset('assets/signature.png'),
@@ -302,9 +311,16 @@ class _OnlineformState extends State<Onlineform> {
                             )),
                       )
                     : Padding(
-                      padding: const EdgeInsets.only(left:8.0,right: 8,top: 3),
-                      child: Text("Form maynot be accepted without the Signature",style: TextStyle(color: Colors.red,fontSize: 12,fontWeight: FontWeight.w500),),
-                    ),
+                        padding:
+                            const EdgeInsets.only(left: 8.0, right: 8, top: 3),
+                        child: Text(
+                          "Form maynot be accepted without the Signature",
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ),
 
                 // SizedBox(
                 //   height: 50,
@@ -333,6 +349,45 @@ class _OnlineformState extends State<Onlineform> {
                       ),
                       onPressed: () {
                         _formKey.currentState!.validate();
+
+                        if (_formKey.currentState!.validate() == true) {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Text('Are you Sure?'),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text('No')),
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                          showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                              title: Text(
+                                                'Form Submitted Successfully',
+                                                style: TextStyle(
+                                                    color: Colors.green),
+                                              ),
+                                              actions: [
+                                                TextButton(
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                    child: Text('ok'))
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                        child: Text('Yes')),
+                                  ],
+                                );
+                              });
+                        }
                       },
                       child: Text(
                         'Test Submit Button',

@@ -1,5 +1,6 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
-import 'package:student/Navigationtools/navbar.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/allvariables/cardclick.dart';
 import 'package:student/allvariables/gridcontent.dart';
