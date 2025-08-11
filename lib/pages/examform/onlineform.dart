@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:student/allvariables/allVar.dart';
 import 'package:student/main.dart';
 
@@ -19,6 +22,8 @@ List<TextEditingController> controllers = [];
 List<TextEditingController> subscontrollers = [];
 String? valueDropDown;
 int ram = 1;
+File? _selectedImage;
+File? _selectedSignature;
 
 class Onlineform extends StatefulWidget {
   const Onlineform({super.key});
@@ -191,7 +196,7 @@ class _OnlineformState extends State<Onlineform> {
                     children: [
                       ElevatedButton(
                           onPressed: () {
-                            
+                            _pickImageFromGallery();
                           },
                           style: ElevatedButton.styleFrom(
                               side:
@@ -202,7 +207,9 @@ class _OnlineformState extends State<Onlineform> {
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w500))),
                       ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            _pickSignature();
+                          },
                           style: ElevatedButton.styleFrom(
                               side:
                                   BorderSide(width: 0.5, color: Colors.black)),
@@ -213,6 +220,19 @@ class _OnlineformState extends State<Onlineform> {
                                   fontWeight: FontWeight.w500))),
                     ],
                   ),
+                ),
+
+                SizedBox(
+                  height: 50,
+                  child: _selectedImage != null
+                      ? Image.file(_selectedImage!)
+                      : Text(''),
+                ),
+                       SizedBox(
+                  height: 50,
+                  child: _selectedSignature != null
+                      ? Image.file(_selectedSignature!)
+                      : Text(''),
                 ),
 
                 Padding(
@@ -248,6 +268,23 @@ class _OnlineformState extends State<Onlineform> {
         ),
       ),
     );
+  }
+
+  Future _pickImageFromGallery() async {
+    final returnedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      _selectedImage = File(returnedImage!.path);
+    });
+  }
+
+  Future _pickSignature() async {
+    final signature =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    setState(() {
+      _selectedSignature = File(signature!.path);
+    });
   }
 }
 
@@ -724,6 +761,5 @@ class _CodeFieldState extends State<CodeField> {
         ),
       ),
     );
-    ;
   }
 }
