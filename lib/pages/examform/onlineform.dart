@@ -255,22 +255,63 @@ class _OnlineformState extends State<Onlineform> {
                               ),
                               trailing: IconButton(
                                   onPressed: () {
-setState(() {
-  _selectedImage = null;
-});
-
-
-                                  }, icon: Icon(Icons.delete)),
+                                    setState(() {
+                                      _selectedImage = null;
+                                    });
+                                  },
+                                  icon: Icon(Icons.delete)),
                             )),
                       )
-                    : Text(""),
+                    : Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("Form maynot be accepted without the Image",style: TextStyle(color: Colors.red,fontSize: 12,fontWeight: FontWeight.w500),),
+                    ),
 
-                SizedBox(
-                  height: 50,
-                  child: _selectedSignature != null
-                      ? Image.file(_selectedSignature!)
-                      : Text(''),
-                ),
+                _selectedSignature != null
+                    ? Padding(
+                        padding:
+                            const EdgeInsets.only(top: 25, left: 15, right: 15),
+                        child: Container(
+                            // height: 55,
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black, width: 0.5),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: ListTile(
+                              leading: Image.asset('assets/signature.png'),
+                              title: Text(basename(_selectedSignature!.path)),
+                              subtitle: GestureDetector(
+                                onTap: () {
+                                  openFile(_selectedSignature);
+                                },
+                                child: Text(
+                                  'Click to View',
+                                  style: TextStyle(
+                                      color: Colors.green,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                              trailing: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _selectedSignature = null;
+                                    });
+                                  },
+                                  icon: Icon(Icons.delete)),
+                            )),
+                      )
+                    : Padding(
+                      padding: const EdgeInsets.only(left:8.0,right: 8,top: 3),
+                      child: Text("Form maynot be accepted without the Signature",style: TextStyle(color: Colors.red,fontSize: 12,fontWeight: FontWeight.w500),),
+                    ),
+
+                // SizedBox(
+                //   height: 50,
+                //   child: _selectedSignature != null
+                //       ? Image.file(_selectedSignature!)
+                //       : Text(''),
+                // ),
 
                 Padding(
                   padding: const EdgeInsets.all(15.0),
