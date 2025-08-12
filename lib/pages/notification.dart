@@ -19,12 +19,15 @@ class _NotificationPageState extends State<NotificationPage> {
         title: Center(child: Text('Notifications')),
       ),
       body: Center(
-          child: ListView.builder(
-        itemCount: myNotifications.length,
-        itemBuilder: (context, index) {
-          return Square(child: myNotifications[index],);
-        },
-      )),
+      //     child: ListView.builder(
+      //   itemCount: myNotifications.length,
+      //   itemBuilder: (context, index) {
+      //     return Square(child: myNotifications[index],);
+      //   },
+      // )
+     child: Text("Notifications"),
+      
+      ),
     );
   }
 }
