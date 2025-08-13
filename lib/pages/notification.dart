@@ -25,7 +25,7 @@ class _NotificationPageState extends State<NotificationPage> {
       //     return Square(child: myNotifications[index],);
       //   },
       // )
-     child: Text("Notifications"),
+     child: Text("Notification"),
       
       ),
     );
