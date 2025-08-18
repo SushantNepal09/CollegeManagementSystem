@@ -38,7 +38,7 @@ class _SquareState extends State<Square> {
                 child: Tooltip(
                     message: 
                     change?
-                    'Mark as Read':"",
+                    'Mark as Rea':"",
                     child: IconButton(
                         onPressed: () {
                           setState(() {
