@@ -8,8 +8,8 @@ import 'package:student/extravar/notificationbox.dart';
 import 'package:student/pages/fees/fees.dart';
 import 'package:student/pages/notification.dart';
 import 'Navigationtools/navbar.dart';
-bool dark = false;
 
+bool dark = false;
 
 void main() {
   runApp(const MyApp());
@@ -38,10 +38,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       routes: {
-        'Notifications': (context) =>  NotificationPage(),
+        'Notifications': (context) => NotificationPage(),
       },
       debugShowCheckedModeBanner: false,
       home: Builder(
@@ -54,7 +53,13 @@ class _MyAppState extends State<MyApp> {
                 padding: const EdgeInsets.all(8.0),
                 child: Badge(
                   isLabelVisible: true,
-                  label: Text('5'),
+                  label: Builder(builder: (context) {
+                    if (notifications.isEmpty) {
+                      Text(' ');
+                    } 
+                      return Text('${notifications.length}');
+                  
+                  }), //to change the number in notification
                   child: Row(
                     children: [
                       IconButton(
@@ -63,7 +68,8 @@ class _MyAppState extends State<MyApp> {
                               dark = !dark;
                             });
                           },
-                          icon: Icon(dark ? Icons.light_mode : Icons.dark_mode),color:  Colors.white),
+                          icon: Icon(dark ? Icons.light_mode : Icons.dark_mode),
+                          color: Colors.white),
                       IconButton(
                           onPressed: () {
                             Navigator.of(context).pushNamed('Notifications');
